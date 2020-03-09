@@ -1,0 +1,180 @@
+SLEX_get_list_variable_const_index = {
+    set_variable = {
+        which = $VALUE$
+        value = $LIST$_$INDEX$
+    }
+}
+
+SLEX_set_list_variable_const_index = {
+    set_variable = {
+        which = $LIST$_$INDEX$
+        value = $VALUE$
+    }
+}
+
+SLEX_change_list_variable_const_index = {
+    change_variable = {
+        which = $LIST$_$INDEX$
+        value = $VALUE$
+    }
+}
+
+SLEX_subtract_list_variable_const_index = {
+    subtract_variable  = {
+        which = $LIST$_$INDEX$
+        value = $VALUE$
+    }
+}
+
+SLEX_multiply_list_variable_const_index = {
+    multiply_variable = {
+        which = $LIST$_$INDEX$
+        value = $VALUE$
+    }
+}
+
+SLEX_divide_list_variable_const_index = {
+    divide_variable = {
+        which = $LIST$_$INDEX$
+        value = $VALUE$
+    }
+}
+
+SLEX_apply_effect_list_variable_const_index = {
+    $EFFECT$ = {
+        LIST = $LIST$
+        INDEX = $INDEX$
+        VALUE = $VALUE$
+    }
+}
+
+SLEX_apply_effect_conditionnal_list_variable_const_index = {
+    if = {
+        limit = {
+            $TRIGGER$ = {
+                LIST = $LIST$
+                INDEX = $INDEX$
+                VALUE = $VALUE$
+            }
+        }
+        $EFFECT$ = {
+            LIST = $LIST$
+            INDEX = $INDEX$
+            VALUE = $VALUE$
+        }
+    }
+}
+
+
+##############################
+SLEX_var_aux_if = {
+    if = {
+        limit = {
+            check_variable = {
+                which = $INDEX$
+                value = $TEST$
+            }
+        }
+        $EFFECT$ = { TYPE = $TYPE$ VARIABLE = $LIST$_$TEST$ VALUE = $VALUE$ }
+    }
+}
+
+SLEX_var_aux_switch = {
+    if={limit={check_variable = { which = $INDEX$ value < 4 }}
+        if={limit={check_variable = { which = $INDEX$ value < 2 }}
+            if={limit={check_variable = { which = $INDEX$ value < 1 }}
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 0 VALUE = $VALUE$ }
+            } else = {
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 1 VALUE = $VALUE$ }
+            }
+        } else = {
+            if={limit={check_variable = { which = $INDEX$ value < 3 }}
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 2 VALUE = $VALUE$ }
+            } else = {
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 3 VALUE = $VALUE$ }
+            }
+        }
+    } else = {
+        if={limit={check_variable = { which = $INDEX$ value < 6 }}
+            if={limit={check_variable = { which = $INDEX$ value < 5 }}
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 4 VALUE = $VALUE$ }
+            } else = {
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 5 VALUE = $VALUE$ }
+            }
+        } else = {
+            if={limit={check_variable = { which = $INDEX$ value < 7 }}
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 6 VALUE = $VALUE$ }
+            } else = {
+                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 7 VALUE = $VALUE$ }
+            }
+        }
+    }
+}
+
+SLEX_var_aux_apply_effect = {
+    $EFFECT$ = {
+        LIST = $LIST$
+        INDEX = $INDEX$
+        VALUE = $VALUE$
+    }
+}
+
+SLEX_get_list_variable_var_index = {
+    SLEX_var_aux_switch = { EFFECT = SLEX_get_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+}
+
+SLEX_set_list_variable_var_index = {
+    SLEX_var_aux_switch = { EFFECT = SLEX_set_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+}
+
+SLEX_change_list_variable_var_index = {
+    SLEX_var_aux_switch = { EFFECT = SLEX_change_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+}
+
+SLEX_subtract_list_variable_var_index = {
+    SLEX_var_aux_switch = { EFFECT = SLEX_subtract_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+}
+
+SLEX_multiply_list_variable_var_index = {
+    SLEX_var_aux_switch = { EFFECT = SLEX_multiply_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+}
+
+SLEX_divide_list_variable_var_index = {
+    SLEX_var_aux_switch = { EFFECT = SLEX_divide_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+}
+
+SLEX_apply_effect_list_variable_var_index = {
+    SLEX_var_aux_switch = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE|null$ }
+}
+
+SLEX_apply_effect_conditionnal_list_variable_var_index = {
+    if = {
+        limit = {
+            $TRIGGER$ = { VARIABLE = $LIST$_$INDEX$ }
+        }
+        SLEX_apply_effect_list_variable_var_index = {
+            Effect = $EFFECT$
+            TYPE = null
+            LIST = $LIST$
+            INDEX = $INDEX$
+            VALUE = null
+        }
+    }
+}
+
+
+######################################
+SLEX_dump_param = {
+    if = {
+        limit = {
+            always = no
+            has_global_flag = $EFFECT|null$
+            has_global_flag = $TYPE|null$
+            has_global_flag = $INDEX|null$
+            has_global_flag = $VALUE|null$
+            has_global_flag = $LIST|null$
+            has_global_flag = $FCT|null$
+        }
+    }
+}
+

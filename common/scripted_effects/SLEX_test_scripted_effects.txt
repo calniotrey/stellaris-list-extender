@@ -1,0 +1,21 @@
+test_effect = {
+    if = {
+        limit = {
+            check_variable = {
+                which = $LIST$_$INDEX$
+                value > $VALUE$
+            }
+        }
+        owner = { add_resource = { energy = 100 } }
+    }
+}
+
+test = {
+    if = {
+        limit = {
+            SLEX_check_list_variable_const_index = { LIST = $LIST$ INDEX = $INDEX$ OPERATOR = $OPERATOR$ VALUE = $VALUE$ }
+        }
+        owner = { add_resource = { energy = 100 } }
+    }
+}
+

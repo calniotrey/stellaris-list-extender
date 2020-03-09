@@ -1,0 +1,11 @@
+# Scripted triggers using variables are inverted for some reason
+# So we invert them per hand
+
+SLEX_test_trigger = {
+    NOT = {
+        check_variable = {
+            which = $LIST$_$INDEX$
+            value > $VALUE$
+        }
+    }
+}
