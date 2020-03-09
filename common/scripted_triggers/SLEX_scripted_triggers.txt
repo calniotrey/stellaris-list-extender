@@ -3,11 +3,13 @@
 
 SLEX_check_list_variable_const_index = {
     NOT = {
-        check_variable = {
-            which = $LIST$_$INDEX$
-            value $OPERATOR$ $VALUE$
+        AND = {
+            check_variable = {
+                which = $LIST$_$INDEX$
+                value $OPERATOR$ $VALUE$
+            }
+            SLEX_dump_param = { EFFECT = $EFFECT|null$}
         }
-        SLEX_dump_param = {}
     }
 }
 
@@ -16,14 +18,19 @@ SLEX_inv_check_list_variable_const_index = {
         which = $LIST$_$INDEX$
         value $OPERATOR$ $VALUE$
     }
+    SLEX_dump_param = { EFFECT = $EFFECT|null$}
 }
 
-SLEX_dump_param = {
-    always = no
-    has_global_flag = $EFFECT|null$
-    has_global_flag = $TYPE|null$
-    has_global_flag = $INDEX|null$
-    has_global_flag = $VALUE|null$
-    has_global_flag = $LIST|null$
-    has_global_flag = $FCT|null$
+SLEX_dump_param = { # Returns false, so true with the inversion
+    NOT = { # This gets removed by the inversion in stellaris
+        OR = {
+            always = yes
+            has_global_flag = $EFFECT|null$
+            has_global_flag = $TYPE|null$
+            has_global_flag = $INDEX|null$
+            has_global_flag = $VALUE|null$
+            has_global_flag = $LIST|null$
+            has_global_flag = $FCT|null$
+        }
+    }
 }
