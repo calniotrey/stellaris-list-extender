@@ -2,7 +2,7 @@
 # So we invert them per hand
 
 SLEX_test_trigger = {
-    NOT = {
+    NOT = { # This goes away with the inversion
         check_variable = {
             which = $LIST$_$INDEX$
             value > $VALUE$
