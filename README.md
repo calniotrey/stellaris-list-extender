@@ -177,7 +177,6 @@ Example :
 ### SLEX_multiply_list_variable_var_index
 ### SLEX_divide_list_variable_var_index
 ### SLEX_apply_effect_list_variable_var_index
-### SLEX_apply_effect_conditionnal_list_variable_var_index UNTESTED
 
 ## SLEX_dump_param
 `SLEX_dump_param = {}`
@@ -195,7 +194,42 @@ Example :
 `SLEX_dump_param = { LIST = $LIST$ INDEX = $INDEX$ }`
 
 ## Scripted_triggers
-Under construction. Don't use yet.
+I added some scripted_triggers as well. This is under construction and only has some code for constant INDEX.
+
+### SLEX_check_list_variable_const_index
+`SLEX_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
+* LIST : the list name (string)
+* INDEX : the index (integer)
+* LIST : the operator (=, <, >, <=, >= There is no != !!!)
+* VALUE : the value to compare to listname_index (either int/float, or a variable ie a string)
+
+For some reason, Stellaris doesn't like 1 letter variable (so no i/a/b/c/...).  
+
+This trigger is evaluated to True (after stellaris inversion) is `LIST_INDEX OPERATOR VALUE` is True.
+
+### SLEX_inv_check_list_variable_const_index
+`SLEX_inv_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
+* LIST : the list name (string)
+* INDEX : the index (integer)
+* LIST : the operator (=, <, >, <=, >= There is no != !!!)
+* VALUE : the value to compare to listname_index (either int/float, or a variable ie a string)
+
+For some reason, Stellaris doesn't like 1 letter variable (so no i/a/b/c/...).  
+
+This trigger is evaluated to False (after stellaris inversion) is `LIST_INDEX OPERATOR VALUE` is True.  
+This trigger is here if you want to use "!=" in the non inverted trigger but can't, so you use this trigger with "=".
+
+### SLEX_dump_param
+`SLEX_dump_param = {  }`
+Accepted parameters :
+* EFFECT
+* TYPE
+* INDEX
+* VALUE
+* LIST
+* FCT
+
+This trigger allows you to "dump" the unused parameters from your scriped_triggers. Just give the parameters that you didn't use. It will always evaluate to True (after stellaris inversion).
 
 ## Legal Stuff
 You are not allowed to put this mod on any site without my approval. This is only so there is one version of it for this repository.  

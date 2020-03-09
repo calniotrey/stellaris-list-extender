@@ -115,20 +115,20 @@ SLEX_apply_effect_list_variable_var_index = {
     SLEX_var_aux_switch = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE|null$ }
 }
 
-SLEX_apply_effect_conditionnal_list_variable_var_index = {
-    if = {
-        limit = {
-            $TRIGGER$ = { VARIABLE = $LIST$_$INDEX$ }
-        }
-        SLEX_apply_effect_list_variable_var_index = {
-            Effect = $EFFECT$
-            TYPE = null
-            LIST = $LIST$
-            INDEX = $INDEX$
-            VALUE = null
-        }
-    }
-}
+# SLEX_apply_effect_conditionnal_list_variable_var_index = {
+    # if = {
+        # limit = {
+            # $TRIGGER$ = { VARIABLE = $LIST$_$INDEX$ }
+        # }
+        # SLEX_apply_effect_list_variable_var_index = {
+            # Effect = $EFFECT$
+            # TYPE = null
+            # LIST = $LIST$
+            # INDEX = $INDEX$
+            # VALUE = null
+        # }
+    # }
+# }
 
 
 ######################################
