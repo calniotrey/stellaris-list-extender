@@ -111,8 +111,8 @@ This will execute the scriped_effect EFFECT while giving him the parameters LIST
 If you use this function, you should use ALL parameters given in the scripted_effect (or else stellaris might throw an error). If you don't know what to do with some of them, use the `SLEX_dump_param = { LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$}` inside of your scripted_effect.
 
 Example :
-`SLEX_apply_effect_list_variable_var_index = { EFFECT = test_effect LIST = test_list INDEX = 7 VALUE = 10 }`
-`SLEX_apply_effect_list_variable_var_index = { EFFECT = test_effect LIST = test_list INDEX = 7 VALUE = test_param }`
+`SLEX_apply_effect_list_variable_const_index = { EFFECT = test_effect LIST = test_list INDEX = 7 VALUE = 10 }`
+`SLEX_apply_effect_list_variable_const_index = { EFFECT = test_effect LIST = test_list INDEX = 7 VALUE = test_param }`
 Example for a scripted_effect :
 ```test_effect = {
     if = {
