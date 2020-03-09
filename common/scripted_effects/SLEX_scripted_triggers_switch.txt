@@ -1,0 +1,511 @@
+SLEX_var_aux_switch = {
+    if={limit={check_variable = { which = $INDEX$ value < 64 }}
+        if={limit={check_variable = { which = $INDEX$ value < 32 }}
+            if={limit={check_variable = { which = $INDEX$ value < 16 }}
+                if={limit={check_variable = { which = $INDEX$ value < 8 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 4 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 2 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 1 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 0 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 1 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 3 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 2 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 3 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 6 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 5 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 4 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 5 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 7 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 6 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 7 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 12 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 10 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 9 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 8 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 9 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 11 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 10 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 11 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 14 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 13 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 12 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 13 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 15 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 14 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 15 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            } else = {
+                if={limit={check_variable = { which = $INDEX$ value < 24 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 20 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 18 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 17 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 16 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 17 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 19 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 18 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 19 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 22 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 21 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 20 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 21 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 23 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 22 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 23 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 28 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 26 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 25 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 24 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 25 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 27 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 26 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 27 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 30 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 29 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 28 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 29 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 31 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 30 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 31 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            }
+        } else = {
+            if={limit={check_variable = { which = $INDEX$ value < 48 }}
+                if={limit={check_variable = { which = $INDEX$ value < 40 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 36 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 34 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 33 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 32 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 33 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 35 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 34 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 35 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 38 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 37 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 36 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 37 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 39 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 38 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 39 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 44 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 42 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 41 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 40 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 41 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 43 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 42 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 43 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 46 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 45 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 44 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 45 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 47 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 46 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 47 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            } else = {
+                if={limit={check_variable = { which = $INDEX$ value < 56 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 52 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 50 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 49 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 48 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 49 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 51 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 50 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 51 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 54 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 53 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 52 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 53 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 55 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 54 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 55 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 60 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 58 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 57 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 56 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 57 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 59 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 58 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 59 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 62 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 61 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 60 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 61 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 63 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 62 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 63 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } else = {
+        if={limit={check_variable = { which = $INDEX$ value < 96 }}
+            if={limit={check_variable = { which = $INDEX$ value < 80 }}
+                if={limit={check_variable = { which = $INDEX$ value < 72 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 68 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 66 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 65 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 64 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 65 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 67 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 66 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 67 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 70 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 69 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 68 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 69 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 71 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 70 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 71 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 76 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 74 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 73 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 72 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 73 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 75 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 74 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 75 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 78 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 77 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 76 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 77 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 79 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 78 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 79 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            } else = {
+                if={limit={check_variable = { which = $INDEX$ value < 88 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 84 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 82 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 81 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 80 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 81 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 83 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 82 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 83 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 86 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 85 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 84 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 85 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 87 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 86 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 87 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 92 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 90 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 89 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 88 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 89 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 91 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 90 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 91 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 94 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 93 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 92 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 93 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 95 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 94 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 95 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            }
+        } else = {
+            if={limit={check_variable = { which = $INDEX$ value < 112 }}
+                if={limit={check_variable = { which = $INDEX$ value < 104 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 100 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 98 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 97 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 96 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 97 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 99 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 98 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 99 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 102 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 101 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 100 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 101 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 103 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 102 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 103 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 108 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 106 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 105 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 104 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 105 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 107 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 106 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 107 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 110 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 109 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 108 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 109 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 111 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 110 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 111 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            } else = {
+                if={limit={check_variable = { which = $INDEX$ value < 120 }}
+                    if={limit={check_variable = { which = $INDEX$ value < 116 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 114 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 113 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 112 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 113 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 115 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 114 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 115 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 118 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 117 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 116 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 117 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 119 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 118 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 119 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                } else = {
+                    if={limit={check_variable = { which = $INDEX$ value < 124 }}
+                        if={limit={check_variable = { which = $INDEX$ value < 122 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 121 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 120 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 121 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 123 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 122 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 123 VALUE = $VALUE$ }
+                            }
+                        }
+                    } else = {
+                        if={limit={check_variable = { which = $INDEX$ value < 126 }}
+                            if={limit={check_variable = { which = $INDEX$ value < 125 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 124 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 125 VALUE = $VALUE$ }
+                            }
+                        } else = {
+                            if={limit={check_variable = { which = $INDEX$ value < 127 }}
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 126 VALUE = $VALUE$ }
+                            } else = {
+                                SLEX_var_aux_apply_effect = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = 127 VALUE = $VALUE$ }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

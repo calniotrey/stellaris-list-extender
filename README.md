@@ -20,10 +20,10 @@ Not iron-man compatible
 ## Detailed description
 This mod allows modders to use lists. A list is characterized by it's name (for example `resources`). A list has the same scope rules as a variable.  
 To access a certain index of the list, you can use `listname_index`. A list is basically just a collection of variables beginning with the list name followed by an underscore.  
-Due to stellaris limitations, index has to be between 0 (included) and 1023 (included). I will release another mod with higher limit (it makes the mod bigger).  
+Due to stellaris limitations, index has to be between 0 (included) and 127 (included). I will release another mod with higher limit (it makes the mod bigger).  
   
 You may ask "But how can I access a certain index using a variable ?"  
-And that's the core of the mod. Due to the same stellaris limitation, there is a big switch on the index (that's the reason why the index has to be in [0:1023]). That switch is generated as a if/else binary tree in order to maximize speed.  
+And that's the core of the mod. Due to the same stellaris limitation, there is a big switch on the index (that's the reason why the index has to be in [0:127]). That switch is generated as a if/else binary tree in order to maximize speed.  
 
 ### Using constant index
 As seen, you can directly use the list name followed by an underscore followed by the index to access the variable.  However, there are some scripted_effects that this mod adds :
