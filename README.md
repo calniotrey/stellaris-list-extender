@@ -124,7 +124,8 @@ Example for a scripted_effect :
         }
         owner = { add_resource = { energy = 100 } }
     }
-}```
+}
+```
 
 #### SLEX_apply_effect_conditionnal_list_variable_const_index
 `SLEX_apply_effect_conditionnal_list_variable_const_index = { EFFECT = effect TRIGGER = trigger LIST = listname INDEX = index VALUE = value }`
@@ -153,7 +154,8 @@ Example for a scripted_effect :
         }
         owner = { add_resource = { energy = 100 } }
     }
-}```
+}
+```
 
 ## Using variable index
 So this is really the core of the mod. The first functions are basically the same as for constant index, except now the INDEX has to be a variable (ie a string).  
