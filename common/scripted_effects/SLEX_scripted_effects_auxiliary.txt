@@ -1,0 +1,620 @@
+SLEX_var_index_init = {
+    set_variable = {
+        which = SLEX_error_code
+        value = 0
+    }
+    if = {
+        limit = {
+            OR = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= 100
+                }
+                check_variable = {
+                    which = SLEX_index
+                    value < 0
+                }
+            }
+        }
+        # The index is not in the Clamp
+        set_variable = {
+            which = SLEX_error_code
+            value = 1
+        }
+    } else = {
+        # The index is in the clamp
+        set_variable = {
+            which = SLEX_modulo
+            value = 0
+        }
+        set_variable = {
+            which = SLEX_power_of_ten
+            value = 10
+        }
+        set_variable = {
+            which = SLEX_power_of_ten_neg
+            value = -10
+        }
+        # if = {
+            # limit = {
+                # check_variable = {
+                    # which = SLEX_index
+                    # value < 10
+                # }
+            # }
+            # set_variable = {
+                # which = SLEX_power_of_ten
+                # value = 1
+            # }
+            # set_variable = {
+                # which = SLEX_power_of_ten_neg
+                # value = -1
+            # }
+        # }
+    }
+}
+
+SLEX_get_list_variable_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    set_variable = { which = SLEX_value value = $VARIABLE$0 }
+                } else = {
+                    set_variable = { which = SLEX_value value = $VARIABLE$1 }
+                }
+            } else = {
+                set_variable = { which = SLEX_value value = $VARIABLE$2 }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                set_variable = { which = SLEX_value value = $VARIABLE$3 }
+            } else = {
+                set_variable = { which = SLEX_value value = $VARIABLE$4 }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    set_variable = { which = SLEX_value value = $VARIABLE$5 }
+                } else = {
+                    set_variable = { which = SLEX_value value = $VARIABLE$6 }
+                }
+            } else = {
+                set_variable = { which = SLEX_value value = $VARIABLE$7 }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                set_variable = { which = SLEX_value value = $VARIABLE$8 }
+            } else = {
+                set_variable = { which = SLEX_value value = $VARIABLE$9 }
+            }
+        }
+    }
+}
+
+SLEX_set_list_variable_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    set_variable = { which = $VARIABLE$0 value = SLEX_value }
+                } else = {
+                    set_variable = { which = $VARIABLE$1 value = SLEX_value }
+                }
+            } else = {
+                set_variable = { which = $VARIABLE$2 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                set_variable = { which = $VARIABLE$3 value = SLEX_value }
+            } else = {
+                set_variable = { which = $VARIABLE$4 value = SLEX_value }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    set_variable = { which = $VARIABLE$5 value = SLEX_value }
+                } else = {
+                    set_variable = { which = $VARIABLE$6 value = SLEX_value }
+                }
+            } else = {
+                set_variable = { which = $VARIABLE$7 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                set_variable = { which = $VARIABLE$8 value = SLEX_value }
+            } else = {
+                set_variable = { which = $VARIABLE$9 value = SLEX_value }
+            }
+        }
+    }
+}
+
+SLEX_change_list_variable_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    change_variable = { which = $VARIABLE$0 value = SLEX_value }
+                } else = {
+                    change_variable = { which = $VARIABLE$1 value = SLEX_value }
+                }
+            } else = {
+                change_variable = { which = $VARIABLE$2 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                change_variable = { which = $VARIABLE$3 value = SLEX_value }
+            } else = {
+                change_variable = { which = $VARIABLE$4 value = SLEX_value }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    change_variable = { which = $VARIABLE$5 value = SLEX_value }
+                } else = {
+                    change_variable = { which = $VARIABLE$6 value = SLEX_value }
+                }
+            } else = {
+                change_variable = { which = $VARIABLE$7 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                change_variable = { which = $VARIABLE$8 value = SLEX_value }
+            } else = {
+                change_variable = { which = $VARIABLE$9 value = SLEX_value }
+            }
+        }
+    }
+}
+
+SLEX_subtract_list_variable_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    subtract_variable = { which = $VARIABLE$0 which = SLEX_value }
+                } else = {
+                    subtract_variable = { which = $VARIABLE$1 value = SLEX_value }
+                }
+            } else = {
+                subtract_variable = { which = $VARIABLE$2 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                subtract_variable = { which = $VARIABLE$3 value = SLEX_value }
+            } else = {
+                subtract_variable = { which = $VARIABLE$4 value = SLEX_value }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    subtract_variable = { which = $VARIABLE$5 value = SLEX_value }
+                } else = {
+                    subtract_variable = { which = $VARIABLE$6 value = SLEX_value }
+                }
+            } else = {
+                subtract_variable = { which = $VARIABLE$7 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                subtract_variable = { which = $VARIABLE$8 value = SLEX_value }
+            } else = {
+                subtract_variable = { which = $VARIABLE$9 value = SLEX_value }
+            }
+        }
+    }
+}
+
+SLEX_multiply_list_variable_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    multiply_variable = { which = $VARIABLE$0 value = SLEX_value }
+                } else = {
+                    multiply_variable = { which = $VARIABLE$1 value = SLEX_value }
+                }
+            } else = {
+                multiply_variable = { which = $VARIABLE$2 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                multiply_variable = { which = $VARIABLE$3 value = SLEX_value }
+            } else = {
+                multiply_variable = { which = $VARIABLE$4 value = SLEX_value }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    multiply_variable = { which = $VARIABLE$5 value = SLEX_value }
+                } else = {
+                    multiply_variable = { which = $VARIABLE$6 value = SLEX_value }
+                }
+            } else = {
+                multiply_variable = { which = $VARIABLE$7 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                multiply_variable = { which = $VARIABLE$8 value = SLEX_value }
+            } else = {
+                multiply_variable = { which = $VARIABLE$9 value = SLEX_value }
+            }
+        }
+    }
+}
+
+SLEX_divide_list_variable_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    divide_variable = { which = $VARIABLE$0 value = SLEX_value }
+                } else = {
+                    divide_variable = { which = $VARIABLE$1 value = SLEX_value }
+                }
+            } else = {
+                divide_variable = { which = $VARIABLE$2 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                divide_variable = { which = $VARIABLE$3 value = SLEX_value }
+            } else = {
+                divide_variable = { which = $VARIABLE$4 value = SLEX_value }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                divide_variable = { which = $VARIABLE$5 value = SLEX_value }
+                } else = {
+                divide_variable = { which = $VARIABLE$6 value = SLEX_value }
+                }
+            } else = {
+                divide_variable = { which = $VARIABLE$7 value = SLEX_value }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                divide_variable = { which = $VARIABLE$8 value = SLEX_value }
+            } else = {
+                divide_variable = { which = $VARIABLE$9 value = SLEX_value }
+            }
+        }
+    }
+}
+
+SLEX_load_list_event_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    if = { limit = { exists = event_target:$VARIABLE$0 }
+                        event_target:$VARIABLE$0 = { save_event_target_as = SLEX_target }
+                    } else = { set_variable = { which = SLEX_error_code value = 102 } }
+                } else = {
+                    if = { limit = { exists = event_target:$VARIABLE$1 }
+                        event_target:$VARIABLE$1 = { save_event_target_as = SLEX_target }
+                    } else = { set_variable = { which = SLEX_error_code value = 102 } }
+                }
+            } else = {
+                if = { limit = { exists = event_target:$VARIABLE$2 }
+                    event_target:$VARIABLE$2 = { save_event_target_as = SLEX_target }
+                } else = { set_variable = { which = SLEX_error_code value = 102 } }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                if = { limit = { exists = event_target:$VARIABLE$3 }
+                    event_target:$VARIABLE$3 = { save_event_target_as = SLEX_target }
+                } else = { set_variable = { which = SLEX_error_code value = 102 } }
+            } else = {
+                if = { limit = { exists = event_target:$VARIABLE$4 }
+                    event_target:$VARIABLE$4 = { save_event_target_as = SLEX_target }
+                } else = { set_variable = { which = SLEX_error_code value = 102 } }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { exists = event_target:$VARIABLE$5 }
+                        event_target:$VARIABLE$5 = { save_event_target_as = SLEX_target }
+                    } else = { set_variable = { which = SLEX_error_code value = 102 } }
+                } else = {
+                    if = { limit = { exists = event_target:$VARIABLE$6 }
+                        event_target:$VARIABLE$6 = { save_event_target_as = SLEX_target }
+                    } else = { set_variable = { which = SLEX_error_code value = 102 } }
+                }
+            } else = {
+                if = { limit = { exists = event_target:$VARIABLE$7 }
+                    event_target:$VARIABLE$7 = { save_event_target_as = SLEX_target }
+                } else = { set_variable = { which = SLEX_error_code value = 102 } }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                if = { limit = { exists = event_target:$VARIABLE$8 }
+                    event_target:$VARIABLE$8 = { save_event_target_as = SLEX_target }
+                } else = { set_variable = { which = SLEX_error_code value = 102 } }
+            } else = {
+                if = { limit = { exists = event_target:$VARIABLE$9 }
+                    event_target:$VARIABLE$9 = { save_event_target_as = SLEX_target }
+                } else = { set_variable = { which = SLEX_error_code value = 102 } }
+            }
+        }
+    }
+}
+
+
+SLEX_store_list_event_var_index_aux = {
+    divide_variable = {
+        which = SLEX_power_of_ten
+        value = 10
+    }
+    divide_variable = {
+        which = SLEX_power_of_ten_neg
+        value = 10
+    }
+    set_variable = {
+        which = SLEX_modulo
+        value = 0
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_index
+                value >= SLEX_power_of_ten
+            }
+        }
+        change_variable = {
+            which = SLEX_index
+            value = SLEX_power_of_ten_neg
+        }
+        change_variable = {
+            which = SLEX_modulo
+            value = 1
+        }
+    }
+    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                    event_target:SLEX_target = { save_event_target_as = $VARIABLE$0 }
+                } else = {
+                    event_target:SLEX_target = { save_event_target_as = $VARIABLE$1 }
+                }
+            } else = {
+                event_target:SLEX_target = { save_event_target_as = $VARIABLE$2 }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                event_target:SLEX_target = { save_event_target_as = $VARIABLE$3 }
+            } else = {
+                event_target:SLEX_target = { save_event_target_as = $VARIABLE$4 }
+            }
+        }
+    } else = {
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    event_target:SLEX_target = { save_event_target_as = $VARIABLE$5 }
+                } else = {
+                    event_target:SLEX_target = { save_event_target_as = $VARIABLE$6 }
+                }
+            } else = {
+                event_target:SLEX_target = { save_event_target_as = $VARIABLE$7 }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                event_target:SLEX_target = { save_event_target_as = $VARIABLE$8 }
+            } else = {
+                event_target:SLEX_target = { save_event_target_as = $VARIABLE$9 }
+            }
+        }
+    }
+}

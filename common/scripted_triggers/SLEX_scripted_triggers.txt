@@ -3,12 +3,9 @@
 
 SLEX_check_list_variable_const_index = {
     NOT = {
-        AND = {
-            check_variable = {
-                which = $LIST$_$INDEX$
-                value $OPERATOR$ $VALUE$
-            }
-            SLEX_dump_param = { EFFECT = $EFFECT|null$}
+        check_variable = {
+            which = $LIST$_$INDEX$
+            value $OPERATOR$ $VALUE$
         }
     }
 }
@@ -18,7 +15,6 @@ SLEX_inv_check_list_variable_const_index = {
         which = $LIST$_$INDEX$
         value $OPERATOR$ $VALUE$
     }
-    SLEX_dump_param = { EFFECT = $EFFECT|null$}
 }
 
 SLEX_dump_param = { # Returns false, so true with the inversion

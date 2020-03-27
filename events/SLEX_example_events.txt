@@ -1,0 +1,118 @@
+namespace = SLEX_example_events
+
+country_event = {
+    id = SLEX_example_events.1
+    hide_window = yes
+    is_triggered_only = yes	
+	
+	immediate={
+        # We fill the list SLEX_example_number_of_pops_global with the number of pops
+        set_variable = {
+            which = SLEX_example_id_of_country
+            value = 0
+        }
+		every_country = {
+            limit = {
+                exists = capital_scope
+                OR = {
+                    is_country_type = default
+                    is_country_type = fallen_empire
+                    is_country_type = awakened_fallen_empire
+                }
+            }
+            # We store the number of pops into a variable in the root scope
+            root = {
+                set_variable = {
+                    which = SLEX_example_number_of_pops
+                    value = 0
+                }
+            }
+            every_owned_pop = {
+                root = {
+                    change_variable = {
+                        which = SLEX_example_number_of_pops
+                        value = 1
+                    }
+                }
+            }
+            # We save the current country
+            save_event_target_as = SLEX_example_current_country
+            root = {
+                # We store the amount of pops of this country
+                SLEX_set_list_variable_var_index = {
+                    LIST = SLEX_example_number_of_pops_global
+                    INDEX = SLEX_example_id_of_country
+                    VALUE = SLEX_example_number_of_pops
+                }
+                # We store this country as an event_target in the list
+                SLEX_store_list_event_var_index = {
+                    LIST = SLEX_example_number_of_pops_global_country
+                    INDEX = SLEX_example_id_of_country
+                    TARGET = event_target:SLEX_example_current_country
+                }
+                # We increment the number of visited countries
+                change_variable = {
+                    which = SLEX_example_id_of_country
+                    value = 1
+                }
+            }
+        }
+        # We sort it in descending order
+        SLEX_sort_zipped_target_list_bubble = {
+            LIST = SLEX_example_number_of_pops_global
+            ZIPPED_LIST = SLEX_example_number_of_pops_global_country
+            ASCENDING = no
+        }
+        # We give ever country 1 pop per placement
+        set_variable = {
+            which = SLEX_example_index
+            value = SLEX_example_id_of_country
+        }
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_example_index
+                    value > 0
+                }
+            }
+            change_variable = {
+                which = SLEX_example_index
+                value = -1
+            }
+            # We load the country with this index
+            SLEX_load_list_event_var_index = {
+                LIST = SLEX_example_number_of_pops_global_country
+                INDEX = SLEX_example_index
+                TARGET = SLEX_example_country
+            }
+            event_target:SLEX_example_country = {
+                capital_scope = {
+                    # We determine the number of pops to add
+                    # It's the distance to the first, so it's exactly the index (as it begins at 0)
+                    set_variable = {
+                        which = SLEX_example_index
+                        value = root
+                    }
+                    set_variable = {
+                        which = SLEX_example_number_of_pops_to_add
+                        value = SLEX_example_index
+                    }
+                    # We add SLEX_example_number_of_pops_to_add pops
+                    while = {
+                        limit = {
+                            check_variable = {
+                                which = SLEX_example_number_of_pops_to_add
+                                value > 0
+                            }
+                        }
+                        create_pop = { species = owner_main_species }
+                        subtract_variable = {
+                            which = SLEX_example_number_of_pops_to_add
+                            value = 1
+                        }
+                    }
+                }
+            }
+        }
+	}
+}

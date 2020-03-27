@@ -10,6 +10,19 @@ SLEX_set_list_variable_const_index = {
         which = $LIST$_$INDEX$
         value = $VALUE$
     }
+    if = {
+        limit = {
+            check_variable = {
+                which = $LIST$_length
+                value < $INDEX$
+            }
+        }
+        # We have to increment the length
+        set_variable = {
+            which = $LIST$_length
+            value = $INDEX$
+        }
+    }
 }
 
 SLEX_change_list_variable_const_index = {
@@ -17,12 +30,38 @@ SLEX_change_list_variable_const_index = {
         which = $LIST$_$INDEX$
         value = $VALUE$
     }
+    if = {
+        limit = {
+            check_variable = {
+                which = $LIST$_length
+                value < $INDEX$
+            }
+        }
+        # We have to increment the length
+        set_variable = {
+            which = $LIST$_length
+            value = $INDEX$
+        }
+    }
 }
 
 SLEX_subtract_list_variable_const_index = {
     subtract_variable  = {
         which = $LIST$_$INDEX$
         value = $VALUE$
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = $LIST$_length
+                value < $INDEX$
+            }
+        }
+        # We have to increment the length
+        set_variable = {
+            which = $LIST$_length
+            value = $INDEX$
+        }
     }
 }
 
@@ -40,98 +79,944 @@ SLEX_divide_list_variable_const_index = {
     }
 }
 
-SLEX_apply_effect_list_variable_const_index = {
-    $EFFECT$ = {
-        LIST = $LIST$
-        INDEX = $INDEX$
-        VALUE = $VALUE$
-    }
-}
-
-SLEX_apply_effect_conditionnal_list_variable_const_index = {
-    if = {
-        limit = {
-            $TRIGGER$ = {
-                LIST = $LIST$
-                INDEX = $INDEX$
-                VALUE = $VALUE$
-            }
-        }
-        $EFFECT$ = {
-            LIST = $LIST$
-            INDEX = $INDEX$
-            VALUE = $VALUE$
-        }
-    }
-}
-
-
 ##############################
-SLEX_var_aux_if = {
+
+SLEX_get_list_variable_var_index = {
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
     if = {
         limit = {
             check_variable = {
-                which = $INDEX$
-                value = $TEST$
+                which = SLEX_error_code
+                value = 0
+            }
+        }   
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
             }
         }
-        $EFFECT$ = { TYPE = $TYPE$ VARIABLE = $LIST$_$TEST$ VALUE = $VALUE$ }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+        set_variable = {
+            which = $VALUE$
+            value = SLEX_value
+        }
     }
-}
-
-SLEX_var_aux_apply_effect = {
-    $EFFECT$ = {
-        LIST = $LIST$
-        INDEX = $INDEX$
-        VALUE = $VALUE$
-    }
-}
-
-SLEX_get_list_variable_var_index = {
-    SLEX_var_aux_switch = { EFFECT = SLEX_get_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
 }
 
 SLEX_set_list_variable_var_index = {
-    SLEX_var_aux_switch = { EFFECT = SLEX_set_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+    set_variable = {
+        which = SLEX_value
+        value = $VALUE$
+    }
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }   
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
+            }
+        }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+        if = {
+            limit = {
+                check_variable = {
+                    which = $LIST$_length
+                    value < $INDEX$
+                }
+            }
+            # We have to increment the length
+            set_variable = {
+                which = $LIST$_length
+                value = $INDEX$
+            }
+        }
+    }
 }
 
 SLEX_change_list_variable_var_index = {
-    SLEX_var_aux_switch = { EFFECT = SLEX_change_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+    set_variable = {
+        which = SLEX_value
+        value = $VALUE$
+    }
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }   
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
+            }
+        }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+        if = {
+            limit = {
+                check_variable = {
+                    which = $LIST$_length
+                    value < $INDEX$
+                }
+            }
+            # We have to increment the length
+            set_variable = {
+                which = $LIST$_length
+                value = $INDEX$
+            }
+        }
+    }
 }
 
 SLEX_subtract_list_variable_var_index = {
-    SLEX_var_aux_switch = { EFFECT = SLEX_subtract_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+    set_variable = {
+        which = SLEX_value
+        value = $VALUE$
+    }
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }   
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
+            }
+        }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+        if = {
+            limit = {
+                check_variable = {
+                    which = $LIST$_length
+                    value < $INDEX$
+                }
+            }
+            # We have to increment the length
+            set_variable = {
+                which = $LIST$_length
+                value = $INDEX$
+            }
+        }
+    }
 }
 
 SLEX_multiply_list_variable_var_index = {
-    SLEX_var_aux_switch = { EFFECT = SLEX_multiply_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+    set_variable = {
+        which = SLEX_value
+        value = $VALUE$
+    }
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }   
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
+            }
+        }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+    }
 }
 
 SLEX_divide_list_variable_var_index = {
-    SLEX_var_aux_switch = { EFFECT = SLEX_divide_list_variable_const_index LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE$ }
+    set_variable = {
+        which = SLEX_value
+        value = $VALUE$
+    }
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }   
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
+            }
+        }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+    }
 }
 
-SLEX_apply_effect_list_variable_var_index = {
-    SLEX_var_aux_switch = { EFFECT = $EFFECT$ LIST = $LIST$ INDEX = $INDEX$ VALUE = $VALUE|null$ }
+######################################
+
+SLEX_sort_bubble = {
+    set_variable = {
+        which = SLEX_i
+        value = $LIST$_length
+    }
+    if = {
+        limit = {
+            always = $ASCENDING|yes$
+        }
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_i
+                    value > 0
+                }
+            }
+            subtract_variable = {
+                which = SLEX_i
+                value = 1
+            }
+            set_variable = {
+                which = SLEX_j
+                value = 0
+            }
+            set_variable = {
+                which = SLEX_T_j
+                value = $LIST$_00
+            }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = SLEX_j
+                        value <= SLEX_i
+                    }
+                }
+                set_variable = {
+                    which = SLEX_j_old
+                    value = SLEX_j
+                }
+                change_variable = {
+                    which = SLEX_j
+                    value = 1
+                }
+                set_variable = {
+                    which = SLEX_T_j_old
+                    value = SLEX_T_j
+                }
+                SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j }
+                if = {
+                    limit = {
+                        check_variable = {
+                            which = SLEX_T_j
+                            value < SLEX_T_j_old
+                        }
+                    }
+                    # We swap them
+                    # First the values in the list
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j_old VALUE = SLEX_T_j }
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j_old }
+                    # Then we just have to store SLEX_T_j_old in SLEX_T_j
+                    set_variable = {
+                        which = SLEX_T_j
+                        value = SLEX_T_j_old
+                    }
+                }
+            }
+        }
+    } else = {
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_i
+                    value > 0
+                }
+            }
+            subtract_variable = {
+                which = SLEX_i
+                value = 1
+            }
+            set_variable = {
+                which = SLEX_j
+                value = 0
+            }
+            set_variable = {
+                which = SLEX_T_j
+                value = $LIST$_00
+            }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = SLEX_j
+                        value <= SLEX_i
+                    }
+                }
+                set_variable = {
+                    which = SLEX_j_old
+                    value = SLEX_j
+                }
+                change_variable = {
+                    which = SLEX_j
+                    value = 1
+                }
+                set_variable = {
+                    which = SLEX_T_j_old
+                    value = SLEX_T_j
+                }
+                SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j }
+                if = {
+                    limit = {
+                        check_variable = {
+                            which = SLEX_T_j
+                            value > SLEX_T_j_old
+                        }
+                    }
+                    # We swap them
+                    # First the values in the list
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j_old VALUE = SLEX_T_j }
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j_old }
+                    # Then we just have to store SLEX_T_j_old in SLEX_T_j
+                    set_variable = {
+                        which = SLEX_T_j
+                        value = SLEX_T_j_old
+                    }
+                }
+            }
+        }
+    }
 }
 
-# SLEX_apply_effect_conditionnal_list_variable_var_index = {
-    # if = {
-        # limit = {
-            # $TRIGGER$ = { VARIABLE = $LIST$_$INDEX$ }
-        # }
-        # SLEX_apply_effect_list_variable_var_index = {
-            # Effect = $EFFECT$
-            # TYPE = null
-            # LIST = $LIST$
-            # INDEX = $INDEX$
-            # VALUE = null
-        # }
-    # }
-# }
+SLEX_sort_zipped_target_list_bubble = {
+    set_variable = {
+        which = SLEX_i
+        value = $LIST$_length
+    }
+    if = {
+        limit = {
+            always = $ASCENDING|yes$
+        }
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_i
+                    value > 0
+                }
+            }
+            subtract_variable = {
+                which = SLEX_i
+                value = 1
+            }
+            set_variable = {
+                which = SLEX_j
+                value = 0
+            }
+            set_variable = {
+                which = SLEX_T_j
+                value = $LIST$_00
+            }
+            SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 00 TARGET = SLEX_E_j }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = SLEX_j
+                        value <= SLEX_i
+                    }
+                }
+                set_variable = {
+                    which = SLEX_j_old
+                    value = SLEX_j
+                }
+                change_variable = {
+                    which = SLEX_j
+                    value = 1
+                }
+                set_variable = {
+                    which = SLEX_T_j_old
+                    value = SLEX_T_j
+                }
+                SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j }
+                event_target:SLEX_E_j = { save_event_target_as = SLEX_E_j_old }
+                SLEX_load_list_event_var_index = { LIST = $ZIPPED_LIST$ INDEX = SLEX_j TARGET = SLEX_E_j }
+                if = {
+                    limit = {
+                        check_variable = {
+                            which = SLEX_T_j
+                            value < SLEX_T_j_old
+                        }
+                    }
+                    # We swap them
+                    # First the values in the list
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j_old VALUE = SLEX_T_j }
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j_old }
+                    # Then we just have to store SLEX_T_j_old in SLEX_T_j
+                    set_variable = {
+                        which = SLEX_T_j
+                        value = SLEX_T_j_old
+                    }
+                    # Then we need to swap the events target
+                    SLEX_store_list_event_var_index = { LIST = $ZIPPED_LIST$ INDEX = SLEX_j TARGET = event_target:SLEX_E_j_old }
+                    SLEX_store_list_event_var_index = { LIST = $ZIPPED_LIST$ INDEX = SLEX_j_old TARGET = event_target:SLEX_E_j }
+                    # Then we just need to store SLEX_E_j_old in SLEX_E_j
+                    event_target:SLEX_E_j_old = { save_event_target_as = SLEX_E_j }
+                }
+            }
+        }
+    } else = {
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_i
+                    value > 0
+                }
+            }
+            subtract_variable = {
+                which = SLEX_i
+                value = 1
+            }
+            set_variable = {
+                which = SLEX_j
+                value = 0
+            }
+            set_variable = {
+                which = SLEX_T_j
+                value = $LIST$_00
+            }
+            SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 00 TARGET = SLEX_E_j }
+            while = {
+                limit = {
+                    check_variable = {
+                        which = SLEX_j
+                        value <= SLEX_i
+                    }
+                }
+                set_variable = {
+                    which = SLEX_j_old
+                    value = SLEX_j
+                }
+                change_variable = {
+                    which = SLEX_j
+                    value = 1
+                }
+                set_variable = {
+                    which = SLEX_T_j_old
+                    value = SLEX_T_j
+                }
+                SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j }
+                event_target:SLEX_E_j = { save_event_target_as = SLEX_E_j_old }
+                SLEX_load_list_event_var_index = { LIST = $ZIPPED_LIST$ INDEX = SLEX_j TARGET = SLEX_E_j }
+                if = {
+                    limit = {
+                        check_variable = {
+                            which = SLEX_T_j
+                            value > SLEX_T_j_old
+                        }
+                    }
+                    # We swap them
+                    # First the values in the list
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j_old VALUE = SLEX_T_j }
+                    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_T_j_old }
+                    # Then we just have to store SLEX_T_j_old in SLEX_T_j
+                    set_variable = {
+                        which = SLEX_T_j
+                        value = SLEX_T_j_old
+                    }
+                    # Then we need to swap the events target
+                    SLEX_store_list_event_var_index = { LIST = $ZIPPED_LIST$ INDEX = SLEX_j TARGET = event_target:SLEX_E_j_old }
+                    SLEX_store_list_event_var_index = { LIST = $ZIPPED_LIST$ INDEX = SLEX_j_old TARGET = event_target:SLEX_E_j }
+                    # Then we just need to store SLEX_E_j_old in SLEX_E_j
+                    event_target:SLEX_E_j_old = { save_event_target_as = SLEX_E_j }
+                }
+            }
+        }
+    }
+}
+
+######################################
+
+SLEX_load_list_event_const_index = {
+    set_variable = {
+        which = SLEX_error_code
+        value = 0
+    }
+    if = {
+        limit = {
+            exists = event_target:$LIST$_$INDEX$
+        }
+        event_target:$LIST$_$INDEX$ = {
+            save_event_target_as = $TARGET$
+        }
+    } else = {
+        set_variable = {
+            which = SLEX_error_code
+            value = 101
+        }
+    }
+}
+
+SLEX_store_list_event_const_index = {
+    $TARGET|this$ = {
+        save_event_target_as = $LIST$_$INDEX$
+    }
+}
+
+SLEX_load_list_event_var_index = {
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }   
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
+            }
+        }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }
+        event_target:SLEX_target = {
+            save_event_target_as = $TARGET$
+        }
+    }
+}
+
+SLEX_store_list_event_var_index = {
+    set_variable = {
+        which = SLEX_index
+        value = $INDEX$
+    }
+    SLEX_var_index_init = yes
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_error_code
+                value = 0
+            }
+        }
+        $TARGET|this$ = {
+            save_event_target_as = SLEX_target
+        }
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_index
+                    value >= SLEX_power_of_ten
+                }
+            }
+            change_variable = {
+                which = SLEX_index
+                value = SLEX_power_of_ten_neg
+            }
+            change_variable = {
+                which = SLEX_modulo
+                value = 1
+            }
+        }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_0 }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_1 }
+                    }
+                } else = {
+                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_2 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
+                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_3 }
+                } else = {
+                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_4 }
+                }
+            }
+        } else = {
+            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_5 }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_6 }
+                    }
+                } else = {
+                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_7 }
+                }
+            } else = {
+                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_8 }
+                } else = {
+                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_9 }
+                }
+            }
+        }
+    }
+}
 
 
 ######################################
+
 SLEX_dump_param = {
     if = {
         limit = {
@@ -142,6 +1027,7 @@ SLEX_dump_param = {
             has_global_flag = $VALUE|null$
             has_global_flag = $LIST|null$
             has_global_flag = $FCT|null$
+            has_global_flag = $VARIABLE|null$
         }
     }
 }

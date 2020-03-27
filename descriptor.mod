@@ -3,4 +3,4 @@ tags={
 	"Utilities"
 }
 name="Stellaris List EXtender"
-supported_version="2.5.1"
+supported_version="2.6.*"
