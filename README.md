@@ -1,5 +1,5 @@
 # Stellaris List EXtender  
-This mod is a utility mod. It adds functions to allow modders to use lists of variables or event-targets and to sort them. See examples for some examples of what you can do.  
+This mod is a utility mod. It adds functions to allow modders to use lists of variables or event_targets and to sort them. See "Examples" for some examples of what you can do.  
   
 ## Requirements
 None  
@@ -12,7 +12,7 @@ Not iron-man compatible
 1. Open the launcher from stellaris.
 2. Go to mods > Mod tools
 3. Click `Create Mod`
-4. Fill the blanks and click create
+4. Fill in the blanks and click create
 5. Go to the Stellaris mods folder (in my case `...\Documents\Paradox Interactive\Stellaris\mod\`).
 6. Extract the content of the repository inside of the newly created mod folder
 7. Activate the mod
@@ -28,16 +28,16 @@ Error Code | Description
   
 ## Detailed description : Read before using
 This mod allows modders to use lists of variables and lists of (non-global) event_targets.  
-A list (both for variables and for event_targets) is characterized by it's name (for example `resources_list`). A list of variables has the same scope rules as a variable. A list of event_targets has the same rules as an non-global event_target: it only lasts in the unbroken event chain.  
+A list (both for variables and for event_targets) is characterized by its name (for example `resources_list`). A list of variables has the same scope rules as a variable. A list of event_targets has the same rules as a non-global event_target: it only lasts in the unbroken event chain.  
 To access a certain index of the list, you can use `listname_index`. A list is basically just a collection of variables beginning with the list name followed by an underscore. However, the index **must** have 2 digits (so 00, 01, 02, ... 09, 10, ...).  
-A quick note about a little known Stellaris modding limitation: scripted_effects (and probably triggers too) can only have a **maximum of 5 level of stacks**. This means that if a scripted_effects named A calls B, B calls C, C calls D, D calls E, then any call from E to another scripted_effect F will make the game consider F as an unknown scripted_effect and will (probably) break the whole scripted_effect chain.  
-Due to this limitation, the index has to be between 00 (included) and 99 (included). I'm considering to switch to a hexadecimal base (currently decimal) in the near future to allow a higher number of elements (256). However I want to optimize the sort algorithm first.  
-The highest index (99) is defined by the number of stacks SLEX uses to get and set the variables/event_targets. The getter and setter (and all same functions such as change/multiply/...) use 1 stack level for constant index and 2 stacks level for variable index. The sort function uses 3 stacks level. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
+A quick note about a little known Stellaris modding limitation: scripted_effects (and probably triggers, too) can only have a **maximum of 5 levels of the stack**. This means that if a scripted_effect named A calls B, B calls C, C calls D, D calls E, then any call from E to another scripted_effect F will make the game consider F as an unknown scripted_effect and will (probably) break the whole scripted_effect chain.  
+Due to this limitation, the index has to be between 00 (included) and 99 (included). I'm considering to switch to a hexadecimal base (currently decimal) in the near future to allow a higher number of elements (256). However, I want to optimize the sort algorithm first.  
+The highest index (99) is defined by the number of stack levels SLEX uses to get and set the variables/event_targets. The getter and setter (and all similar functions such as change/multiply/...) use 1 stack level for constant index and 2 stack levels for variable index. The sort function uses 3 stack levels. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
 One last warning before closing the "Must read" part: For some reason, Stellaris doesn't like 1 letter variable. So please do not use i/a/b/c/...  
   
 ## Examples
-List of the ingame examples:
-*one non-localised edict: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have). When active, you have a 10 days delay to get into observer mode before the event fires.  
+List of the ingame examples:  
+One non-localised edict: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have). When active, you have a 10 days delay to get into observer mode before the event fires.  
   
 To access the ingame examples, open the console and type `effect set_global_flag = SLEX_example`.  
   
@@ -47,7 +47,7 @@ Now let's look into the detailed documentation by beginning with the promised so
 ### Sort
   
 #### Sort of a list of variables
-With SLEX, sorting a list of variables is pretty easy. Just use the `SLEX_sort_bubble` scripted_effect. Please remember to only use 2 level of stacks when using it (reasons and explanations above). By default, the sort order is ascending. Use `ASCENDING = no` for descending order.  
+With SLEX, sorting a list of variables is pretty easy. Just use the `SLEX_sort_bubble` scripted_effect. Please remember to only use 2 levels of the stack when using it (reasons and explanations above). By default, the sort order is ascending. Use `ASCENDING = no` for descending order.  
   
 Examples :  
 `SLEX_sort_bubble = { LIST = listname }`  
