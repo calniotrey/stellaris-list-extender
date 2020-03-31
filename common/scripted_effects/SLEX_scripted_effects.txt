@@ -98,52 +98,76 @@ SLEX_get_list_variable_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_get_list_variable_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
@@ -175,52 +199,76 @@ SLEX_set_list_variable_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_set_list_variable_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
@@ -261,52 +309,76 @@ SLEX_change_list_variable_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_change_list_variable_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
@@ -347,52 +419,76 @@ SLEX_subtract_list_variable_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_subtract_list_variable_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
@@ -433,52 +529,76 @@ SLEX_multiply_list_variable_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_multiply_list_variable_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
@@ -506,52 +626,76 @@ SLEX_divide_list_variable_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_divide_list_variable_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
@@ -586,7 +730,7 @@ SLEX_sort_bubble = {
             }
             set_variable = {
                 which = SLEX_T_j
-                value = $LIST$_00
+                value = $LIST$_0
             }
             while = {
                 limit = {
@@ -645,7 +789,7 @@ SLEX_sort_bubble = {
             }
             set_variable = {
                 which = SLEX_T_j
-                value = $LIST$_00
+                value = $LIST$_0
             }
             while = {
                 limit = {
@@ -715,9 +859,9 @@ SLEX_sort_zipped_target_list_bubble = {
             }
             set_variable = {
                 which = SLEX_T_j
-                value = $LIST$_00
+                value = $LIST$_0
             }
-            SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 00 TARGET = SLEX_E_j }
+            SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 0 TARGET = SLEX_E_j }
             while = {
                 limit = {
                     check_variable = {
@@ -782,9 +926,9 @@ SLEX_sort_zipped_target_list_bubble = {
             }
             set_variable = {
                 which = SLEX_T_j
-                value = $LIST$_00
+                value = $LIST$_0
             }
-            SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 00 TARGET = SLEX_E_j }
+            SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 0 TARGET = SLEX_E_j }
             while = {
                 limit = {
                     check_variable = {
@@ -879,52 +1023,76 @@ SLEX_load_list_event_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_load_list_event_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
@@ -962,52 +1130,76 @@ SLEX_store_list_event_var_index = {
             limit = {
                 check_variable = {
                     which = SLEX_index
-                    value >= SLEX_power_of_ten
+                    value >= SLEX_power_of_sixteen
                 }
             }
             change_variable = {
                 which = SLEX_index
-                value = SLEX_power_of_ten_neg
+                value = SLEX_power_of_sixteen_neg
             }
             change_variable = {
                 which = SLEX_modulo
                 value = 1
             }
         }
-        if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
-            if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+        if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
                 if = { limit = { check_variable = { which = SLEX_modulo value < 2 } }
                     if = { limit = { check_variable = { which = SLEX_modulo value < 1 } }
-                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_0 }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_ }
                     } else = {
                         SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_1 }
                     }
                 } else = {
-                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_2 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 3 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_2 }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_3 }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 4 } }
-                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_3 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 5 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_4 }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_5 }
+                    }
                 } else = {
-                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_4 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_6 }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_7 }
+                    }
                 }
             }
         } else = {
-            if = { limit = { check_variable = { which = SLEX_modulo value < 8 } }
-                if = { limit = { check_variable = { which = SLEX_modulo value < 7 } }
-                    if = { limit = { check_variable = { which = SLEX_modulo value < 6 } }
-                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_5 }
+            if = { limit = { check_variable = { which = SLEX_modulo value < 12 } }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 10 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_8 }
                     } else = {
-                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_6 }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_9 }
                     }
                 } else = {
-                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_7 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 11 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_a }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_b }
+                    }
                 }
             } else = {
-                if = { limit = { check_variable = { which = SLEX_modulo value < 9 } }
-                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_8 }
+                if = { limit = { check_variable = { which = SLEX_modulo value < 14 } }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 13 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_c }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_d }
+                    }
                 } else = {
-                    SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_9 }
+                    if = { limit = { check_variable = { which = SLEX_modulo value < 15 } }
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_e }
+                    } else = {
+                        SLEX_store_list_event_var_index_aux = { VARIABLE = $LIST$_f }
+                    }
                 }
             }
         }
