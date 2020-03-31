@@ -3,15 +3,15 @@ namespace = SLEX_example_events
 country_event = {
     id = SLEX_example_events.1
     hide_window = yes
-    is_triggered_only = yes	
-	
-	immediate={
+    is_triggered_only = yes
+
+    immediate={
         # We fill the list SLEX_example_number_of_pops_global with the number of pops
         set_variable = {
             which = SLEX_example_id_of_country
             value = 0
         }
-		every_country = {
+        every_country = {
             limit = {
                 exists = capital_scope
                 OR = {
@@ -114,5 +114,112 @@ country_event = {
                 }
             }
         }
-	}
+    }
+}
+
+country_event = {
+    id = SLEX_example_events.2
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate={
+        set_variable = {
+            which = SLEX_example_value
+            value = 128
+        }
+        set_variable = {
+            which = SLEX_example_index
+            value = 0
+        }
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_example_index
+                    value < 256
+                }
+            }
+            SLEX_set_list_variable_var_index = {
+                LIST = SLEX_example_sort_list
+                INDEX = SLEX_example_index
+                VALUE = SLEX_example_value
+            }
+            change_variable = {
+                which = SLEX_example_value
+                value = -1
+            }
+            change_variable = {
+                which = SLEX_example_index
+                value = 1
+            }
+        }
+        SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
+        SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
+    }
+}
+
+country_event = {
+    id = SLEX_example_events.3
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate={
+        set_variable = {
+            which = SLEX_example_value
+            value = 128
+        }
+        set_variable = {
+            which = SLEX_example_index
+            value = 0
+        }
+        while = {
+            limit = {
+                check_variable = {
+                    which = SLEX_example_index
+                    value < 256
+                }
+            }
+            SLEX_set_list_variable_var_index = {
+                LIST = SLEX_example_sort_list
+                INDEX = SLEX_example_index
+                VALUE = SLEX_example_value
+            }
+            change_variable = {
+                which = SLEX_example_value
+                value = -1
+            }
+            change_variable = {
+                which = SLEX_example_index
+                value = 1
+            }
+        }
+    }
+}
+
+country_event = {
+    id = SLEX_example_events.4
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate={
+        while = {
+            count = 10
+            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
+            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
+        }
+    }
+}
+
+
+country_event = {
+    id = SLEX_example_events.5
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate={
+        while = {
+            count = 100
+            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
+            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
+        }
+    }
 }

@@ -1,20 +1,104 @@
 SLEX_give_pops = {
     length = 10
-	potential = {
+    potential = {
         is_ai = no
         has_global_flag = SLEX_example
     }
-	ai_weight = {
+    ai_weight = {
         weight = 0
     }
-	resources = {
-		category = edicts
-		cost = {}
-	}
-	effect={
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
         country_event = {
             id = SLEX_example_events.1
             days = 10
         }
-	}
+    }
+}
+
+SLEX_sort_twice = {
+    length = 10
+    potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+    ai_weight = {
+        weight = 0
+    }
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
+        country_event = {
+            id = SLEX_example_events.2
+            days = 10
+        }
+    }
+}
+
+SLEX_fill = {
+    length = 10
+    potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+    ai_weight = {
+        weight = 0
+    }
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
+        country_event = {
+            id = SLEX_example_events.3
+            days = 10
+        }
+    }
+}
+
+SLEX_sort_filled_20_times = {
+    length = 10
+    potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+    ai_weight = {
+        weight = 0
+    }
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
+        country_event = {
+            id = SLEX_example_events.4
+            days = 10
+        }
+    }
+}
+
+SLEX_sort_filled_200_times = {
+    length = 10
+    potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+    ai_weight = {
+        weight = 0
+    }
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
+        country_event = {
+            id = SLEX_example_events.5
+            days = 10
+        }
+    }
 }
