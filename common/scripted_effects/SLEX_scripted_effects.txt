@@ -13,13 +13,13 @@ SLEX_set_list_variable_const_index = {
     if = {
         limit = {
             check_variable = {
-                which = $LIST$_length
+                which = $LIST$_max_index
                 value < $INDEX$
             }
         }
-        # We have to increment the length
+        # We have to increment the max_index
         set_variable = {
-            which = $LIST$_length
+            which = $LIST$_max_index
             value = $INDEX$
         }
     }
@@ -33,13 +33,13 @@ SLEX_change_list_variable_const_index = {
     if = {
         limit = {
             check_variable = {
-                which = $LIST$_length
+                which = $LIST$_max_index
                 value < $INDEX$
             }
         }
-        # We have to increment the length
+        # We have to increment the max_index
         set_variable = {
-            which = $LIST$_length
+            which = $LIST$_max_index
             value = $INDEX$
         }
     }
@@ -53,13 +53,13 @@ SLEX_subtract_list_variable_const_index = {
     if = {
         limit = {
             check_variable = {
-                which = $LIST$_length
+                which = $LIST$_max_index
                 value < $INDEX$
             }
         }
-        # We have to increment the length
+        # We have to increment the max_index
         set_variable = {
-            which = $LIST$_length
+            which = $LIST$_max_index
             value = $INDEX$
         }
     }
@@ -275,13 +275,13 @@ SLEX_set_list_variable_var_index = {
         if = {
             limit = {
                 check_variable = {
-                    which = $LIST$_length
+                    which = $LIST$_max_index
                     value < $INDEX$
                 }
             }
-            # We have to increment the length
+            # We have to increment the max_index
             set_variable = {
-                which = $LIST$_length
+                which = $LIST$_max_index
                 value = $INDEX$
             }
         }
@@ -385,13 +385,13 @@ SLEX_change_list_variable_var_index = {
         if = {
             limit = {
                 check_variable = {
-                    which = $LIST$_length
+                    which = $LIST$_max_index
                     value < $INDEX$
                 }
             }
-            # We have to increment the length
+            # We have to increment the max_index
             set_variable = {
-                which = $LIST$_length
+                which = $LIST$_max_index
                 value = $INDEX$
             }
         }
@@ -495,13 +495,13 @@ SLEX_subtract_list_variable_var_index = {
         if = {
             limit = {
                 check_variable = {
-                    which = $LIST$_length
+                    which = $LIST$_max_index
                     value < $INDEX$
                 }
             }
-            # We have to increment the length
+            # We have to increment the max_index
             set_variable = {
-                which = $LIST$_length
+                which = $LIST$_max_index
                 value = $INDEX$
             }
         }
@@ -707,7 +707,7 @@ SLEX_divide_list_variable_var_index = {
 SLEX_sort_bubble = {
     set_variable = {
         which = SLEX_i
-        value = $LIST$_length
+        value = $LIST$_max_index
     }
     if = {
         limit = {
@@ -836,7 +836,7 @@ SLEX_sort_bubble = {
 SLEX_sort_zipped_target_list_bubble = {
     set_variable = {
         which = SLEX_i
-        value = $LIST$_length
+        value = $LIST$_max_index
     }
     if = {
         limit = {
