@@ -22,24 +22,33 @@ These codes appear in SLEX_error_code
 Error Code | Description
 ------------ | -------------
 0 | Everything is ok
-1 | Index is not between 0 and 99 included
+1 | Index is not between 0 and 255 (=ff in hexadecimal) included
 101 | The event_target doesn't exist (check the scope and the event chain) using constant index
 102 | The event_target doesn't exist (check the scope and the event chain) using variable index
   
 ## Detailed description : Read before using
 This mod allows modders to use lists of variables and lists of (non-global) event_targets.  
 A list (both for variables and for event_targets) is characterized by its name (for example `resources_list`). A list of variables has the same scope rules as a variable. A list of event_targets has the same rules as a non-global event_target: it only lasts in the unbroken event chain.  
-To access a certain index of the list, you can use `listname_index`. A list is basically just a collection of variables beginning with the list name followed by an underscore. However, the index **must** have 2 digits (so 00, 01, 02, ... 09, 10, ...).  
-A quick note about a little known Stellaris modding limitation: scripted_effects (and probably triggers, too) can only have a **maximum of 5 levels of the stack**. This means that if a scripted_effect named A calls B, B calls C, C calls D, D calls E, then any call from E to another scripted_effect F will make the game consider F as an unknown scripted_effect and will (probably) break the whole scripted_effect chain.  
-Due to this limitation, the index has to be between 00 (included) and 99 (included). I'm considering to switch to a hexadecimal base (currently decimal) in the near future to allow a higher number of elements (256). However, I want to optimize the sort algorithm first.  
-The highest index (99) is defined by the number of stack levels SLEX uses to get and set the variables/event_targets. The getter and setter (and all similar functions such as change/multiply/...) use 1 stack level for constant index and 2 stack levels for variable index. The sort function uses 3 stack levels. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
+To access a certain index of the list, you can use `listname_index`. A list is basically just a collection of variables beginning with the list name followed by an underscore. However, the index **must** have the lowest amount of digits possible (so 0, 1, 2, ... 9, a, b, c, d, e, f, 10, ...) ie if strictly under 16 (decimal) = 10 (hexadecimal) then there is one digit, else there is 2.  
+  
+A quick note about a little known Stellaris modding limitation: scripted_effects (and probably triggers, too) can only have a **maximum of 5 levels on the stack**. This means that if a scripted_effect named A calls B, B calls C, C calls D, D calls E, then any call from E to another scripted_effect F will make the game consider F as an unknown scripted_effect and will (probably) break the whole scripted_effect chain.  
+Due to this limitation, the index has to be between 0 (included) and ff (included). This is in a hexadecimal base, meaning that f if 15 and ff is 255.  
+  
+The highest index (ff) is defined by the number of stack levels SLEX uses to get and set the variables/event_targets. The getter and setter (and all similar functions such as change/multiply/...) use 1 stack level for constant index and 2 stack levels for variable index. The sort function uses 3 stack levels. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
+  
 One last warning before closing the "Must read" part: For some reason, Stellaris doesn't like 1 letter variable. So please do not use i/a/b/c/...  
   
 ## Examples
-List of the ingame examples:  
-One non-localised edict: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have). When active, you have a 10 days delay to get into observer mode before the event fires.  
+To access the ingame examples, open the console and type `effect set_global_flag = SLEX_example`. This will unlock the (non-localized) example edicts. When active, you have a 10 days delay to get into observer mode before the event fires.  
   
-To access the ingame examples, open the console and type `effect set_global_flag = SLEX_example`.  
+List of the ingame examples:  
+*SLEX_give_pops_by_ranking: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have).  
+*SLEX_sort_twice: Fills a list fully (256 elements) in descending order, then sorts it in ascending order and then in descending order. You can use this to see the sort performance in the worst case.  
+*SLEX_fill: Fills a list fully (256 elements) in descending order. Use this before the following 2 edicts.  
+*SLEX_sort_filled_20_times: Sorts the list filled by SLEX_fill 20 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill.  
+*SLEX_sort_filled_200_times: Sorts the list filled by SLEX_fill 200 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill if the previous one was to fast.  
+  
+On my computer, at the start of the game (game running on very fast, medium size galaxy with 8 AI), a full (256 elements) sort takes around 150 ms. Take in mind this is a non-optimized non-adapted bubble sort so complexity in O(length^2).  
   
 ## Documentation
 Now let's look into the detailed documentation by beginning with the promised sorting functions :  
@@ -56,7 +65,9 @@ Examples :
   
 #### Sort of a list of event_targets zipped to a list of variables
 What does that mean? Let's say you want to sort the empires by number of pops (like the example). You can count the number of pops easily (iterate with `every_owned_pop` for every country) and stock into a list. But once sorted, how can you say which country is first (except by recalculating the number of pops for every empire and checking every pair `(empire, value in the list)`).  
-A good way to solve this problem is by saving the empires in a list of event_targets alongside the saving of their number of pops by using the same index. This means `pops_number_02` stores the number of pops of the empire stored in `targets_list_02`. We then say the list of events_target is *zipped* to the list of variables (even if there is no real link between the two outside of the modders code). Then you can't just sort the list of variables (`pops_number` in our example). Instead you sort the list of event_targets zipped with the list of variables. That means that after the zipped sort, `targets_list_02` will still have `pops_number_02` number of pops and that the list `pops_number` is sorted.  
+A good way to solve this problem is by saving the empires in a list of event_targets alongside the saving of their number of pops by using the same index. This means `pops_number_2` stores the number of pops of the empire stored in `targets_list_02`. We then say the list of events_target is *zipped* to the list of variables (even if there is no real link between the two outside of the modders code). Then you can't just sort the list of variables (`pops_number` in our example). Instead you sort the list of event_targets zipped with the list of variables. That means that after the zipped sort, `targets_list_2` will still have `pops_number_2` number of pops and that the list `pops_number` is sorted.  
+  
+There is however one limitation: there must not exist an index in the list where the zipped event_targets list doesn't have an event_target saved.  
   
 Examples :  
 `SLEX_sort_zipped_target_list_bubble = { LIST = listname ZIPPED_LIST = event_targets_listname }`  
@@ -77,7 +88,7 @@ As seen, you can directly use the list name followed by an underscore followed b
 * VALUE : the variable where to write the listname_index (string)
   
 Example :  
-`SLEX_get_list_variable_const_index = { LIST = test_list INDEX = 07 VALUE = test_output }`  
+`SLEX_get_list_variable_const_index = { LIST = test_list INDEX = 7 VALUE = test_output }`  
 `SLEX_get_list_variable_const_index = { LIST = test_list INDEX = 51 VALUE = test_output }`  
   
 ##### SLEX_set_list_variable_const_index
@@ -87,7 +98,7 @@ Example :
 * VALUE : the value to write to listname_index (either int/float, or a variable ie a string)
   
 Example :  
-`SLEX_set_list_variable_const_index = { LIST = test_list INDEX = 07 VALUE = 3 }`  
+`SLEX_set_list_variable_const_index = { LIST = test_list INDEX = 7 VALUE = 3 }`  
 `SLEX_set_list_variable_const_index = { LIST = test_list INDEX = 51 VALUE = test_input }`  
   
 ##### SLEX_change_list_variable_const_index
@@ -97,7 +108,7 @@ Example :
 * VALUE : the value to add to listname_index (either int/float, or a variable ie a string)
   
 Example :  
-`SLEX_change_list_variable_const_index = { LIST = test_list INDEX = 07 VALUE = 3 }`  
+`SLEX_change_list_variable_const_index = { LIST = test_list INDEX = 7 VALUE = 3 }`  
 `SLEX_change_list_variable_const_index = { LIST = test_list INDEX = 51 VALUE = test_input }`  
   
 ##### SLEX_subtract_list_variable_const_index
@@ -107,7 +118,7 @@ Example :
 * VALUE : the value to subtract to listname_index (either int/float, or a variable ie a string)
   
 Example :  
-`SLEX_subtract_list_variable_const_index = { LIST = test_list INDEX = 07 VALUE = 3 }`  
+`SLEX_subtract_list_variable_const_index = { LIST = test_list INDEX = 7 VALUE = 3 }`  
 `SLEX_subtract_list_variable_const_index = { LIST = test_list INDEX = 51 VALUE = test_input }`  
   
 ##### SLEX_multiply_list_variable_const_index
@@ -118,7 +129,7 @@ Example :
   
 Example :  
 `SLEX_multiply_list_variable_const_index = { LIST = test_list INDEX = 51 VALUE = 3 }`  
-`SLEX_multiply_list_variable_const_index = { LIST = test_list INDEX = 01 VALUE = test_input }`  
+`SLEX_multiply_list_variable_const_index = { LIST = test_list INDEX = 1 VALUE = test_input }`  
   
 ##### SLEX_divide_list_variable_const_index
 `SLEX_divide_list_variable_const_index = { LIST = listname INDEX = index VALUE = value }`  
@@ -127,7 +138,7 @@ Example :
 * VALUE : the value by which listname_index should be divided (either int/float, or a variable ie a string)
   
 Example :  
-`SLEX_divide_list_variable_const_index = { LIST = test_list INDEX = 07 VALUE = 3 }`  
+`SLEX_divide_list_variable_const_index = { LIST = test_list INDEX = 7 VALUE = 3 }`  
 `SLEX_divide_list_variable_const_index = { LIST = test_list INDEX = 17 VALUE = test_input }`  
   
 ##### SLEX_load_list_event_const_index
@@ -139,7 +150,7 @@ Example :
 This loads the `listname_index` and save it under the name `target` as an event_target. Remember that it is not a global event_target.  
   
 Example :  
-`SLEX_load_list_event_const_index = { LIST = test_list INDEX = 07 TARGET = my_event_target }`  
+`SLEX_load_list_event_const_index = { LIST = test_list INDEX = 7 TARGET = my_event_target }`  
   
 ##### SLEX_store_list_event_const_index
 `SLEX_store_list_event_const_index = { LIST = listname INDEX = index TARGET = target }`  
@@ -150,9 +161,9 @@ Example :
 This saves the `target` and save it under the name `listname_index`. If you want to save an existing event_target, remember to specify `event_target:` in front of its name (see third example). Remember that it is not a global event_target.  
   
 Example :  
-`SLEX_store_list_event_const_index = { LIST = test_list INDEX = 07 TARGET = this }`  
-`SLEX_store_list_event_const_index = { LIST = test_list INDEX = 07 } # This is the same as above`  
-`SLEX_store_list_event_const_index = { LIST = test_list INDEX = 07 TARGET = event_target:my_event_target }`  
+`SLEX_store_list_event_const_index = { LIST = test_list INDEX = 7 TARGET = this }`  
+`SLEX_store_list_event_const_index = { LIST = test_list INDEX = 7 } # This is the same as above`  
+`SLEX_store_list_event_const_index = { LIST = test_list INDEX = 7 TARGET = event_target:my_event_target }`  
 #### Using variable index
 So this is really the core of the mod. The first functions are basically the same as for constant index, except now the INDEX has to be a variable (ie a string corresponding to the name of the variable).  
   

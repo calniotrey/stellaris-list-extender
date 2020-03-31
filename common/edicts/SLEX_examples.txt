@@ -1,4 +1,4 @@
-SLEX_give_pops = {
+SLEX_give_pops_by_ranking = {
     length = 10
     potential = {
         is_ai = no
