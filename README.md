@@ -1,5 +1,5 @@
 # Stellaris List EXtender  
-This mod is a utility mod. It adds functions to allow modders to use lists of variables or event_targets and to sort them. It also allows modders to get the value of a trigger condtion (such as income, or amount of minerals in the reserve) stored into a variable. See "Examples" for some examples of what you can do.  
+This mod is a utility mod. It adds functions to allow modders to use lists of variables or event_targets and to sort them. It also allows modders to get the value of a trigger condition (such as income, or amount of minerals in the reserve) stored into a variable. See "Examples" for some examples of what you can do.  
   
 ## Requirements
 None  
@@ -100,8 +100,8 @@ SLEX_get_custom_parameter_advanced = {
 Use this for something like minerals reserve that could be checked directly with :  
 ```
 CONDITION_NAME = {
-    $FIRST_KW$ = $SECOND_KW$
-    $THIRD_KW$ < value
+    FIRST_KW = SECOND_KW
+    THIRD_KW < value
 }
 ```  
   
