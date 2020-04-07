@@ -82,13 +82,15 @@ Use this for something like income that could be checked directly with `CONDITIO
 `SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = output_income }`  
   
 #### Advanced trigger condition
-```SLEX_get_custom_parameter_advanced = {
+```
+SLEX_get_custom_parameter_advanced = {
     CONDITION_NAME = trigger_condition
     FIRST_KW = first_keyword
     SECOND_KW = second_keyword
     THIRD_KW = third_keyword
     VARIABLE = variable_name
-}```  
+}
+```  
 * trigger_condition : the name of the trigger condition (string)
 * first_keyword : the name of the first keyword of the trigger condition (string)
 * second_keyword : the name of the second keyword of the trigger condition (string)
@@ -96,19 +98,23 @@ Use this for something like income that could be checked directly with `CONDITIO
 * variable_name : the name of the variable where to write the result (string)
   
 Use this for something like minerals reserve that could be checked directly with :  
-```CONDITION_NAME = {
+```
+CONDITION_NAME = {
     $FIRST_KW$ = $SECOND_KW$
     $THIRD_KW$ < value
-}```  
+}
+```  
   
 Use it like this :  
-```SLEX_get_custom_parameter_advanced = {
+```
+SLEX_get_custom_parameter_advanced = {
     CONDITION_NAME = has_resource
     FIRST_KW = type
     SECOND_KW = minerals
     THIRD_KW = amount
     VARIABLE = variable_name
-}```  
+}
+```  
   
 ### Sort
 Now to the sort part.  
