@@ -223,3 +223,103 @@ country_event = {
         }
     }
 }
+
+### SLEX_get_custom_parameter
+
+country_event = {
+    id = SLEX_example_events.11
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate={
+        while = {
+            count = 1
+            SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
+        }
+	}
+}
+
+country_event = {
+    id = SLEX_example_events.12
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate={
+        while = {
+            count = 1000
+            SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
+        }
+	}
+}
+
+country_event = {
+    id = SLEX_example_events.13
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate={
+        while = {
+            count = 1000000
+            SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
+        }
+	}
+}
+
+### SLEX_get_custom_parameter_advanced
+
+country_event = {
+    id = SLEX_example_events.21
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate={
+        while = {
+            count = 1
+            SLEX_get_custom_parameter_advanced = {
+                CONDITION_NAME = has_resource
+                FIRST_KW = type
+                SECOND_KW = minerals
+                THIRD_KW = amount
+                VARIABLE = SLEX_example_minerals_reserve
+            }
+        }
+	}
+}
+
+country_event = {
+    id = SLEX_example_events.22
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate={
+        while = {
+            count = 1000
+            SLEX_get_custom_parameter_advanced = {
+                CONDITION_NAME = has_resource
+                FIRST_KW = type
+                SECOND_KW = minerals
+                THIRD_KW = amount
+                VARIABLE = SLEX_example_minerals_reserve
+            }
+        }
+	}
+}
+
+country_event = {
+    id = SLEX_example_events.23
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate={
+        while = {
+            count = 1000000
+            SLEX_get_custom_parameter_advanced = {
+                CONDITION_NAME = has_resource
+                FIRST_KW = type
+                SECOND_KW = minerals
+                THIRD_KW = amount
+                VARIABLE = SLEX_example_minerals_reserve
+            }
+        }
+	}
+}

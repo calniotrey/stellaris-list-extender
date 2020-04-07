@@ -1,5 +1,5 @@
 # Stellaris List EXtender  
-This mod is a utility mod. It adds functions to allow modders to use lists of variables or event_targets and to sort them. See "Examples" for some examples of what you can do.  
+This mod is a utility mod. It adds functions to allow modders to use lists of variables or event_targets and to sort them. It also allows modders to get the value of a trigger condition (such as income, or amount of minerals in the reserve) stored into a variable. See "Examples" for some examples of what you can do.  
   
 ## Requirements
 None  
@@ -36,10 +36,19 @@ Due to this limitation, the index has to be between 0 (included) and ff (include
   
 The highest index (ff) is defined by the number of stack levels SLEX uses to get and set the variables/event_targets. The getter and setter (and all similar functions such as change/multiply/...) use 1 stack level for constant index and 2 stack levels for variable index. The sort function uses 3 stack levels. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
   
+Now about getting the value of a trigger condition into a variable. This is also a scripted effect, and it currently uses **4 levels of the stack**. It can take nearly any trigger condition as parameter and store its value inside a variable.  
+The value will be the integer that it closest to 0 without the distance to the real value being more than 1 : if the real value is 83.54, the variable will hold 83. Same if the real value was 83 or 83.001. If the real value was -42.16 or -42.98, the variable will hold -42.  
+On top of that, if the real value exceeds 65 536 (2^16) included, the variable will hold +/- 65 535.  
+Special scripted_effects for getting decimal places (like getting 42.3 from 42.31) should be implemented soon.  
+  
+There is in fact 2 different scripted_effects :
+*First one is for getting "simple" trigger condition such as income : anything that is of the form `CONDITION_NAME < value` where value is an integer/float. For income, use "income" for CONDITION_NAME  
+*Second one is for getting advanced trigger condition such as the minerals reserve : anything that is of the form `CONDITION_NAME = { FIRST_KW = SECOND_KW THIRD_KW < value }` where value is an integer/float. For minerals reserve, use "has_resource" for CONDITION_NAME, "type" for FIRST_KW, "minerals" for SECOND_KW and "amount" for THIRD_KW. That's because you usually check the minerals reserve with : `has_resource = { type = minerals amount < 500 }`  
+  
 One last warning before closing the "Must read" part: For some reason, Stellaris doesn't like 1 letter variable. So please do not use i/a/b/c/...  
   
 ## Examples
-To access the ingame examples, open the console and type `effect set_global_flag = SLEX_example`. This will unlock the (non-localized) example edicts. When active, you have a 10 days delay to get into observer mode before the event fires.  
+To access the ingame examples, open the console and type `effect set_global_flag = SLEX_example`. This will unlock the (english only localized) example edicts. When active, you have a 10 days delay to get into observer mode (if you need/want to) before the event fires. These examples have the purpose to display the possibilies as well as allow to do a quick performance check.  
   
 List of the ingame examples:  
 *SLEX_give_pops_by_ranking: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have).  
@@ -47,13 +56,68 @@ List of the ingame examples:
 *SLEX_fill: Fills a list fully (256 elements) in descending order. Use this before the following 2 edicts.  
 *SLEX_sort_filled_20_times: Sorts the list filled by SLEX_fill 20 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill.  
 *SLEX_sort_filled_200_times: Sorts the list filled by SLEX_fill 200 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill if the previous one was to fast.  
+*SLEX_get_custom_parameter_1_times: Gets the income (energy production before consumption) and stores it in a variable.  
+*SLEX_get_custom_parameter_1_000_times: Like above, but 1 000 times for performance check.  
+*SLEX_get_custom_parameter_1_000_000_times: Like above, but 1 000 000 times for performance check.  
+*SLEX_get_custom_parameter_advanced_1_times: Gets the minerals currently held in reserve and stores it in a variable.  
+*SLEX_get_custom_parameter_advanced_1_000_times: Like above, but 1 000 times for performance check.  
+*SLEX_get_custom_parameter_advanced_1_000_000_times: Like above, but 1 000 000 times for performance check.  
   
 On my computer, at the start of the game (game running on very fast, medium size galaxy with 8 AI), a full (256 elements) sort takes around 150 ms. Take in mind this is a non-optimized non-adapted bubble sort so complexity in O(length^2).  
+Getting a (non-advanced) custom parameter (like the income) takes around 10^-6 seconds.  
+Getting an advanced custom parameter (like the mineral reserve) takes around 2*10^-6 seconds.  
   
 ## Documentation
-Now let's look into the detailed documentation by beginning with the promised sorting functions :  
+Now let's look into the detailed documentation. Let's put aside the promised sorting functions for a small moment to quickly look at the loading of trigger condition into variables.  
+  
+### Get custom parameter
+As stated in the description above, there is 2 different scripted_effects depending on the nature of the trigger condition.  
+  
+#### Simple trigger condition
+`SLEX_get_custom_parameter = { CONDITION_NAME = trigger_condition VARIABLE = variable_name }`  
+* trigger_condition : the name of the trigger condition (string)
+* variable_name : the name of the variable where to write the result (string)
+  
+Use this for something like income that could be checked directly with `CONDITION_NAME < value`, use it like this :  
+`SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = output_income }`  
+  
+#### Advanced trigger condition
+```
+SLEX_get_custom_parameter_advanced = {
+    CONDITION_NAME = trigger_condition
+    FIRST_KW = first_keyword
+    SECOND_KW = second_keyword
+    THIRD_KW = third_keyword
+    VARIABLE = variable_name
+}
+```  
+* trigger_condition : the name of the trigger condition (string)
+* first_keyword : the name of the first keyword of the trigger condition (string)
+* second_keyword : the name of the second keyword of the trigger condition (string)
+* third_keyword : the name of the third keyword of the trigger condition (string)
+* variable_name : the name of the variable where to write the result (string)
+  
+Use this for something like minerals reserve that could be checked directly with :  
+```
+CONDITION_NAME = {
+    FIRST_KW = SECOND_KW
+    THIRD_KW < value
+}
+```  
+  
+Use it like this :  
+```
+SLEX_get_custom_parameter_advanced = {
+    CONDITION_NAME = has_resource
+    FIRST_KW = type
+    SECOND_KW = minerals
+    THIRD_KW = amount
+    VARIABLE = variable_name
+}
+```  
   
 ### Sort
+Now to the sort part.  
   
 #### Sort of a list of variables
 With SLEX, sorting a list of variables is pretty easy. Just use the `SLEX_sort_bubble` scripted_effect. Please remember to only use 2 levels of the stack when using it (reasons and explanations above). By default, the sort order is ascending. Use `ASCENDING = no` for descending order.  
@@ -301,8 +365,14 @@ Accepted parameters :
 This trigger allows you to "dump" the unused parameters from your scriped_triggers. Just give the parameters that you didn't use. It will always evaluate to True (after stellaris inversion).
 
 ## Legal Stuff
-You are not allowed to put this mod on any site without my approval. This is only so there is one version of it for this repository.  
+You are not allowed to put this mod on any site without my approval. This is only so there is one version on it for this repository.  
+You are not allowed to include this mod as is into your own mod without my approval. This is here so that players don't have several versions of this mod. This could cause issues and code duplication. I recommend setting this mod as a dependance so that players only have one up-to-date version of this mod.  
+You are allowed to use the technical ideas behind this mod for your own mods. In this case just make sure to not have any conflict with this mod and to put a link to this repository for other modders. But please take in mind that doing this means not having directly any update from this mod which means no performance update for your players.  
+  
 You are allowed to make modifications of this mod and put it anywhere you want. You are only required to put a link to this github repository (so users can find other forks if they want too).  
-You are allowed to use this mod for any type of content (so outside of Stellaris modding).  
+  
+You are allowed to use this mod for any type of content that is not Stellaris modding.  
+  
 However, you are not allowed to use this mod for any content that generates money without my approval. This has priority over the other rules. Paradox Interactive has of course my approval.  
+  
 As usual, I'm not responsable for any damage/incident resulting of the use of this mod, including (but not limited to) save corruption, achievements blocked and so on.

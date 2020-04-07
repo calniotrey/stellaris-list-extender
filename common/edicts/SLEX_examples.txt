@@ -102,3 +102,129 @@ SLEX_sort_filled_200_times = {
         }
     }
 }
+
+SLEX_get_custom_parameter_1_times = {
+    length = 10
+	potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+	ai_weight = {
+        weight = 0
+    }
+	resources = {
+		category = edicts
+		cost = {}
+	}
+	effect={
+        country_event = {
+            id = SLEX_example_events.11
+            days = 10
+        }
+	}
+}
+
+SLEX_get_custom_parameter_1_000_times = {
+    length = 10
+	potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+	ai_weight = {
+        weight = 0
+    }
+	resources = {
+		category = edicts
+		cost = {}
+	}
+	effect={
+        country_event = {
+            id = SLEX_example_events.12
+            days = 10
+        }
+	}
+}
+
+SLEX_get_custom_parameter_1_000_000_times = {
+    length = 10
+	potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+	ai_weight = {
+        weight = 0
+    }
+	resources = {
+		category = edicts
+		cost = {}
+	}
+	effect={
+        country_event = {
+            id = SLEX_example_events.13
+            days = 10
+        }
+	}
+}
+
+SLEX_get_custom_parameter_advanced_1_times = {
+    length = 10
+	potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+	ai_weight = {
+        weight = 0
+    }
+	resources = {
+		category = edicts
+		cost = {}
+	}
+	effect={
+        country_event = {
+            id = SLEX_example_events.21
+            days = 10
+        }
+	}
+}
+
+SLEX_get_custom_parameter_advanced_1_000_times = {
+    length = 10
+	potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+	ai_weight = {
+        weight = 0
+    }
+	resources = {
+		category = edicts
+		cost = {}
+	}
+	effect={
+        country_event = {
+            id = SLEX_example_events.22
+            days = 10
+        }
+	}
+}
+
+SLEX_get_custom_parameter_advanced_1_000_000_times = {
+    length = 10
+	potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+	ai_weight = {
+        weight = 0
+    }
+	resources = {
+		category = edicts
+		cost = {}
+	}
+	effect={
+        country_event = {
+            id = SLEX_example_events.23
+            days = 10
+        }
+	}
+}
