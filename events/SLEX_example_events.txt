@@ -6,6 +6,10 @@ country_event = {
     is_triggered_only = yes
 
     immediate={
+        # Reset SLEX_example_number_of_pops_global
+        SLEX_reset_list_variable = {
+            LIST = SLEX_example_number_of_pops_global
+        }
         # We fill the list SLEX_example_number_of_pops_global with the number of pops
         set_variable = {
             which = SLEX_example_id_of_country
@@ -39,15 +43,10 @@ country_event = {
             save_event_target_as = SLEX_example_current_country
             root = {
                 # We store the amount of pops of this country
-                SLEX_set_list_variable_var_index = {
+                SLEX_append_list_zipped = {
                     LIST = SLEX_example_number_of_pops_global
-                    INDEX = SLEX_example_id_of_country
+                    ZIPPED_LIST = SLEX_example_number_of_pops_global_country
                     VALUE = SLEX_example_number_of_pops
-                }
-                # We store this country as an event_target in the list
-                SLEX_store_list_event_var_index = {
-                    LIST = SLEX_example_number_of_pops_global_country
-                    INDEX = SLEX_example_id_of_country
                     TARGET = event_target:SLEX_example_current_country
                 }
                 # We increment the number of visited countries
@@ -163,33 +162,25 @@ country_event = {
     is_triggered_only = yes
 
     immediate={
+        SLEX_reset_list_variable = { LIST = SLEX_example_sort_list }
         set_variable = {
             which = SLEX_example_value
-            value = 128
-        }
-        set_variable = {
-            which = SLEX_example_index
-            value = 0
+            value = 256
         }
         while = {
             limit = {
                 check_variable = {
-                    which = SLEX_example_index
-                    value < 256
+                    which = SLEX_example_value
+                    value > 0
                 }
             }
-            SLEX_set_list_variable_var_index = {
+            SLEX_append_list_variable = {
                 LIST = SLEX_example_sort_list
-                INDEX = SLEX_example_index
                 VALUE = SLEX_example_value
             }
             change_variable = {
                 which = SLEX_example_value
                 value = -1
-            }
-            change_variable = {
-                which = SLEX_example_index
-                value = 1
             }
         }
     }

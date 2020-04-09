@@ -13,14 +13,18 @@ SLEX_set_list_variable_const_index = {
     if = {
         limit = {
             check_variable = {
-                which = $LIST$_max_index
-                value < $INDEX$
+                which = $LIST$_length
+                value <= $INDEX$
             }
         }
-        # We have to increment the max_index
+        # We have to increment the length
         set_variable = {
-            which = $LIST$_max_index
+            which = $LIST$_length
             value = $INDEX$
+        }
+        change_variable = {
+            which = $LIST$_length
+            value = 1
         }
     }
 }
@@ -33,14 +37,18 @@ SLEX_change_list_variable_const_index = {
     if = {
         limit = {
             check_variable = {
-                which = $LIST$_max_index
-                value < $INDEX$
+                which = $LIST$_length
+                value <= $INDEX$
             }
         }
         # We have to increment the max_index
         set_variable = {
-            which = $LIST$_max_index
+            which = $LIST$_length
             value = $INDEX$
+        }
+        change_variable = {
+            which = $LIST$_length
+            value = 1
         }
     }
 }
@@ -53,14 +61,18 @@ SLEX_subtract_list_variable_const_index = {
     if = {
         limit = {
             check_variable = {
-                which = $LIST$_max_index
-                value < $INDEX$
+                which = $LIST$_length
+                value <= $INDEX$
             }
         }
         # We have to increment the max_index
         set_variable = {
-            which = $LIST$_max_index
+            which = $LIST$_length
             value = $INDEX$
+        }
+        change_variable = {
+            which = $LIST$_length
+            value = 1
         }
     }
 }
@@ -275,14 +287,18 @@ SLEX_set_list_variable_var_index = {
         if = {
             limit = {
                 check_variable = {
-                    which = $LIST$_max_index
-                    value < $INDEX$
+                    which = $LIST$_length
+                    value <= $INDEX$
                 }
             }
             # We have to increment the max_index
             set_variable = {
-                which = $LIST$_max_index
+                which = $LIST$_length
                 value = $INDEX$
+            }
+            change_variable = {
+                which = $LIST$_length
+                value = 1
             }
         }
     }
@@ -385,14 +401,18 @@ SLEX_change_list_variable_var_index = {
         if = {
             limit = {
                 check_variable = {
-                    which = $LIST$_max_index
-                    value < $INDEX$
+                    which = $LIST$_length
+                    value <= $INDEX$
                 }
             }
             # We have to increment the max_index
             set_variable = {
-                which = $LIST$_max_index
+                which = $LIST$_length
                 value = $INDEX$
+            }
+            change_variable = {
+                which = $LIST$_length
+                value = 1
             }
         }
     }
@@ -495,14 +515,18 @@ SLEX_subtract_list_variable_var_index = {
         if = {
             limit = {
                 check_variable = {
-                    which = $LIST$_max_index
-                    value < $INDEX$
+                    which = $LIST$_length
+                    value <= $INDEX$
                 }
             }
             # We have to increment the max_index
             set_variable = {
-                which = $LIST$_max_index
+                which = $LIST$_length
                 value = $INDEX$
+            }
+            change_variable = {
+                which = $LIST$_length
+                value = 1
             }
         }
     }
@@ -704,10 +728,162 @@ SLEX_divide_list_variable_var_index = {
 
 ######################################
 
+SLEX_reset_list_variable = {
+    set_variable = {
+        which = SLEX_i
+        value = 256
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_i
+                value > 0
+            }
+        }
+        subtract_variable = {
+            which = SLEX_i
+            value = 1
+        }
+        SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_i VALUE = 0 }
+    }
+    set_variable = {
+        which = $LIST$_length
+        value = 0
+    }
+}
+
+SLEX_fill_list_variable = {
+    set_variable = {
+        which = SLEX_i
+        value = $AMOUNT$
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_i
+                value > 0
+            }
+        }
+        subtract_variable = {
+            which = SLEX_i
+            value = 1
+        }
+        SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_i VALUE = $VALUE$ }
+    }
+}
+
+SLEX_fill_list_zipped = {
+    set_variable = {
+        which = SLEX_i
+        value = $AMOUNT$
+    }
+    while = {
+        limit = {
+            check_variable = {
+                which = SLEX_i
+                value > 0
+            }
+        }
+        subtract_variable = {
+            which = SLEX_i
+            value = 1
+        }
+        SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_i VALUE = $VALUE$ }
+        SLEX_store_list_event_var_index = { LIST = $LIST_ZIPPED$ INDEX = SLEX_i TARGET = $TARGET|this$ }
+    }
+}
+
+SLEX_append_list_variable = {
+    # compute the index where to insert
+    set_variable = {
+        which = SLEX_INDEX
+        value = $LIST$_length
+    }
+    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_INDEX VALUE = $VALUE$ }
+}
+
+SLEX_append_list_zipped = {
+    # compute the index where to insert
+    set_variable = {
+        which = SLEX_INDEX
+        value = $LIST$_length
+    }
+    SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_INDEX VALUE = $VALUE$ }
+    SLEX_store_list_event_var_index = { LIST = $ZIPPED_LIST$ INDEX = SLEX_INDEX TARGET = $TARGET|this$ }
+}
+
+SLEX_pop_list_variable = {
+    # check if there is at least 1 element
+    if = {
+        limit = {
+            NOT = { SLEX_list_is_empty = { LIST = $LIST$ } }
+        }
+        # compute the index where to pop
+        set_variable = {
+            which = SLEX_INDEX
+            value = $LIST$_length
+        }
+        subtract_variable = {
+            which = SLEX_INDEX
+            value = 1
+        }
+        # Get the value
+        SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_INDEX VALUE = $VALUE$ }
+        # Replace it by 0
+        SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_INDEX VALUE = 0 }
+        # Reduce the length by 1
+        subtract_variable = {
+            which = $LIST$_length
+            value = 1
+        }
+    }
+}
+
+SLEX_pop_list_zipped = {
+    # check if there is at least 1 element
+    if = {
+        limit = {
+            NOT = { SLEX_list_is_empty = { LIST = $LIST$ } }
+        }
+        # compute the index where to pop
+        set_variable = {
+            which = SLEX_INDEX
+            value = $LIST$_length
+        }
+        subtract_variable = {
+            which = SLEX_INDEX
+            value = 1
+        }
+        # Get the value
+        [[VALUE]
+        SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_INDEX VALUE = $VALUE$ } ]
+        # Load the event target
+        SLEX_load_list_event_var_index = {
+            LIST = $ZIPPED_LIST$
+            INDEX = SLEX_INDEX
+            TARGET = $TARGET$
+        }
+        # Replace the value by 0
+        SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_INDEX VALUE = 0 }
+        # There is no way I know of to remove a event_target
+        # Reduce the length by 1
+        subtract_variable = {
+            which = $LIST$_length
+            value = 1
+        }
+    }
+}
+
+######################################
+
 SLEX_sort_bubble = {
     set_variable = {
         which = SLEX_i
-        value = $LIST$_max_index
+        value = $LIST$_length
+    }
+    subtract_variable = {
+        which = SLEX_i
+        value = 1
     }
     if = {
         limit = {
@@ -836,7 +1012,11 @@ SLEX_sort_bubble = {
 SLEX_sort_zipped_target_list_bubble = {
     set_variable = {
         which = SLEX_i
-        value = $LIST$_max_index
+        value = $LIST$_length
+    }
+    subtract_variable = {
+        which = SLEX_i
+        value = 1
     }
     if = {
         limit = {

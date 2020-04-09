@@ -42,8 +42,8 @@ On top of that, if the real value exceeds 65 536 (2^16) included, the variable w
 Special scripted_effects for getting decimal places (like getting 42.3 from 42.31) should be implemented soon.  
   
 There is in fact 2 different scripted_effects :
-*First one is for getting "simple" trigger condition such as income : anything that is of the form `CONDITION_NAME < value` where value is an integer/float. For income, use "income" for CONDITION_NAME  
-*Second one is for getting advanced trigger condition such as the minerals reserve : anything that is of the form `CONDITION_NAME = { FIRST_KW = SECOND_KW THIRD_KW < value }` where value is an integer/float. For minerals reserve, use "has_resource" for CONDITION_NAME, "type" for FIRST_KW, "minerals" for SECOND_KW and "amount" for THIRD_KW. That's because you usually check the minerals reserve with : `has_resource = { type = minerals amount < 500 }`  
+* First one is for getting "simple" trigger condition such as income : anything that is of the form `CONDITION_NAME < value` where value is an integer/float. For income, use "income" for CONDITION_NAME  
+* Second one is for getting advanced trigger condition such as the minerals reserve : anything that is of the form `CONDITION_NAME = { FIRST_KW = SECOND_KW THIRD_KW < value }` where value is an integer/float. For minerals reserve, use "has_resource" for CONDITION_NAME, "type" for FIRST_KW, "minerals" for SECOND_KW and "amount" for THIRD_KW. That's because you usually check the minerals reserve with : `has_resource = { type = minerals amount < 500 }`  
   
 One last warning before closing the "Must read" part: For some reason, Stellaris doesn't like 1 letter variable. So please do not use i/a/b/c/...  
   
@@ -51,17 +51,17 @@ One last warning before closing the "Must read" part: For some reason, Stellaris
 To access the ingame examples, open the console and type `effect set_global_flag = SLEX_example`. This will unlock the (english only localized) example edicts. When active, you have a 10 days delay to get into observer mode (if you need/want to) before the event fires. These examples have the purpose to display the possibilies as well as allow to do a quick performance check.  
   
 List of the ingame examples:  
-*SLEX_give_pops_by_ranking: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have).  
-*SLEX_sort_twice: Fills a list fully (256 elements) in descending order, then sorts it in ascending order and then in descending order. You can use this to see the sort performance in the worst case.  
-*SLEX_fill: Fills a list fully (256 elements) in descending order. Use this before the following 2 edicts.  
-*SLEX_sort_filled_20_times: Sorts the list filled by SLEX_fill 20 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill.  
-*SLEX_sort_filled_200_times: Sorts the list filled by SLEX_fill 200 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill if the previous one was to fast.  
-*SLEX_get_custom_parameter_1_times: Gets the income (energy production before consumption) and stores it in a variable.  
-*SLEX_get_custom_parameter_1_000_times: Like above, but 1 000 times for performance check.  
-*SLEX_get_custom_parameter_1_000_000_times: Like above, but 1 000 000 times for performance check.  
-*SLEX_get_custom_parameter_advanced_1_times: Gets the minerals currently held in reserve and stores it in a variable.  
-*SLEX_get_custom_parameter_advanced_1_000_times: Like above, but 1 000 times for performance check.  
-*SLEX_get_custom_parameter_advanced_1_000_000_times: Like above, but 1 000 000 times for performance check.  
+* SLEX_give_pops_by_ranking: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have).  
+* SLEX_sort_twice: Fills a list fully (256 elements) in descending order, then sorts it in ascending order and then in descending order. You can use this to see the sort performance in the worst case.  
+* SLEX_fill: Fills a list fully (256 elements) in descending order. Use this before the following 2 edicts.  
+* SLEX_sort_filled_20_times: Sorts the list filled by SLEX_fill 20 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill.  
+* SLEX_sort_filled_200_times: Sorts the list filled by SLEX_fill 200 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill if the previous one was to fast.  
+* SLEX_get_custom_parameter_1_times: Gets the income (energy production before consumption) and stores it in a variable.  
+* SLEX_get_custom_parameter_1_000_times: Like above, but 1 000 times for performance check.  
+* SLEX_get_custom_parameter_1_000_000_times: Like above, but 1 000 000 times for performance check.  
+* SLEX_get_custom_parameter_advanced_1_times: Gets the minerals currently held in reserve and stores it in a variable.  
+* SLEX_get_custom_parameter_advanced_1_000_times: Like above, but 1 000 times for performance check.  
+* SLEX_get_custom_parameter_advanced_1_000_000_times: Like above, but 1 000 000 times for performance check.  
   
 On my computer, at the start of the game (game running on very fast, medium size galaxy with 8 AI), a full (256 elements) sort takes around 150 ms. Take in mind this is a non-optimized non-adapted bubble sort so complexity in O(length^2).  
 Getting a (non-advanced) custom parameter (like the income) takes around 10^-6 seconds.  
@@ -137,6 +137,97 @@ Examples :
 `SLEX_sort_zipped_target_list_bubble = { LIST = listname ZIPPED_LIST = event_targets_listname }`  
 `SLEX_sort_zipped_target_list_bubble = { LIST = listname ZIPPED_LIST = event_targets_listname ASCENDING = yes } # same as above`  
 `SLEX_sort_zipped_target_list_bubble = { LIST = listname ZIPPED_LIST = list ASCENDING = no }`  
+  
+### Filling and reseting a list
+Note : there is no concept of erasing event_targets, so there is no possibility in this mod to erase them.
+
+#### Reseting a list
+`SLEX_reset_list_variable = { LIST = listname }`
+* LIST : the list name (string)
+  
+Just fills the list with 0 and resets its length to 0.
+  
+Example :  
+`SLEX_reset_list_variable = { LIST = test_list }`  
+  
+#### Filling a list
+`SLEX_fill_list_variable = { LIST = listname AMOUNT = amount VALUE = value}`
+* LIST : the list name (string)
+* AMOUNT : the value up to which (excluded) the list should be filled (either int/float, or a variable ie a string)
+* VALUE : the value used to fill the list (either int/float, or a variable ie a string)
+  
+Just fills the list with VALUE from 0 to AMOUNT-1 : it sets its length to AMOUNT.  
+  
+Example :  
+`SLEX_fill_list_variable = { LIST = test_list AMOUNT = 5 VALUE = 42 }`  
+`SLEX_fill_list_variable = { LIST = test_list AMOUNT = 3 VALUE = my_variable }`  
+`SLEX_fill_list_variable = { LIST = test_list AMOUNT = some_variable VALUE = my_variable }`  
+  
+#### Filling a zipped list
+`SLEX_fill_list_zipped = { LIST = listname ZIPPED_LIST = zipped_list_name AMOUNT = amount VALUE = value TARGET = target }`
+* LIST : the list name (string)
+* ZIPPED_LIST : the name of the list of event_targets (string)
+* AMOUNT : the value up to which (excluded) the list should be filled (either int/float, or a variable ie a string)
+* VALUE : the value used to fill the list (either int/float, or a variable ie a string)
+* TARGET : the event_target used to fill the zipped list (string). Defaults to `this`
+  
+Just fills the list with VALUE from 0 to AMOUNT-1 and the zipped_list with TARGET (defaults to `this`) : it sets the list length to AMOUNT.  
+  
+Example :  
+`SLEX_fill_list_zipped = { LIST = test_list ZIPPED_LIST = test_ev AMOUNT = 5 VALUE = 42 TARGET = event_target:ev_target }`  
+`SLEX_fill_list_zipped = { LIST = test_list ZIPPED_LIST = test_ev AMOUNT = 3 VALUE = my_variable }`  
+`SLEX_fill_list_zipped = { LIST = test_list ZIPPED_LIST = test_ev AMOUNT = some_variable VALUE = my_variable }`  
+  
+### Handling a list like a FILO (first in last out)
+If you want to handle the list like a pile, you can!  
+  
+#### Append to a list
+`SLEX_append_list_variable = { LIST = listname VALUE = value }`
+* LIST : the list name (string)
+* VALUE : the value appended to the list (either int/float, or a variable ie a string)
+  
+Appends VALUE to the end of the list and increments its length by one.  
+  
+Example :  
+`SLEX_append_list_variable = { LIST = test_list VALUE = 42 }`  
+`SLEX_append_list_variable = { LIST = test_list VALUE = my_var }`  
+  
+#### Append to a zipped list
+`SLEX_append_list_zipped = { LIST = listname ZIPPED_LIST = zipped_list_name VALUE = value TARGET = target }`
+* LIST : the list name (string)
+* ZIPPED_LIST : the name of the list of event_targets (string)
+* VALUE : the value appended to the list (either int/float, or a variable ie a string)
+* TARGET : the event_target appended to the zipped list (string). Defaults to `this`
+  
+Appends VALUE to the end of the list and TARGET (defaults to `this`) at the end or the zipped list and increments its length by one.  
+  
+Example :  
+`SLEX_append_list_zipped = { LIST = test_list ZIPPED_LIST = test_ev VALUE = 42 TARGET = event_target:ev_target }`  
+`SLEX_append_list_zipped = { LIST = test_list ZIPPED_LIST = test_ev VALUE = my_variable }`  
+  
+#### Pop from a list
+`SLEX_pop_list_variable = { LIST = listname VALUE = value }`
+* LIST : the list name (string)
+* VALUE : the variable where the popped value should be stored (string)
+  
+Pops the last element of the list (stores it to the VALUE variable and replace it by 0) and decrements its length by one. If the list was empty, does nothing instead.  
+  
+Example :  
+`SLEX_pop_list_variable = { LIST = test_list VALUE = output_variable }`  
+  
+#### Pop from a zipped list
+`SLEX_pop_list_zipped = { LIST = listname ZIPPED_LIST = zipped_list_name VALUE = value TARGET = target }`
+* LIST : the list name (string)
+* ZIPPED_LIST : the name of the list of event_targets (string)
+* VALUE : the variable where the popped value should be stored (string). By default, does not store it anywhere.
+* TARGET : the event_target where the popped event_target should be stored (string).
+  
+Stores the last element of the 2 lists, replaces the last element of the list of variables by 0 and decrements its length by one. If the list was empty, does nothing instead.  
+As there is no possibility of erasing/deleting stored event_targets, you can't remove the popped event_target.  
+  
+Example :  
+`SLEX_pop_list_zipped = { LIST = test_list ZIPPED_LIST = test_ev VALUE = output_variable TARGET = event_target:ev_target }`  
+`SLEX_pop_list_zipped = { LIST = test_list ZIPPED_LIST = test_ev TARGET = event_target:ev_target }`  
   
 ### Accessing the stored variables/event_targets
 You may ask "But I can't just write `listname_variable`! How can I access a certain index using a variable ?"  
@@ -333,6 +424,12 @@ Example :
 ### Scripted_triggers
 I added some scripted_triggers as well. This is under construction and only has some code for constant INDEX. If using your own scripted_triggers, beware of Stellaris inverting scripted_triggers result if they use a parameter. I highly recommend testing your scripted_triggers and these functions before uploading your mods.  
   
+#### SLEX_list_is_empty
+`SLEX_list_is_empty = { LIST = listname }`
+* LIST : the list name (string)
+  
+This trigger is evaluated to True (after stellaris inversion) if the length of the list is 0. You could also simply do a check on listname_length. Just be careful about the inversion.  
+
 #### SLEX_check_list_variable_const_index
 `SLEX_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
 * LIST : the list name (string)
@@ -340,7 +437,7 @@ I added some scripted_triggers as well. This is under construction and only has 
 * LIST : the operator (=, <, >, <=, >= There is no != !!!)
 * VALUE : the value to compare to listname_index (either int/float, or a variable ie a string)  
   
-This trigger is evaluated to True (after stellaris inversion) is `LIST_INDEX OPERATOR VALUE` is True.  
+This trigger is evaluated to True (after stellaris inversion) if `LIST_INDEX OPERATOR VALUE` is True.  
   
 #### SLEX_inv_check_list_variable_const_index
 `SLEX_inv_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
@@ -349,7 +446,7 @@ This trigger is evaluated to True (after stellaris inversion) is `LIST_INDEX OPE
 * LIST : the operator (=, <, >, <=, >= There is no != !!!)
 * VALUE : the value to compare to listname_index (either int/float, or a variable ie a string)
   
-This trigger is evaluated to False (after stellaris inversion) is `LIST_INDEX OPERATOR VALUE` is True.  
+This trigger is evaluated to False (after stellaris inversion) if `LIST_INDEX OPERATOR VALUE` is True.  
 This trigger is here if you want to use "!=" in the non inverted trigger but can't, so you use this trigger with "=".  
 
 #### SLEX_dump_param
