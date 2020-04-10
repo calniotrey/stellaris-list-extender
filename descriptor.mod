@@ -1,7 +1,8 @@
-version="1.0"
+version="1.1"
 tags={
 	"Utilities"
 }
 picture="thumbnail.png"
-name="Stellaris List EXtender"
+name="SLEX"
 supported_version="2.6.*"
+remote_file_id="2054717582"

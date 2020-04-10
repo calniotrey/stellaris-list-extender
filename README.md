@@ -8,7 +8,13 @@ None
 No compatility problem
 Not iron-man compatible
   
-## How to use/test mod
+## How to use this in your mods
+1. Set this mod ([Steam workshop mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2054717582)) as a dependancy in the steam workshop
+2. Done !
+  
+If you want to upload your mod outside of the steam workshop, feel free to also upload this mod as is to the same website (separately). Only put a link to this repository on the mod page/description and contact me so that I can update this readme with the uploaded SLEX mod link. Please do not upload this mod to a website already having it and do not include this mod in yours.  
+
+## How to test latest version of this mod
 1. Open the launcher from stellaris.
 2. Go to mods > Mod tools
 3. Click `Create Mod`
@@ -37,7 +43,7 @@ Due to this limitation, the index has to be between 0 (included) and ff (include
 The highest index (ff) is defined by the number of stack levels SLEX uses to get and set the variables/event_targets. The getter and setter (and all similar functions such as change/multiply/...) use 1 stack level for constant index and 2 stack levels for variable index. The sort function uses 3 stack levels. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
   
 Now about getting the value of a trigger condition into a variable. This is also a scripted effect, and it currently uses **4 levels of the stack**. It can take nearly any trigger condition as parameter and store its value inside a variable.  
-The value will be the integer that it closest to 0 without the distance to the real value being more than 1 : if the real value is 83.54, the variable will hold 83. Same if the real value was 83 or 83.001. If the real value was -42.16 or -42.98, the variable will hold -42.  
+The decimal part of the value is discarded (i.e. the value is truncated).  
 On top of that, if the real value exceeds 65 536 (2^16) included, the variable will hold +/- 65 535.  
 Special scripted_effects for getting decimal places (like getting 42.3 from 42.31) should be implemented soon.  
   
@@ -462,14 +468,16 @@ Accepted parameters :
 This trigger allows you to "dump" the unused parameters from your scriped_triggers. Just give the parameters that you didn't use. It will always evaluate to True (after stellaris inversion).
 
 ## Legal Stuff
-You are not allowed to put this mod on any site without my approval. This is only so there is one version on it for this repository.  
-You are not allowed to include this mod as is into your own mod without my approval. This is here so that players don't have several versions of this mod. This could cause issues and code duplication. I recommend setting this mod as a dependance so that players only have one up-to-date version of this mod.  
-You are allowed to use the technical ideas behind this mod for your own mods. In this case just make sure to not have any conflict with this mod and to put a link to this repository for other modders. But please take in mind that doing this means not having directly any update from this mod which means no performance update for your players.  
+You are not allowed to put this mod without any modification on any website that has already one upload of this mod without my approval. This is only so there is one version on it for this repository. If you want to upload it as is to a new website (for example paradox mods), you are welcome to do so and please contact me so that I can put the link in this README. If you modified this mod, then you may also upload the modified version wherever you want as long as you specify that it isn't the original. Forking in github is of course allowed even if you didn't make any changes yet.  
   
-You are allowed to make modifications of this mod and put it anywhere you want. You are only required to put a link to this github repository (so users can find other forks if they want too).  
+You are not allowed to include this mod as is in your own mods (or modpacks) without my approval. This is here so that players don't have several versions of this mod. This could cause issues and code duplication. Set this mod as a dependancy instead, so that players only have one up-to-date version of this mod.  
   
-You are allowed to use this mod for any type of content that is not Stellaris modding.  
+You are allowed to use the technical ideas behind this mod for your own mods. If you need to adapt this mod to your needs, you are also allowed to include modified version of this mod in your mods. In this case make sure to not have any conflict with this mod. This means that players having both version activated should not get a single error line from them. But please take in mind that doing this means not having directly any update from this mod which means no performance update for your players. I would be very happy to include code that you think necessary in this mod (make some pull request or just contact me if you aren't familiar with github).  
   
-However, you are not allowed to use this mod for any content that generates money without my approval. This has priority over the other rules. Paradox Interactive has of course my approval.  
+You are allowed to use this mod and the ideas behind it for any type of content that is outside of Stellaris modding.  
+  
+You are not allowed to use this mod or modified version of this mod for any content that has a paywall or is begging for donations without my approval. Having a donation link is of course okay. Paradox Interactive has of course my approval.  
+
+If you are using this mod, modified version of this mod or the technical concepts behind it, you have to put a link to this github repository or to the steam workshop mod. Having your mod list this mod as a dependancy via the steamworkshop is enough (no need for additionnal links in the description).  This is here so other modders can find this mod easily.  
   
 As usual, I'm not responsable for any damage/incident resulting of the use of this mod, including (but not limited to) save corruption, achievements blocked and so on.
