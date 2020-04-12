@@ -7,7 +7,7 @@
  edict_SLEX_fill:0 "SLEX : Fill list"
  edict_SLEX_fill_desc:0 "Fill a list in descending order up to it's maximum. Use this before using one of the following sort performance edicts."
  edict_SLEX_sort_filled_20_times:0 "SLEX : Sort performance : 20"
- edict_SLEX_sort_filled_20_times_desc:0 "Sort the list initialized in the previous edict 20 times, alternatively ascending and descending.
+ edict_SLEX_sort_filled_20_times_desc:0 "Sort the list initialized in the previous edict 20 times, alternatively ascending and descending."
  edict_SLEX_sort_filled_200_times:0 "SLEX : Sort performance : 200"
  edict_SLEX_sort_filled_200_times_desc:0 "Sort the list initialized in the previous edict 200 times, alternatively ascending and descending."
  edict_SLEX_get_custom_parameter_1_times:0 "SLEX : Get custom parameter"
