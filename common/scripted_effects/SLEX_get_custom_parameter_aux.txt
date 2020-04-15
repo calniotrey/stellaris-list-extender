@@ -393,63 +393,63 @@ SLEX_get_custom_parameter_aux_neg_3 = {
 ### Case of positive integers
 
 SLEX_get_custom_parameter_advanced_aux_1 = {
-    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$800 } }
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$400 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$200 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$100 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$0 }
+    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$800 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$400 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$200 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$100 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$0 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$1 }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$1 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$300 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$2 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$300 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$2 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$3 }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$3 }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$600 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$500 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$4 }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$600 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$500 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$4 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$5 }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$5 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$700 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$6 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$700 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$6 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$7 }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$7 }
                 }
             }
         }
     } else = {
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$c00 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$a00 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$900 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$8 }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$c00 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$a00 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$900 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$8 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$9 }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$9 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$b00 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$a }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$b00 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$a }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$b }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$b }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$e00 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$d00 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$c }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$e00 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$d00 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$c }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$d }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$d }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$f00 } }
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$e }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$f00 } }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$e }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$f }
+                    SLEX_get_custom_parameter_advanced_aux_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$f }
                 }
             }
         }
@@ -457,63 +457,63 @@ SLEX_get_custom_parameter_advanced_aux_1 = {
 }
 
 SLEX_get_custom_parameter_advanced_aux_2 = {
-    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$80 } }
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$40 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$20 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$10 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$0 }
+    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$80 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$40 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$20 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$10 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$0 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$1 }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$1 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$30 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$2 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$30 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$2 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$3 }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$3 }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$60 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$50 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$4 }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$60 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$50 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$4 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$5 }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$5 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$70 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$6 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$70 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$6 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$7 }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$7 }
                 }
             }
         }
     } else = {
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$c0 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$a0 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$90 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$8 }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$c0 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$a0 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$90 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$8 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$9 }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$9 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$b0 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$a }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$b0 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$a }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$b }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$b }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$e0 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$d0 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$c }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$e0 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$d0 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$c }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$d }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$d }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$f0 } }
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$e }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$f0 } }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$e }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$f }
+                    SLEX_get_custom_parameter_advanced_aux_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$f }
                 }
             }
         }
@@ -521,30 +521,30 @@ SLEX_get_custom_parameter_advanced_aux_2 = {
 }
 
 SLEX_get_custom_parameter_advanced_aux_3 = {
-    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$8 } }
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$4 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$2 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$1 } }
+    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$8 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$4 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$2 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$1 } }
                     set_variable = { which = SLEX_value value = $VALUE$0 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$1 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$3 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$3 } }
                     set_variable = { which = SLEX_value value = $VALUE$2 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$3 }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$6 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$5 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$6 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$5 } }
                     set_variable = { which = SLEX_value value = $VALUE$4 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$5 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$7 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$7 } }
                     set_variable = { which = SLEX_value value = $VALUE$6 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$7 }
@@ -552,29 +552,29 @@ SLEX_get_custom_parameter_advanced_aux_3 = {
             }
         }
     } else = {
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$c } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$a } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$9 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$c } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$a } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$9 } }
                     set_variable = { which = SLEX_value value = $VALUE$8 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$9 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$b } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$b } }
                     set_variable = { which = SLEX_value value = $VALUE$a }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$b }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$e } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$d } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$e } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$d } }
                     set_variable = { which = SLEX_value value = $VALUE$c }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$d }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ < $VALUE$f } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < $VALUE$f } }
                     set_variable = { which = SLEX_value value = $VALUE$e }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$f }
@@ -587,63 +587,63 @@ SLEX_get_custom_parameter_advanced_aux_3 = {
 ### Case of negative integers
 
 SLEX_get_custom_parameter_advanced_aux_neg_1 = {
-    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$800 } }
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$400 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$200 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$100 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$0 }
+    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$800 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$400 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$200 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$100 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$0 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$1 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$1 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$300 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$2 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$300 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$2 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$3 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$3 }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$600 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$500 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$4 }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$600 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$500 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$4 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$5 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$5 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$700 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$6 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$700 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$6 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$7 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$7 }
                 }
             }
         }
     } else = {
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$c00 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$a00 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$900 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$8 }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$c00 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$a00 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$900 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$8 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$9 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$9 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$b00 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$a }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$b00 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$a }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$b }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$b }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$e00 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$d00 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$c }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$e00 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$d00 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$c }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$d }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$d }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$f00 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$e }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$f00 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$e }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$f }
+                    SLEX_get_custom_parameter_advanced_aux_neg_2 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$f }
                 }
             }
         }
@@ -651,63 +651,63 @@ SLEX_get_custom_parameter_advanced_aux_neg_1 = {
 }
 
 SLEX_get_custom_parameter_advanced_aux_neg_2 = {
-    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$80 } }
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$40 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$20 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$10 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$0 }
+    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$80 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$40 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$20 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$10 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$0 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$1 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$1 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$30 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$2 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$30 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$2 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$3 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$3 }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$60 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$50 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$4 }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$60 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$50 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$4 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$5 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$5 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$70 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$6 }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$70 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$6 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$7 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$7 }
                 }
             }
         }
     } else = {
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$c0 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$a0 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$90 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$8 }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$c0 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$a0 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$90 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$8 }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$9 }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$9 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$b0 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$a }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$b0 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$a }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$b }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$b }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$e0 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$d0 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$c }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$e0 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$d0 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$c }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$d }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$d }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$f0 } }
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$e }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$f0 } }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$e }
                 } else = {
-                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$ VALUE = $VALUE$f }
+                    SLEX_get_custom_parameter_advanced_aux_neg_3 = {CONDITION_NAME = $CONDITION_NAME$ FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = $VALUE$f }
                 }
             }
         }
@@ -715,30 +715,30 @@ SLEX_get_custom_parameter_advanced_aux_neg_2 = {
 }
 
 SLEX_get_custom_parameter_advanced_aux_neg_3 = {
-    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$8 } }
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$4 } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$2 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$1 } }
+    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$8 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$4 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$2 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$1 } }
                     set_variable = { which = SLEX_value value = $VALUE$0 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$1 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$3 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$3 } }
                     set_variable = { which = SLEX_value value = $VALUE$2 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$3 }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$6 } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$5 } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$6 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$5 } }
                     set_variable = { which = SLEX_value value = $VALUE$4 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$5 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$7 } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$7 } }
                     set_variable = { which = SLEX_value value = $VALUE$6 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$7 }
@@ -746,29 +746,29 @@ SLEX_get_custom_parameter_advanced_aux_neg_3 = {
             }
         }
     } else = {
-        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$c } }
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$a } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$9 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$c } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$a } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$9 } }
                     set_variable = { which = SLEX_value value = $VALUE$8 }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$9 }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$b } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$b } }
                     set_variable = { which = SLEX_value value = $VALUE$a }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$b }
                 }
             }
         } else = {
-            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$e } }
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$d } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$e } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$d } }
                     set_variable = { which = SLEX_value value = $VALUE$c }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$d }
                 }
             } else = {
-                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ = $SECOND_KW$ $THIRD_KW$ > $VALUE$f } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > $VALUE$f } }
                     set_variable = { which = SLEX_value value = $VALUE$e }
                 } else = {
                     set_variable = { which = SLEX_value value = $VALUE$f }

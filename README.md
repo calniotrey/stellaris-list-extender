@@ -49,7 +49,7 @@ Special scripted_effects for getting decimal places (like getting 42.3 from 42.3
   
 There is in fact 2 different scripted_effects :
 * First one is for getting "simple" trigger condition such as income : anything that is of the form `CONDITION_NAME < value` where value is an integer/float. For income, use "income" for CONDITION_NAME  
-* Second one is for getting advanced trigger condition such as the minerals reserve : anything that is of the form `CONDITION_NAME = { FIRST_KW = SECOND_KW THIRD_KW < value }` where value is an integer/float. For minerals reserve, use "has_resource" for CONDITION_NAME, "type" for FIRST_KW, "minerals" for SECOND_KW and "amount" for THIRD_KW. That's because you usually check the minerals reserve with : `has_resource = { type = minerals amount < 500 }`  
+* Second one is for getting advanced trigger condition such as the minerals reserve : anything that is of the form `CONDITION_NAME = { FIRST_KW = SECOND_KW THIRD_KW < value }` or `CONDITION_NAME = { FIRST_KW < value }` (in that case don't use SECOND_KW and THIRD_KW) where value is an integer/float. For minerals reserve, use "has_resource" for CONDITION_NAME, "type" for FIRST_KW, "minerals" for SECOND_KW and "amount" for THIRD_KW. That's because you usually check the minerals reserve with : `has_resource = { type = minerals amount < 500 }`  
   
 One last warning before closing the "Must read" part: For some reason, Stellaris doesn't like 1 letter variable. So please do not use i/a/b/c/...  
   
@@ -99,8 +99,8 @@ SLEX_get_custom_parameter_advanced = {
 ```  
 * trigger_condition : the name of the trigger condition (string)
 * first_keyword : the name of the first keyword of the trigger condition (string)
-* second_keyword : the name of the second keyword of the trigger condition (string)
-* third_keyword : the name of the third keyword of the trigger condition (string)
+* second_keyword : the name of the second keyword of the trigger condition (string) OPTIONNAL
+* third_keyword : the name of the third keyword of the trigger condition (string) OPTIONNAL
 * variable_name : the name of the variable where to write the result (string)
   
 Use this for something like minerals reserve that could be checked directly with :  
@@ -118,6 +118,22 @@ SLEX_get_custom_parameter_advanced = {
     FIRST_KW = type
     SECOND_KW = minerals
     THIRD_KW = amount
+    VARIABLE = variable_name
+}
+```  
+  
+You can also use this for something like species count (without limit) that could be checked directly with :  
+```
+CONDITION_NAME = {
+    FIRST_KW < value
+}
+```  
+  
+In that case **DO NOT** use SECOND_KW and THIRD_KW, but use it like this :  
+```
+SLEX_get_custom_parameter_advanced = {
+    CONDITION_NAME = count_species
+    FIRST_KW = count
     VARIABLE = variable_name
 }
 ```  
