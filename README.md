@@ -43,11 +43,11 @@ Due to this limitation, the index has to be between 0 (included) and ff (include
 The highest index (ff) is defined by the number of stack levels SLEX uses to get and set the variables/event_targets. The getter and setter (and all similar functions such as change/multiply/...) use 1 stack level for constant index and 2 stack levels for variable index. The sort function uses 3 stack levels. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
   
 Now about getting the value of a trigger condition into a variable. This is also a scripted effect, and it currently uses **4 levels of the stack**. It can take nearly any trigger condition as parameter and store its value inside a variable.  
-The decimal part of the value is discarded (i.e. the value is truncated).  
-On top of that, if the real value exceeds 65 536 (2^16) included, the variable will hold +/- 65 535.  
-Special scripted_effects for getting decimal places (like getting 42.3 from 42.31) should be implemented soon.  
+The decimal part of the value is discarded (i.e. the value is truncated) for the default scripted_effect. If you want to have 2 decimal places after the "." (i.e. value is truncated to 0.01), then use the decimal version of the scripted_effect.  
+On top of that for the integer (i.e. non-decimal) scripted_effect, if the real value exceeds 65 536 (2^16) included, the variable will hold +/- 65 535. For the decimal scripted_effect, the maximum value is +/-255.99.  
+The decimal scripted_effect was implemented by diagrapher.  
   
-There is in fact 2 different scripted_effects :
+There is in fact 2 different scripted_effects (2 for integer, 2 for decimal):
 * First one is for getting "simple" trigger condition such as income : anything that is of the form `CONDITION_NAME < value` where value is an integer/float. For income, use "income" for CONDITION_NAME  
 * Second one is for getting advanced trigger condition such as the minerals reserve : anything that is of the form `CONDITION_NAME = { FIRST_KW = SECOND_KW THIRD_KW < value }` or `CONDITION_NAME = { FIRST_KW < value }` (in that case don't use SECOND_KW and THIRD_KW) where value is an integer/float. For minerals reserve, use "has_resource" for CONDITION_NAME, "type" for FIRST_KW, "minerals" for SECOND_KW and "amount" for THIRD_KW. That's because you usually check the minerals reserve with : `has_resource = { type = minerals amount < 500 }`  
   
