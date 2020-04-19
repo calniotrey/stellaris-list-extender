@@ -323,35 +323,9 @@ country_event = {
     is_triggered_only = yes
 
 	immediate={
-        while = {
-            count = 1
-            SLEX_get_custom_parameter_decimal = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
-        }
-	}
-}
-
-country_event = {
-    id = SLEX_example_events.32
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate={
-        while = {
-            count = 1000
-            SLEX_get_custom_parameter_decimal = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
-        }
-	}
-}
-
-country_event = {
-    id = SLEX_example_events.33
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate={
-        while = {
-            count = 1000000
-            SLEX_get_custom_parameter_decimal = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
+        SLEX_get_custom_parameter_decimal = {
+            CONDITION_NAME = used_naval_capacity_percent
+            VARIABLE = SLEX_example_used_naval_capacity
         }
 	}
 }
@@ -359,58 +333,50 @@ country_event = {
 ### SLEX_get_custom_parameter_advanced_decimal
 
 country_event = {
+    id = SLEX_example_events.36
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate={
+        SLEX_get_custom_parameter_advanced_decimal = {
+            CONDITION_NAME = has_monthly_income
+            FIRST_KW = resource
+            SECOND_KW = influence
+            THIRD_KW = value
+            VARIABLE = SLEX_example_influence_income
+        }
+	}
+}
+
+### SLEX_get_custom_parameter_percentile
+
+country_event = {
     id = SLEX_example_events.41
     hide_window = yes
     is_triggered_only = yes
 
 	immediate={
-        while = {
-            count = 1
-            SLEX_get_custom_parameter_advanced_decimal = {
-                CONDITION_NAME = has_resource
-                FIRST_KW = type
-                SECOND_KW = minerals
-                THIRD_KW = amount
-                VARIABLE = SLEX_example_minerals_reserve
-            }
+        SLEX_get_custom_parameter_percentile = {
+            CONDITION_NAME = used_naval_capacity_percent
+            VARIABLE = SLEX_example_used_naval_capacity
         }
 	}
 }
 
+### SLEX_get_custom_parameter_advanced_percentile
+
 country_event = {
-    id = SLEX_example_events.42
+    id = SLEX_example_events.46
     hide_window = yes
     is_triggered_only = yes
 
 	immediate={
-        while = {
-            count = 1000
-            SLEX_get_custom_parameter_advanced_decimal = {
-                CONDITION_NAME = has_resource
-                FIRST_KW = type
-                SECOND_KW = minerals
-                THIRD_KW = amount
-                VARIABLE = SLEX_example_minerals_reserve
-            }
-        }
-	}
-}
-
-country_event = {
-    id = SLEX_example_events.43
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate={
-        while = {
-            count = 1000000
-            SLEX_get_custom_parameter_advanced_decimal = {
-                CONDITION_NAME = has_resource
-                FIRST_KW = type
-                SECOND_KW = minerals
-                THIRD_KW = amount
-                VARIABLE = SLEX_example_minerals_reserve
-            }
+        SLEX_get_custom_parameter_advanced_percentile = {
+            CONDITION_NAME = has_monthly_income
+            FIRST_KW = resource
+            SECOND_KW = influence
+            THIRD_KW = value
+            VARIABLE = SLEX_example_influence_income
         }
 	}
 }

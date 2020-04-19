@@ -229,7 +229,7 @@ SLEX_get_custom_parameter_advanced_1_000_000_times = {
 	}
 }
 
-SLEX_get_custom_parameter_decimal_1_times = {
+SLEX_get_custom_parameter_decimal = {
     length = 10
 	potential = {
         is_ai = no
@@ -250,7 +250,7 @@ SLEX_get_custom_parameter_decimal_1_times = {
 	}
 }
 
-SLEX_get_custom_parameter_decimal_1_000_times = {
+SLEX_get_custom_parameter_advanced_decimal = {
     length = 10
 	potential = {
         is_ai = no
@@ -265,34 +265,13 @@ SLEX_get_custom_parameter_decimal_1_000_times = {
 	}
 	effect={
         country_event = {
-            id = SLEX_example_events.32
+            id = SLEX_example_events.36
             days = 10
         }
 	}
 }
 
-SLEX_get_custom_parameter_decimal_1_000_000_times = {
-    length = 10
-	potential = {
-        is_ai = no
-        has_global_flag = SLEX_example
-    }
-	ai_weight = {
-        weight = 0
-    }
-	resources = {
-		category = edicts
-		cost = {}
-	}
-	effect={
-        country_event = {
-            id = SLEX_example_events.33
-            days = 10
-        }
-	}
-}
-
-SLEX_get_custom_parameter_advanced_decimal_1_times = {
+SLEX_get_custom_parameter_percentile = {
     length = 10
 	potential = {
         is_ai = no
@@ -313,7 +292,7 @@ SLEX_get_custom_parameter_advanced_decimal_1_times = {
 	}
 }
 
-SLEX_get_custom_parameter_advanced_decimal_1_000_times = {
+SLEX_get_custom_parameter_advanced_percentile = {
     length = 10
 	potential = {
         is_ai = no
@@ -328,28 +307,7 @@ SLEX_get_custom_parameter_advanced_decimal_1_000_times = {
 	}
 	effect={
         country_event = {
-            id = SLEX_example_events.42
-            days = 10
-        }
-	}
-}
-
-SLEX_get_custom_parameter_advanced_decimal_1_000_000_times = {
-    length = 10
-	potential = {
-        is_ai = no
-        has_global_flag = SLEX_example
-    }
-	ai_weight = {
-        weight = 0
-    }
-	resources = {
-		category = edicts
-		cost = {}
-	}
-	effect={
-        country_event = {
-            id = SLEX_example_events.43
+            id = SLEX_example_events.46
             days = 10
         }
 	}

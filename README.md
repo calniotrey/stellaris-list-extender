@@ -46,8 +46,8 @@ Now about getting the value of a trigger condition into a variable. This is also
 This means the resolution will always be `16^exponent` (by default, 1). If the real value would lead to an `x` out of bounds, then it will be considered as +/-255.  
 The decimal part of the value is discarded (i.e. the value is truncated).  
   
-There is also 2 scripted_effects for getting decimal places. One for getting values in `[-15.9:15.9]` with a resolution of 0.1, and one for values in `[-1:1]` with resolution of 0.01.  
-This scripted_effects were implemented by Diagrapher.  
+There is also 2 scripted_effects (for "normal" and advanced trigger conditions) for getting decimal places. One for getting values in `[-15.9:15.9]` with a resolution of 0.1, and one for values in `[-1:1]` with resolution of 0.01.  
+This scripted_effects were originally implemented by Diagrapher.  
   
 Note : The reason for this effect to be so limited is that Stellaris compiles the scripted_effects using parameters at the launch of the game. This means that every occurence of this scripted_effect produces around 30 (as there is `2*16 + 1` effects due to the negative and positive). This causes a RAM usage increase. You can (approximately) write 1 000 times this scripted_effect with a RAM increase of around 2Gbytes. Writing 2 000 times this scripted_effect might lead to consequences for the players with low RAM amount such as infinite loading time or CTD. If the effect had a higher range, then this would mean a smaller possible amount of times it could be written in the code.  
 Please note that this numbers are the number of occurences in code, not during the game. If you loop one occurrence one million times, there won't be any problems. If you write one million times this scripted_effect, there will be.  
@@ -73,6 +73,10 @@ List of the ingame examples:
 * SLEX_get_custom_parameter_advanced_1_times: Gets the minerals currently held in reserve and stores it in a variable.  
 * SLEX_get_custom_parameter_advanced_1_000_times: Like above, but 1 000 times for performance check.  
 * SLEX_get_custom_parameter_advanced_1_000_000_times: Like above, but 1 000 000 times for performance check.  
+* SLEX_get_custom_parameter_decimal : Gets the used naval capacity stored into a variable. Resolution of 0.1 and max value of +/- 15.9.  
+* SLEX_get_custom_parameter_advanced_decimal : Gets the influence income stored into a variable. Resolution of 0.1 and max value of +/- 15.9.  
+* SLEX_get_custom_parameter_percentile : Gets the used naval capacity stored into a variable. Resolution of 0.01 and max value of +/- 1.  
+* SLEX_get_custom_parameter_advanced_percentile : Gets the used naval influence income stored into a variable. Resolution of 0.01 and max value of +/- 1.  
   
 On my computer, at the start of the game (game running on very fast, medium size galaxy with 8 AI), a full (256 elements) sort takes around 150 ms. Take in mind this is a non-optimized non-adapted bubble sort so complexity in O(length^2).  
 Getting a (non-advanced) custom parameter (like the income) takes around 10^-6 seconds.  
@@ -82,7 +86,10 @@ Getting an advanced custom parameter (like the mineral reserve) takes around 2*1
 Now let's look into the detailed documentation. Let's put aside the promised sorting functions for a small moment to quickly look at the loading of trigger condition into variables.  
   
 ### Get custom parameter
-As stated in the description above, there is 2 different scripted_effects depending on the nature of the trigger condition.  
+As stated in the description above, there is 2 different types of scripted_effects depending on the nature of the trigger condition. For each types, there is 3 different scripted_effects to choose the best resolution. Select the one you need by appending a suffix at the end of its name:  
+* To get an integer resolution of the type : `x * (16^exponent)`, use the default one (no suffix to append) and specify the exponent by using the ROUNDING_ZEROES parameter and giving it as many zeroes as the value of the exponent ("00" for a resolution of 16^2 = 256). Don't use the ROUNDING_ZEROES if you want a resolution of 1. Please note that the maximum x value is +/-255.  
+* To get a resolution of 0.1, use the suffixe "_decimal". The value stored to the variable is between -15.9 and 15.9 and has a resolution of 0.1.  
+* To get a resolution of 0.01, use the suffixe "_percentile". The value stored to the variable is between -1 and 1 and has a resolution of 0.01.  
   
 #### Simple trigger condition
 ```SLEX_get_custom_parameter = {
@@ -99,6 +106,9 @@ Use this for something like income that could be checked directly with `CONDITIO
 This will return the income in the range `[-255:255]` (note : income can't actually be negative).  
 `SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = output_income ROUNDING_ZEROES = 0 }`  
 This will return the income in the range `[-4080:4080]` as a multiple of 16 (note : income can't actually be negative).  
+You can also use the "_decimal" or "_percentile" suffixe:
+`SLEX_get_custom_parameter_decimal = { CONDITION_NAME = used_naval_capacity_percent VARIABLE = output }`  
+`SLEX_get_custom_parameter_percentile = { CONDITION_NAME = used_naval_capacity_percent VARIABLE = output }`  
   
 #### Advanced trigger condition
 ```
@@ -135,6 +145,25 @@ SLEX_get_custom_parameter_advanced = {
     THIRD_KW = amount
     VARIABLE = variable_name
     ROUNDING_ZEROES = 0
+}
+```  
+  
+You can also use the "_decimal" or "_percentile" suffixe:
+```
+SLEX_get_custom_parameter_advanced_decimal = {
+    CONDITION_NAME = has_monthly_income
+    FIRST_KW = resource
+    SECOND_KW = influence
+    THIRD_KW = value
+    VARIABLE = SLEX_example_influence_income
+}```  
+```
+SLEX_get_custom_parameter_advanced_percentile = {
+    CONDITION_NAME = has_monthly_income
+    FIRST_KW = resource
+    SECOND_KW = influence
+    THIRD_KW = value
+    VARIABLE = SLEX_example_influence_income
 }
 ```  
   
@@ -497,8 +526,11 @@ Accepted parameters :
 * LIST
 * FCT
 
-This trigger allows you to "dump" the unused parameters from your scriped_triggers. Just give the parameters that you didn't use. It will always evaluate to True (after stellaris inversion).
-
+This trigger allows you to "dump" the unused parameters from your scriped_triggers. Just give the parameters that you didn't use. It will always evaluate to True (after stellaris inversion).  
+  
+## Credits
+Thanks to Diagrapher for the original implementation of _decimal and _percentile scripted_effects and for various advice.  
+  
 ## Legal Stuff
 You are not allowed to put this mod without any modification on any website that has already one upload of this mod without my approval. This is only so there is one version on it for this repository. If you want to upload it as is to a new website (for example paradox mods), you are welcome to do so and please contact me so that I can put the link in this README. If you modified this mod, then you may also upload the modified version wherever you want as long as you specify that it isn't the original. Forking in github is of course allowed even if you didn't make any changes yet.  
   
@@ -508,7 +540,7 @@ You are allowed to use the technical ideas behind this mod for your own mods. If
   
 You are allowed to use this mod and the ideas behind it for any type of content that is outside of Stellaris modding.  
   
-You are not allowed to use this mod or modified version of this mod for any content that has a paywall or is begging for donations without my approval. Having a donation link is of course okay. Paradox Interactive has of course my approval.  
+You are not allowed to use this mod or modified version of this mod for any content that has a paywall without my approval. Having a donation link is of course okay. Paradox Interactive has of course my approval.  
 
 If you are using this mod, modified version of this mod or the technical concepts behind it, you have to put a link to this github repository or to the steam workshop mod. Having your mod list this mod as a dependancy via the steamworkshop is enough (no need for additionnal links in the description).  This is here so other modders can find this mod easily.  
   

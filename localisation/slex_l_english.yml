@@ -25,17 +25,15 @@
  edict_SLEX_get_custom_parameter_advanced_1_000_000_times:0 "SLEX : Get custom parameter advanced performance : 1 000 000"
  edict_SLEX_get_custom_parameter_advanced_1_000_000_times_desc:0 "Get the amount of minerals in the reserve 1 000 000 times"
  
- edict_SLEX_get_custom_parameter_decimal_1_times:0 "SLEX : Get custom parameter decimal"
- edict_SLEX_get_custom_parameter_decimal_1_times_desc:0 "Get the income (the production of energy credits, not the net balance) of the country and store it in a variable. The value is truncated to a hundredth."
- edict_SLEX_get_custom_parameter_decimal_1_000_times:0 "SLEX : Get custom parameter decimal performance : 1 000"
- edict_SLEX_get_custom_parameter_decimal_1_000_times_desc:0 "Get the income 1 000 times."
- edict_SLEX_get_custom_parameter_decimal_1_000_000_times:0 "SLEX : Get custom parameter decimal performance : 1 000 000"
- edict_SLEX_get_custom_parameter_decimal_1_000_000_times_desc:0 "Get the income 1 000 000 times."
+ edict_SLEX_get_custom_parameter_decimal:0 "SLEX : Get custom parameter decimal"
+ edict_SLEX_get_custom_parameter_decimal_desc:0 "Get the proportion of used naval cap of the country and store it in a variable. The value is truncated to a tenth and is between -15.9 and 15.9."
  
- edict_SLEX_get_custom_parameter_advanced_decimal_1_times:0 "SLEX : Get custom parameter advanced decimal"
- edict_SLEX_get_custom_parameter_advanced_decimal_1_times_desc:0 "Get the amount of minerals in the reserve and store it in a variable. The value is truncated to a hundredth."
- edict_SLEX_get_custom_parameter_advanced_decimal_1_000_times:0 "SLEX : Get custom parameter advanced decimal performance : 1 000"
- edict_SLEX_get_custom_parameter_advanced_decimal_1_000_times_desc:0 "Get the amount of minerals in the reserve 1 000 times"
- edict_SLEX_get_custom_parameter_advanced_decimal_1_000_000_times:0 "SLEX : Get custom parameter advanced decimal performance : 1 000 000"
- edict_SLEX_get_custom_parameter_advanced_decimal_1_000_000_times_desc:0 "Get the amount of minerals in the reserve 1 000 000 times"
+ edict_SLEX_get_custom_parameter_advanced_decimal:0 "SLEX : Get custom parameter advanced decimal"
+ edict_SLEX_get_custom_parameter_advanced_decimal_desc:0 "Get the income of influence and store it in a variable. The value is truncated to a tenth and is between -15.9 and 15.9."
+ 
+ edict_SLEX_get_custom_parameter_percentile:0 "SLEX : Get custom parameter percentile"
+ edict_SLEX_get_custom_parameter_percentile_desc:0 "Get the proportion of used naval cap of the country and store it in a variable. The value is truncated to a hundreth and is between -1 and 1."
+ 
+ edict_SLEX_get_custom_parameter_advanced_percentile:0 "SLEX : Get custom parameter advanced percentile"
+ edict_SLEX_get_custom_parameter_advanced_percentile_desc:0 "Get the income of influence and store it in a variable. The value is truncated to a hundreth and is between -1 and 1."
  
