@@ -37,15 +37,20 @@ This mod allows modders to use lists of variables and lists of (non-global) even
 A list (both for variables and for event_targets) is characterized by its name (for example `resources_list`). A list of variables has the same scope rules as a variable. A list of event_targets has the same rules as a non-global event_target: it only lasts in the unbroken event chain.  
 To access a certain index of the list, you can use `listname_index`. A list is basically just a collection of variables beginning with the list name followed by an underscore. However, the index **must** have the lowest amount of digits possible (so 0, 1, 2, ... 9, a, b, c, d, e, f, 10, ...) ie if strictly under 16 (decimal) = 10 (hexadecimal) then there is one digit, else there is 2.  
   
-A quick note about a little known Stellaris modding limitation: scripted_effects (and probably triggers, too) can only have a **maximum of 5 levels on the stack**. This means that if a scripted_effect named A calls B, B calls C, C calls D, D calls E, then any call from E to another scripted_effect F will make the game consider F as an unknown scripted_effect and will (probably) break the whole scripted_effect chain.  
+A quick note about a little known Stellaris modding limitation: scripted_effects (it may only be those having parameters) and probably triggers too, can only have a **maximum of 5 levels on the stack**. This means that if a scripted_effect named A calls B, B calls C, C calls D, D calls E, then any call from E to another scripted_effect F will make the game consider F as an unknown scripted_effect and will (probably) break the whole scripted_effect chain.  
 Due to this limitation, the index has to be between 0 (included) and ff (included). This is in a hexadecimal base, meaning that f if 15 and ff is 255.  
   
 The highest index (ff) is defined by the number of stack levels SLEX uses to get and set the variables/event_targets. The getter and setter (and all similar functions such as change/multiply/...) use 1 stack level for constant index and 2 stack levels for variable index. The sort function uses 3 stack levels. This means that when writing your scripted_effects, you should have a maximum of 2 stack levels when using the sort functions, 3 when using getter/setter with a variable index and 4 when using a constant index.  
   
-Now about getting the value of a trigger condition into a variable. This is also a scripted effect, and it currently uses **4 levels of the stack**. It can take nearly any trigger condition as parameter and store its value inside a variable.  
-The decimal part of the value is discarded (i.e. the value is truncated) for the default scripted_effect. If you want to have 2 decimal places after the "." (i.e. value is truncated to 0.01), then use the decimal version of the scripted_effect.  
-On top of that for the integer (i.e. non-decimal) scripted_effect, if the real value exceeds 65 536 (2^16) included, the variable will hold +/- 65 535. For the decimal scripted_effect, the maximum value is +/-255.99.  
-The decimal scripted_effect was implemented by diagrapher.  
+Now about getting the value of a trigger condition into a variable. This is also a scripted effect and it currently uses **2 levels of the stack**. It can take nearly any trigger condition as parameter and store its value inside a variable. There is one big limitation however: it will always truncate the value to `x * (16^exponent)` where x in the range `[-255:255]` and exponent a positive integer (by default 0). You can set the exponent by using the ROUNDING_ZEROES parameter with as much "0" as exponent (if 2, then "00", if 0 then omit it).  
+This means the resolution will always be `16^exponent` (by default, 1). If the real value would lead to an `x` out of bounds, then it will be considered as +/-255.  
+The decimal part of the value is discarded (i.e. the value is truncated).  
+  
+There is also 2 scripted_effects for getting decimal places. One for getting values in `[-15.9:15.9]` with a resolution of 0.1, and one for values in `[-1:1]` with resolution of 0.01.  
+This scripted_effects were implemented by Diagrapher.  
+  
+Note : The reason for this effect to be so limited is that Stellaris compiles the scripted_effects using parameters at the launch of the game. This means that every occurence of this scripted_effect produces around 30 (as there is `2*16 + 1` effects due to the negative and positive). This causes a RAM usage increase. You can (approximately) write 1 000 times this scripted_effect with a RAM increase of around 2Gbytes. Writing 2 000 times this scripted_effect might lead to consequences for the players with low RAM amount such as infinite loading time or CTD. If the effect had a higher range, then this would mean a smaller possible amount of times it could be written in the code.  
+Please note that this numbers are the number of occurences in code, not during the game. If you loop one occurrence one million times, there won't be any problems. If you write one million times this scripted_effect, there will be.  
   
 There is in fact 2 different scripted_effects (2 for integer, 2 for decimal):
 * First one is for getting "simple" trigger condition such as income : anything that is of the form `CONDITION_NAME < value` where value is an integer/float. For income, use "income" for CONDITION_NAME  
@@ -62,7 +67,7 @@ List of the ingame examples:
 * SLEX_fill: Fills a list fully (256 elements) in descending order. Use this before the following 2 edicts.  
 * SLEX_sort_filled_20_times: Sorts the list filled by SLEX_fill 20 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill.  
 * SLEX_sort_filled_200_times: Sorts the list filled by SLEX_fill 200 times (alternatively ascending then descending). Use this to estimate the sort performance independantly from the fill if the previous one was to fast.  
-* SLEX_get_custom_parameter_1_times: Gets the income (energy production before consumption) and stores it in a variable.  
+* SLEX_get_custom_parameter_1_times: Gets the income (energy production before consumption) and stores it in a variable. Please wait for the second month of the game before activating this, or you won't have any income yet.  
 * SLEX_get_custom_parameter_1_000_times: Like above, but 1 000 times for performance check.  
 * SLEX_get_custom_parameter_1_000_000_times: Like above, but 1 000 000 times for performance check.  
 * SLEX_get_custom_parameter_advanced_1_times: Gets the minerals currently held in reserve and stores it in a variable.  
@@ -80,12 +85,20 @@ Now let's look into the detailed documentation. Let's put aside the promised sor
 As stated in the description above, there is 2 different scripted_effects depending on the nature of the trigger condition.  
   
 #### Simple trigger condition
-`SLEX_get_custom_parameter = { CONDITION_NAME = trigger_condition VARIABLE = variable_name }`  
+```SLEX_get_custom_parameter = {
+    CONDITION_NAME = trigger_condition
+    VARIABLE = variable_name
+    ROUNDING_ZEROES = ROUNDING_ZEROES
+}```
 * trigger_condition : the name of the trigger condition (string)
 * variable_name : the name of the variable where to write the result (string)
+* rounding_zeroes : must be only "0", "00", ... For each "0" in it, it will mutliply the resolution by 16. If you don't want any rounding_zeroes, just omit it. (string) defaults to ""
   
 Use this for something like income that could be checked directly with `CONDITION_NAME < value`, use it like this :  
 `SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = output_income }`  
+This will return the income in the range `[-255:255]` (note : income can't actually be negative).  
+`SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = output_income ROUNDING_ZEROES = 0 }`  
+This will return the income in the range `[-4080:4080]` as a multiple of 16 (note : income can't actually be negative).  
   
 #### Advanced trigger condition
 ```
@@ -95,6 +108,7 @@ SLEX_get_custom_parameter_advanced = {
     SECOND_KW = second_keyword
     THIRD_KW = third_keyword
     VARIABLE = variable_name
+    ROUNDING_ZEROES = ROUNDING_ZEROES
 }
 ```  
 * trigger_condition : the name of the trigger condition (string)
@@ -102,6 +116,7 @@ SLEX_get_custom_parameter_advanced = {
 * second_keyword : the name of the second keyword of the trigger condition (string) OPTIONNAL
 * third_keyword : the name of the third keyword of the trigger condition (string) OPTIONNAL
 * variable_name : the name of the variable where to write the result (string)
+* rounding_zeroes : must be only "0", "00", ... For each "0" in it, it will mutliply the resolution by 16. If you don't want any rounding_zeroes, just omit it. (string) defaults to ""
   
 Use this for something like minerals reserve that could be checked directly with :  
 ```
@@ -111,7 +126,7 @@ CONDITION_NAME = {
 }
 ```  
   
-Use it like this :  
+Use it like this (if you want the amount to be at max 255, remove ROUNDING_ZEROES. If you want it to be at max 4080, keep it, if you want it to be at max 65 280, put 00 instead and so on...) :  
 ```
 SLEX_get_custom_parameter_advanced = {
     CONDITION_NAME = has_resource
@@ -119,6 +134,7 @@ SLEX_get_custom_parameter_advanced = {
     SECOND_KW = minerals
     THIRD_KW = amount
     VARIABLE = variable_name
+    ROUNDING_ZEROES = 0
 }
 ```  
   
@@ -129,7 +145,7 @@ CONDITION_NAME = {
 }
 ```  
   
-In that case **DO NOT** use SECOND_KW and THIRD_KW, but use it like this :  
+In that case **DO NOT** use SECOND_KW and THIRD_KW, but use it like this (here ROUNDING_ZEROES is "" as you probably just want the exact count) :  
 ```
 SLEX_get_custom_parameter_advanced = {
     CONDITION_NAME = count_species
