@@ -92,11 +92,13 @@ As stated in the description above, there is 2 different types of scripted_effec
 * To get a resolution of 0.01, use the suffixe "_percentile". The value stored to the variable is between -1 and 1 and has a resolution of 0.01.  
   
 #### Simple trigger condition
-```SLEX_get_custom_parameter = {
+```
+SLEX_get_custom_parameter = {
     CONDITION_NAME = trigger_condition
     VARIABLE = variable_name
     ROUNDING_ZEROES = ROUNDING_ZEROES
-}```
+}
+```
 * trigger_condition : the name of the trigger condition (string)
 * variable_name : the name of the variable where to write the result (string)
 * rounding_zeroes : must be only "0", "00", ... For each "0" in it, it will mutliply the resolution by 16. If you don't want any rounding_zeroes, just omit it. (string) defaults to ""
@@ -156,7 +158,8 @@ SLEX_get_custom_parameter_advanced_decimal = {
     SECOND_KW = influence
     THIRD_KW = value
     VARIABLE = SLEX_example_influence_income
-}```  
+}
+```  
 ```
 SLEX_get_custom_parameter_advanced_percentile = {
     CONDITION_NAME = has_monthly_income
