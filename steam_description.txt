@@ -1,0 +1,27 @@
+[h1]Stellaris List EXtender [/h1]
+This mod is a utility mod. It adds functions to allow modders to use lists of variables or event_targets and to sort them. Using lists as piles (First In, Last Out) is also possible.
+It also allows modders to get the value of a trigger condition (such as income, or amount of minerals in the reserve) stored into a variable.
+All of this is time and memory-wise efficient. Performance benchmark is included.
+
+Please see https://github.com/calniotrey/stellaris-list-extender for more informations.
+
+[h2]For players[/h2]
+This is a modders resources mod. That means you should only download this if other mods have this as a dependancy. Having this mod as standalone won't do anything (content wise).
+
+Just activate this mod and put anywhere in your mod order. This mod has no requirements and no compatibility issues.
+Please take in mind this mod changes checksum and desactivate achievements (but the mods that need this mod do the same as well).
+
+[h2]For modders[/h2]
+Please look at the link of the github repository above. You will find full documentation as well as some examples. If you have some questions/issues, feel free to contact me via the Stellaris Modding Den (I'm Erdnuss).
+Do not include this mod in your mods. Instead, put this mod as a dependancy (via Steam or just with a link). If you plan to release a non-steam version, please contact me so that I can create a download link in the github repository.
+
+[h2]Mods using SLEX[/h2]
+Please contact me if you want your mod to be included in this list.
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2062437075]Supply lines for 2.6[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2080966263]Interstellar Incorporated - A Civilian Space Odyssey[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2081131846]Rapid Evolution[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2085908386]I am the Senate![/url]
+[/list]
+
+[url=https://discord.gg/bHVez2C][img]https://i.imgur.com/4Und3QN.png[/img][/url]
