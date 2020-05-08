@@ -1,0 +1,100 @@
+SLEX_add_resource = {
+    set_variable = {
+        which = SLEX_amount
+        value = $AMOUNT$
+    }
+    if = {
+        limit = {
+            check_variable = {
+                which = SLEX_amount
+                value > 0
+            }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 100000 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 100000 }
+            change_variable = { which = SLEX_amount value = -100000 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 10000 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 10000 }
+            change_variable = { which = SLEX_amount value = -10000 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 1000 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 1000 }
+            change_variable = { which = SLEX_amount value = -1000 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 100 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 100 }
+            change_variable = { which = SLEX_amount value = -100 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 10 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 10 }
+            change_variable = { which = SLEX_amount value = -10 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 1 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 1 }
+            change_variable = { which = SLEX_amount value = -1 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 0.1 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 0.1 }
+            change_variable = { which = SLEX_amount value = -0.1 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value >= 0.01 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ min = 0.01 }
+            change_variable = { which = SLEX_amount value = -0.01 }
+        }
+    } else = {
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -100000 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -100000 }
+            change_variable = { which = SLEX_amount value = 100000 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -10000 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -10000 }
+            change_variable = { which = SLEX_amount value = 10000 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -1000 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -1000 }
+            change_variable = { which = SLEX_amount value = 1000 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -100 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -100 }
+            change_variable = { which = SLEX_amount value = 100 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -10 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -10 }
+            change_variable = { which = SLEX_amount value = 10 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -1 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -1 }
+            change_variable = { which = SLEX_amount value = 1 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -0.1 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -0.1 }
+            change_variable = { which = SLEX_amount value = 0.1 }
+        }
+        while = {
+            limit = { check_variable = { which = SLEX_amount value <= -0.01 } }
+            add_monthly_resource_mult = { resource = $RESOURCE$ max = -0.01 }
+            change_variable = { which = SLEX_amount value = 0.01 }
+        }
+    }
+    # To cleanup
+    set_variable = {
+        which = SLEX_amount
+        value = 0
+    }
+}
