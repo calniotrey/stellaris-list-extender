@@ -23,7 +23,7 @@ SLEX_get_custom_parameter = {
                         SLEX_get_custom_parameter_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x5 }
                     }
                 } else = {
-                    if = { limit = { $CONDITION_NAME$ < 0x80[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ < 0x70[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
                         SLEX_get_custom_parameter_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x6 }
                     } else = {
                         SLEX_get_custom_parameter_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x7 }
@@ -85,7 +85,7 @@ SLEX_get_custom_parameter = {
                         SLEX_get_custom_parameter_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x5 }
                     }
                 } else = {
-                    if = { limit = { $CONDITION_NAME$ > -0x80[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ > -0x70[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
                         SLEX_get_custom_parameter_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x6 }
                     } else = {
                         SLEX_get_custom_parameter_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x7 }
@@ -155,7 +155,7 @@ SLEX_get_custom_parameter_advanced = {
                         SLEX_get_custom_parameter_advanced_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x5 }
                     }
                 } else = {
-                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x80[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x70[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
                         SLEX_get_custom_parameter_advanced_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x6 }
                     } else = {
                         SLEX_get_custom_parameter_advanced_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x7 }
@@ -217,7 +217,7 @@ SLEX_get_custom_parameter_advanced = {
                         SLEX_get_custom_parameter_advanced_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x5 }
                     }
                 } else = {
-                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x80[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x70[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
                         SLEX_get_custom_parameter_advanced_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x6 }
                     } else = {
                         SLEX_get_custom_parameter_advanced_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x7 }
