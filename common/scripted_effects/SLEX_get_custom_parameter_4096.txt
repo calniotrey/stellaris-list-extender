@@ -1,0 +1,263 @@
+SLEX_get_custom_parameter_4096 = {
+    if = { limit = { $CONDITION_NAME$ > 0 }
+        if = { limit = { $CONDITION_NAME$ < 0x800[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+            if = { limit = { $CONDITION_NAME$ < 0x400[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                if = { limit = { $CONDITION_NAME$ < 0x200[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ < 0x100[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x0 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x1 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ < 0x300[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x2 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x3 }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ < 0x600[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ < 0x500[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x4 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x5 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ < 0x700[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x6 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x7 }
+                    }
+                }
+            }
+        } else = {
+            if = { limit = { $CONDITION_NAME$ < 0xc00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                if = { limit = { $CONDITION_NAME$ < 0xa00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ < 0x900[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x8 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0x9 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ < 0xb00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0xa }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0xb }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ < 0xe00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ < 0xd00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0xc }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0xd }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ < 0xf00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0xe }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = 0xf }
+                    }
+                }
+            }
+        }
+    } else = {
+        if = { limit = { $CONDITION_NAME$ > -0x800[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+            if = { limit = { $CONDITION_NAME$ > -0x400[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                if = { limit = { $CONDITION_NAME$ > -0x200[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ > -0x100[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x0 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x1 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ > -0x300[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x2 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x3 }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ > -0x600[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ > -0x500[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x4 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x5 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ > -0x700[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x6 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x7 }
+                    }
+                }
+            }
+        } else = {
+            if = { limit = { $CONDITION_NAME$ > -0xc00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                if = { limit = { $CONDITION_NAME$ > -0xa00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ > -0x900[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x8 }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0x9 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ > -0xb00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0xa }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0xb }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ > -0xe00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                    if = { limit = { $CONDITION_NAME$ > -0xd00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0xc }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0xd }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ > -0xf00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] }
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0xe }
+                    } else = {
+                        SLEX_get_custom_parameter_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] VALUE = -0xf }
+                    }
+                }
+            }
+        }
+    }
+    set_variable = {
+        which = $VARIABLE$
+        value = SLEX_value
+    }
+}
+
+SLEX_get_custom_parameter_advanced_4096 = {
+    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > 0 } }
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x800[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x400[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x200[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x100[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x0 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x1 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x300[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x2 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x3 }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x600[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x500[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x4 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x5 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x700[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x6 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x7 }
+                    }
+                }
+            }
+        } else = {
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0xc00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0xa00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0x900[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x8 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0x9 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0xb00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0xa }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0xb }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0xe00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0xd00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0xc }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0xd }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] < 0xf00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0xe }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = 0xf }
+                    }
+                }
+            }
+        }
+    } else = {
+        if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x800[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x400[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x200[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x100[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x0 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x1 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x300[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x2 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x3 }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x600[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x500[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x4 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x5 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x700[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x6 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x7 }
+                    }
+                }
+            }
+        } else = {
+            if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0xc00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0xa00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0x900[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x8 }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0x9 }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0xb00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0xa }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0xb }
+                    }
+                }
+            } else = {
+                if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0xe00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0xd00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0xc }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0xd }
+                    }
+                } else = {
+                    if = { limit = { $CONDITION_NAME$ = { $FIRST_KW$ [[SECOND_KW]= $SECOND_KW$ $THIRD_KW$] > -0xf00[[ROUNDING_ZEROES]$ROUNDING_ZEROES$] } }
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0xe }
+                    } else = {
+                        SLEX_get_custom_parameter_advanced_4096_aux_neg_1 = { CONDITION_NAME = $CONDITION_NAME$ [[ROUNDING_ZEROES]ROUNDING_ZEROES = $ROUNDING_ZEROES$] FIRST_KW = $FIRST_KW$ [[SECOND_KW]SECOND_KW = $SECOND_KW$ THIRD_KW = $THIRD_KW$] VALUE = -0xf }
+                    }
+                }
+            }
+        }
+    }
+    set_variable = {
+        which = $VARIABLE$
+        value = SLEX_value
+    }
+}

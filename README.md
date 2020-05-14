@@ -86,10 +86,11 @@ Getting an advanced custom parameter (like the mineral reserve) takes around 2*1
 Now let's look into the detailed documentation. Let's put aside the promised sorting functions for a small moment to quickly look at the loading of trigger condition into variables.  
   
 ### Get custom parameter
-As stated in the description above, there is 2 different types of scripted_effects depending on the nature of the trigger condition. For each types, there is 3 different scripted_effects to choose the best resolution. Select the one you need by appending a suffix at the end of its name:  
-* To get an integer resolution of the type : `x * (16^exponent)`, use the default one (no suffix to append) and specify the exponent by using the ROUNDING_ZEROES parameter and giving it as many zeroes as the value of the exponent ("00" for a resolution of 16^2 = 256). Don't use the ROUNDING_ZEROES if you want a resolution of 1. Please note that the maximum x value is +/-255.  
+As stated in the description above, there is 2 different types of scripted_effects depending on the nature of the trigger condition. For each types, there is 4 different scripted_effects to choose the best resolution. Select the one you need by appending a suffix at the end of its name:  
+* To get an integer resolution of the type : `x * (16^exponent)`, use the default one (no suffix to append) and specify the exponent by using the ROUNDING_ZEROES parameter and giving it as many zeroes as the value of the exponent ("00" for a resolution of 16^2 = 256). Don't use the ROUNDING_ZEROES if you want a resolution of 1. Please note that the maximum x value is +/-255 (except when using the "_4096" suffixe where it i +/-4095).  
 * To get a resolution of 0.1, use the suffixe "_decimal". The value stored to the variable is between -15.9 and 15.9 and has a resolution of 0.1.  
 * To get a resolution of 0.01, use the suffixe "_percentile". The value stored to the variable is between -1 and 1 and has a resolution of 0.01.  
+* To get a range for x of +/-4095 with a resolution of 1 , use the suffixe "_4096". The value stored to the variable is between 4095 and 4095 and has a resolution of 1. Please do not write this often in your code as it generates a big compiled scripted effect. You can however execute it as much as you want.  
   
 #### Simple trigger condition
 ```
