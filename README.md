@@ -86,6 +86,7 @@ Getting an advanced custom parameter (like the mineral reserve) takes around 2*1
 The documentation is splitted in several .md files:
 * [Documentation for lists](doc/SLEX_lists.md)
 * [Documentation for get_parameter](doc/SLEX_get_parameter.md)
+* [Documentation for utilities](doc/SLEX_utilities.md)
 * [Documentation for auxiliaries](doc/SLEX_auxiliaries.md)
   
 ## Credits
