@@ -298,7 +298,7 @@ I added some scripted_triggers as well. This is under construction and only has 
   
 This trigger is evaluated to True (after stellaris inversion) if the length of the list is 0. You could also simply do a check on listname_length.
   
-#### SLEX_check_list_variable_const_index
+## SLEX_check_list_variable_const_index
 `SLEX_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
 * LIST : the list name (string)
 * INDEX : the index (integer)
@@ -307,7 +307,7 @@ This trigger is evaluated to True (after stellaris inversion) if the length of t
   
 This trigger is evaluated to True (after stellaris inversion) if `LIST_INDEX OPERATOR VALUE` is True.  
   
-#### SLEX_inv_check_list_variable_const_index
+## SLEX_inv_check_list_variable_const_index
 `SLEX_inv_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
 * LIST : the list name (string)
 * INDEX : the index (integer)
