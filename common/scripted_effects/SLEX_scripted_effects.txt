@@ -734,6 +734,7 @@ SLEX_reset_list_variable = {
         value = 256
     }
     while = {
+        count = 256
         limit = {
             check_variable = {
                 which = SLEX_i
@@ -758,6 +759,7 @@ SLEX_fill_list_variable = {
         value = $AMOUNT$
     }
     while = {
+        count = 256
         limit = {
             check_variable = {
                 which = SLEX_i
@@ -778,6 +780,7 @@ SLEX_fill_list_zipped = {
         value = $AMOUNT$
     }
     while = {
+        count = 256
         limit = {
             check_variable = {
                 which = SLEX_i
@@ -890,6 +893,7 @@ SLEX_sort_bubble = {
             always = $ASCENDING|yes$
         }
         while = {
+            count = 256
             limit = {
                 check_variable = {
                     which = SLEX_i
@@ -909,6 +913,7 @@ SLEX_sort_bubble = {
                 value = $LIST$_0
             }
             while = {
+                count = 256
                 limit = {
                     check_variable = {
                         which = SLEX_j
@@ -949,6 +954,7 @@ SLEX_sort_bubble = {
         }
     } else = {
         while = {
+            count = 256
             limit = {
                 check_variable = {
                     which = SLEX_i
@@ -968,6 +974,7 @@ SLEX_sort_bubble = {
                 value = $LIST$_0
             }
             while = {
+                count = 256
                 limit = {
                     check_variable = {
                         which = SLEX_j
@@ -1023,6 +1030,7 @@ SLEX_sort_zipped_target_list_bubble = {
             always = $ASCENDING|yes$
         }
         while = {
+            count = 256
             limit = {
                 check_variable = {
                     which = SLEX_i
@@ -1043,6 +1051,7 @@ SLEX_sort_zipped_target_list_bubble = {
             }
             SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 0 TARGET = SLEX_E_j }
             while = {
+                count = 256
                 limit = {
                     check_variable = {
                         which = SLEX_j
@@ -1090,6 +1099,7 @@ SLEX_sort_zipped_target_list_bubble = {
         }
     } else = {
         while = {
+            count = 256
             limit = {
                 check_variable = {
                     which = SLEX_i
@@ -1110,6 +1120,7 @@ SLEX_sort_zipped_target_list_bubble = {
             }
             SLEX_load_list_event_const_index = { LIST = $ZIPPED_LIST$ INDEX = 0 TARGET = SLEX_E_j }
             while = {
+                count = 256
                 limit = {
                     check_variable = {
                         which = SLEX_j
@@ -1158,6 +1169,154 @@ SLEX_sort_zipped_target_list_bubble = {
     }
 }
 
+SLEX_heapsort = {
+    set_variable = { which = SLEX_end_index value = $LIST$_length }
+    change_variable = { which = SLEX_end_index value = -1 }
+    SLEX_division = { DIVIDEND = $LIST$_length DIVISOR = 2 QUOTIENT = SLEX_start_index }
+    # initial sift down
+    while = {
+        count = 256
+        limit = {
+            check_variable = { which = SLEX_start_index value > 0 }
+        }
+        change_variable = { which = SLEX_start_index value = -1 }
+        SLEX_heapsort_sift_down = {
+            LIST = $LIST$
+            [[ZIPPED_VALUES]ZIPPED_VALUES = $ZIPPED_VALUES$]
+            [[ZIPPED_EVENT_TARGETS]ZIPPED_EVENT_TARGETS = $ZIPPED_EVENT_TARGETS$]
+            ASCENDING = $ASCENDING|yes$
+        }
+    }
+    # sorting
+    # set_variable = { which = SLEX_start_index value = 0 } # is already 0 by previous loop condition
+    while = {
+        count = 256
+        limit = {
+            check_variable = { which = SLEX_end_index value > 0 }
+        }
+        # swap element in 0th and last position
+        [[ZIPPED_VALUES]
+            SLEX_get_list_variable_var_index = { LIST = $ZIPPED_VALUES$ INDEX = SLEX_end_index VALUE = SLEX_last_element_zipped_value }
+            SLEX_set_list_variable_var_index = { LIST = $ZIPPED_VALUES$ INDEX = SLEX_end_index VALUE = $ZIPPED_VALUES$_0 }
+            set_variable = { which = $ZIPPED_VALUES$_0 value = SLEX_last_element_zipped_value }
+        ]
+        [[ZIPPED_EVENT_TARGETS]
+            SLEX_load_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_end_index TARGET = SLEX_last_element_zipped_target }
+            SLEX_store_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_end_index TARGET = event_target:$ZIPPED_EVENT_TARGETS$_0 }
+            event_target:SLEX_last_element_zipped_target = { save_event_target_as = $ZIPPED_EVENT_TARGETS$_0 }
+        ]
+        SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_end_index VALUE = SLEX_last_element_value }
+        SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_end_index VALUE = $LIST$_0 }
+        set_variable = { which = $LIST$_0 value = SLEX_last_element_value }
+        # then decrease SLEX_end_index
+        change_variable = { which = SLEX_end_index value = -1 }
+        # then sift down the nodes from 0 to SLEX_end_index
+        SLEX_heapsort_sift_down = {
+            LIST = $LIST$
+            [[ZIPPED_VALUES]ZIPPED_VALUES = $ZIPPED_VALUES$]
+            [[ZIPPED_EVENT_TARGETS]ZIPPED_EVENT_TARGETS = $ZIPPED_EVENT_TARGETS$]
+            ASCENDING = $ASCENDING|yes$
+        }
+    }
+    # cleanup
+    set_variable = { which = SLEX_last_element_zipped_value value = 0 }
+    set_variable = { which = SLEX_parent_index value = 0 }
+    set_variable = { which = SLEX_j value = 0 }
+    set_variable = { which = SLEX_left_child_index value = 0 }
+    set_variable = { which = SLEX_right_child_index value = 0 }
+    set_variable = { which = SLEX_current_child_value value = 0 }
+    set_variable = { which = SLEX_right_child_value value = 0 }
+    set_variable = { which = SLEX_parent_zipped_value value = 0 }
+    set_variable = { which = SLEX_current_child_zipped_value value = 0 }
+}
+
+# Repair the heap whose root element is at index 'SLEX_start_index', assuming the heaps rooted at its children are valid
+# Doesn't affect nodes after 'SLEX_end_index'
+SLEX_heapsort_sift_down = {
+    set_variable = { which = SLEX_parent_index value = SLEX_start_index }
+    # load parent
+    SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_parent_index VALUE = SLEX_parent_value }
+    # set index of left child in SLEX_j
+    set_variable = { which = SLEX_j value = SLEX_start_index }
+    multiply_variable = { which = SLEX_j value = 2 }
+    change_variable = { which = SLEX_j value = 1 }
+    while = {
+        count = 256
+        limit = {
+            check_variable = { which = SLEX_j value <= SLEX_end_index }
+        }
+        # get the indexes of both children
+        set_variable = { which = SLEX_left_child_index value = SLEX_j }
+        set_variable = { which = SLEX_right_child_index value = SLEX_left_child_index }
+        change_variable = { which = SLEX_right_child_index value = 1 }
+        # load left child (exists because of while condition)
+        SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_left_child_index VALUE = SLEX_current_child_value }
+
+        if = {
+            limit = { # if right child exists
+                check_variable = { which = SLEX_right_child_index value <= SLEX_end_index }
+            }
+            # load it
+            SLEX_get_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_right_child_index VALUE = SLEX_right_child_value }
+            if = {
+                limit = { # if left is smaller than right
+                    OR = {
+                        AND = {
+                            check_variable = { which = SLEX_current_child_value value < SLEX_right_child_value }
+                            always = $ASCENDING$
+                        }
+                        AND = {
+                            check_variable = { which = SLEX_current_child_value value > SLEX_right_child_value }
+                            NOT = { always = $ASCENDING$ } # ie if descending
+                        }
+                    }
+                }
+                # consider right child instead of left child
+                change_variable = { which = SLEX_j value = 1 }
+                set_variable = { which = SLEX_current_child_value value = SLEX_right_child_value }
+            }
+        }
+        if = {
+            limit = { # if parent is smaller than current child
+                OR = {
+                    AND = {
+                        check_variable = { which = SLEX_parent_value value < SLEX_current_child_value }
+                        always = $ASCENDING$
+                    }
+                    AND = {
+                        check_variable = { which = SLEX_parent_value value > SLEX_current_child_value }
+                        NOT = { always = $ASCENDING$ } # ie if descending
+                    }
+                }
+            }
+            # swap parent and current child
+            [[ZIPPED_VALUES] # TODO remove redundancy loading
+                SLEX_get_list_variable_var_index = { LIST = $ZIPPED_VALUES$ INDEX = SLEX_parent_index VALUE = SLEX_parent_zipped_value }
+                SLEX_get_list_variable_var_index = { LIST = $ZIPPED_VALUES$ INDEX = SLEX_j VALUE = SLEX_current_child_zipped_value }
+                SLEX_set_list_variable_var_index = { LIST = $ZIPPED_VALUES$ INDEX = SLEX_parent_index VALUE = SLEX_current_child_zipped_value }
+                SLEX_set_list_variable_var_index = { LIST = $ZIPPED_VALUES$ INDEX = SLEX_j VALUE = SLEX_parent_zipped_value }
+            ]
+            [[ZIPPED_EVENT_TARGETS]
+                SLEX_load_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_parent_index TARGET = SLEX_parent_zipped_target }
+                SLEX_load_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_j TARGET = SLEX_current_child_zipped_target }
+                SLEX_store_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_parent_index TARGET = SLEX_current_child_zipped_target }
+                SLEX_store_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_j TARGET = SLEX_parent_zipped_target }
+            ]
+            SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_parent_index VALUE = SLEX_current_child_value }
+            SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_parent_value }
+            set_variable = { which = SLEX_parent_index value = SLEX_j }
+            # set index of left child in SLEX_j
+            set_variable = { which = SLEX_j value = SLEX_parent_index }
+            multiply_variable = { which = SLEX_j value = 2 }
+            change_variable = { which = SLEX_j value = 1 }
+        } else = {
+            set_variable = { which = SLEX_j value = SLEX_end_index }
+            change_variable = { which = SLEX_j value = 1 }
+        }
+
+    }
+
+}
 ######################################
 
 SLEX_load_list_event_const_index = {
@@ -1181,9 +1340,9 @@ SLEX_load_list_event_const_index = {
 }
 
 SLEX_store_list_event_const_index = {
-    $TARGET|this$ = {
+    [[TARGET]$TARGET$ = {]
         save_event_target_as = $LIST$_$INDEX$
-    }
+    [[TARGET]}]
 }
 
 SLEX_load_list_event_var_index = {
@@ -1303,9 +1462,9 @@ SLEX_store_list_event_var_index = {
                 value = 0
             }
         }
-        $TARGET|this$ = {
+        [[TARGET]$TARGET$ = {]
             save_event_target_as = SLEX_target
-        }
+        [[TARGET]}]
         while = {
             limit = {
                 check_variable = {

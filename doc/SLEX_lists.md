@@ -3,23 +3,25 @@ This is the documentation for the lists part of SLEX
 # Sorting lists
   
 ## Sort of a list of variables
-With SLEX, sorting a list of variables is pretty easy. Just use the `SLEX_sort_bubble` scripted_effect. Please remember to only use 2 levels of the stack when using it (reasons and explanations above). By default, the sort order is ascending. Use `ASCENDING = no` for descending order.  
+With SLEX, sorting a list of variables is pretty easy. Just use the `SLEX_heapsort` scripted_effect. By default, the sort order is ascending. Use `ASCENDING = no` for descending order.  
   
 Examples :  
-`SLEX_sort_bubble = { LIST = listname }`  
-`SLEX_sort_bubble = { LIST = listname ASCENDING = yes } # same as above`  
-`SLEX_sort_bubble = { LIST = listname ASCENDING = no }`  
+`SLEX_heapsort = { LIST = listname }`  
+`SLEX_heapsort = { LIST = listname ASCENDING = yes } # same as above`  
+`SLEX_heapsort = { LIST = listname ASCENDING = no }`  
   
-## Sort of a list of event_targets zipped to a list of variables
+## Sort of a list of event_targets or a list of variables zipped to a list of variables
 What does that mean? Let's say you want to sort the empires by number of pops (like the example). You can count the number of pops easily (iterate with `every_owned_pop` for every country) and stock into a list. But once sorted, how can you say which country is first (except by recalculating the number of pops for every empire and checking every pair `(empire, value in the list)`).  
-A good way to solve this problem is by saving the empires in a list of event_targets alongside the saving of their number of pops by using the same index. This means `pops_number_2` stores the number of pops of the empire stored in `targets_list_02`. We then say the list of events_target is *zipped* to the list of variables (even if there is no real link between the two outside of the modders code). Then you can't just sort the list of variables (`pops_number` in our example). Instead you sort the list of event_targets zipped with the list of variables. That means that after the zipped sort, `targets_list_2` will still have `pops_number_2` number of pops and that the list `pops_number` is sorted.  
+A good way to solve this problem is by saving the empires in a list of event_targets alongside the saving of their number of pops by using the same index. This means `pops_number_2` stores the number of pops of the empire stored in `targets_list_2`. We then say the list of events_target is *zipped* to the list of variables (even if there is no real link between the two outside of the modders code). Then you can't just sort the list of variables (`pops_number` in our example). Instead you sort the list of event_targets zipped with the list of variables. That means that after the zipped sort, `targets_list_2` will still have `pops_number_2` number of pops and that the list `pops_number` is sorted.  
   
 There is however one limitation: there must not exist an index in the list where the zipped event_targets list doesn't have an event_target saved.  
+This does also work with a zipped list of variables.  
   
 Examples :  
-`SLEX_sort_zipped_target_list_bubble = { LIST = listname ZIPPED_LIST = event_targets_listname }`  
-`SLEX_sort_zipped_target_list_bubble = { LIST = listname ZIPPED_LIST = event_targets_listname ASCENDING = yes } # same as above`  
-`SLEX_sort_zipped_target_list_bubble = { LIST = listname ZIPPED_LIST = list ASCENDING = no }`  
+`SLEX_heapsort = { LIST = listname ZIPPED_EVENT_TARGETS = event_targets_listname }`  
+`SLEX_heapsort = { LIST = listname ZIPPED_EVENT_TARGETS = event_targets_listname ASCENDING = yes } # same as above`  
+`SLEX_heapsort = { LIST = listname ZIPPED_EVENT_TARGETS = event_targets_listname ZIPPED_VALUES = zipped_variables_list }`  
+`SLEX_heapsort = { LIST = listname ZIPPED_VALUES = zipped_variables_list }`  
   
 # Filling and reseting a list
 Note : there is no concept of erasing event_targets, so there is no possibility in this mod to erase them.
@@ -28,7 +30,8 @@ Note : there is no concept of erasing event_targets, so there is no possibility 
 `SLEX_reset_list_variable = { LIST = listname }`
 * LIST : the list name (string)
   
-Just fills the list with 0 and resets its length to 0.
+Just fills the list with 0 and resets its length to 0.  
+If you don't need to fill the list with 0, you can simply set the variable `listname_length` to 0.  
   
 Example :  
 `SLEX_reset_list_variable = { LIST = test_list }`  

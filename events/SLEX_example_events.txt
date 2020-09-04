@@ -168,12 +168,7 @@ country_event = {
             value = 256
         }
         while = {
-            limit = {
-                check_variable = {
-                    which = SLEX_example_value
-                    value > 0
-                }
-            }
+            count = 256
             SLEX_append_list_variable = {
                 LIST = SLEX_example_sort_list
                 VALUE = SLEX_example_value
@@ -200,7 +195,6 @@ country_event = {
     }
 }
 
-
 country_event = {
     id = SLEX_example_events.5
     hide_window = yes
@@ -211,6 +205,42 @@ country_event = {
             count = 100
             SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
             SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
+        }
+    }
+}
+
+### SLEX_heapsort
+
+country_event = {
+    id = SLEX_example_events.6
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate={
+        SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = yes }
+    }
+}
+
+country_event = {
+    id = SLEX_example_events.8 # TODO REMOVE
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate={
+        SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = no  }
+    }
+}
+
+country_event = {
+    id = SLEX_example_events.7
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate={
+        while = {
+            count = 100
+            SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = yes }
+            SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = no  }
         }
     }
 }

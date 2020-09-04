@@ -1,0 +1,4 @@
+SLEX_add_resource = {
+    AMOUNT = scalar
+    RESOURCE = scalar
+}

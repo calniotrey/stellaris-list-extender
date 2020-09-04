@@ -37,3 +37,7 @@ SLEX_dump_param = { # Returns false, so true with the inversion
         }
     }
 }
+
+SLEX_not_installed = {
+    always = no
+}

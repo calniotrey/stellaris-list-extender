@@ -1,0 +1,46 @@
+SLEX_get_custom_parameter = {
+    CONDITION_NAME = scalar
+    ## cardinality = 0..1
+    ROUNDING_ZEROES = scalar
+    VARIABLE = scalar
+}
+
+SLEX_get_custom_parameter_advanced = {
+    CONDITION_NAME = scalar
+    FIRST_KW = scalar
+    SECOND_KW = scalar
+    THIRD_KW = scalar
+    ## cardinality = 0..1
+    ROUNDING_ZEROES = scalar
+    VARIABLE = scalar
+}
+
+SLEX_get_custom_parameter_4096 = {
+    CONDITION_NAME = scalar
+    ## cardinality = 0..1
+    ROUNDING_ZEROES = scalar
+    VARIABLE = scalar
+}
+
+SLEX_get_custom_parameter_advanced_4096 = {
+    CONDITION_NAME = scalar
+    FIRST_KW = scalar
+    SECOND_KW = scalar
+    THIRD_KW = scalar
+    ## cardinality = 0..1
+    ROUNDING_ZEROES = scalar
+    VARIABLE = scalar
+}
+
+SLEX_get_custom_parameter_decimal = {
+    CONDITION_NAME = scalar
+    VARIABLE = scalar
+}
+
+SLEX_get_custom_parameter_advanced_decimal = {
+    CONDITION_NAME = scalar
+    FIRST_KW = scalar
+    SECOND_KW = scalar
+    THIRD_KW = scalar
+    VARIABLE = scalar
+}

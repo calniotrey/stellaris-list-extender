@@ -103,6 +103,69 @@ SLEX_sort_filled_200_times = {
     }
 }
 
+SLEX_sort_asc_heap = {
+    length = 10
+    potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+    ai_weight = {
+        weight = 0
+    }
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
+        country_event = {
+            id = SLEX_example_events.6
+            days = 10
+        }
+    }
+}
+
+SLEX_sort_desc_heap = {
+    length = 10
+    potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+    ai_weight = {
+        weight = 0
+    }
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
+        country_event = {
+            id = SLEX_example_events.8
+            days = 10
+        }
+    }
+}
+
+SLEX_sort_200_heap = {
+    length = 10
+    potential = {
+        is_ai = no
+        has_global_flag = SLEX_example
+    }
+    ai_weight = {
+        weight = 0
+    }
+    resources = {
+        category = edicts
+        cost = {}
+    }
+    effect={
+        country_event = {
+            id = SLEX_example_events.7
+            days = 10
+        }
+    }
+}
+
 SLEX_get_custom_parameter_1_times = {
     length = 10
 	potential = {

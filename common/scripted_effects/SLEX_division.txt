@@ -1,0 +1,84 @@
+SLEX_division = {
+    set_variable = {
+        which = SLEX_divisor
+        value = $DIVISOR$
+    }
+    # check divisor != 0
+    if = {
+        limit = {
+            NOT = {
+                check_variable = {
+                    which = SLEX_divisor
+                    value = 0
+                }
+            }
+        }
+        set_variable = {
+            which = SLEX_dividend
+            value = $DIVIDEND$
+        }
+        set_variable = {
+            which = SLEX_quotient
+            value = SLEX_dividend
+        }
+        divide_variable = {
+            which = SLEX_quotient
+            value = SLEX_divisor
+        }
+        multiply_variable = {
+            which = SLEX_quotient
+            value = 0.00001
+        }
+        multiply_variable = {
+            which = SLEX_quotient
+            value = 100000
+        }
+        [[QUOTIENT]
+            set_variable = {
+                which = $QUOTIENT$
+                value = SLEX_quotient
+            }
+        ]
+        multiply_variable = {
+            which = SLEX_quotient
+            value = SLEX_divisor
+        }
+        multiply_variable = {
+            which = SLEX_quotient
+            value = -1
+        }
+        change_variable = {
+            which = SLEX_dividend
+            value = SLEX_quotient
+        }
+        [[REMAINDER]
+            set_variable = {
+                which = $REMAINDER$
+                value = SLEX_dividend
+            }
+        ]
+        [[FRACTIONAL_REMAINDER]
+            divide_variable = {
+                which = SLEX_dividend
+                value = SLEX_divisor
+            }
+            set_variable = {
+                which = $FRACTIONAL_REMAINDER$
+                value = SLEX_dividend
+            }
+        ]
+        # Cleanup
+        set_variable = {
+            which = SLEX_quotient
+            value = 0
+        }
+        set_variable = {
+            which = SLEX_dividend
+            value = 0
+        }
+    }
+    set_variable = {
+        which = SLEX_divisor
+        value = 0
+    }
+}
