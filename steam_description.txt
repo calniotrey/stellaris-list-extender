@@ -3,7 +3,7 @@ This mod is a utility mod. It adds functions to allow modders to use lists of va
 It also allows modders to get the value of a trigger condition (such as income, or amount of minerals in the reserve) stored into a variable.
 All of this is time and memory-wise efficient. Performance benchmark is included.
 
-2.6.* and 2.7.* compatible
+[b]2.6.*, 2.7.* and 2.8.* compatible[/b]
 
 Please see https://github.com/calniotrey/stellaris-list-extender for more informations.
 
@@ -18,7 +18,7 @@ Please look at the link of the github repository above. You will find full docum
 Do not include this mod in your mods. Instead, put this mod as a dependancy (via Steam or just with a link). If you plan to release a non-steam version, please contact me so that I can create a download link in the github repository.
 
 [h2]Mods using SLEX[/h2]
-Please contact me if you want your mod to be included in this list.
+Please contact me if you want your mod to be included in this list. It will be happy to oblige! 
 [list]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2062437075]Supply lines for 2.6[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2080966263]Interstellar Incorporated - A Civilian Space Odyssey[/url]
@@ -28,4 +28,7 @@ Please contact me if you want your mod to be included in this list.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2097903490]Propaganda and Espionage 2.7[/url]
 [/list]
 
-[url=https://discord.gg/bHVez2C][img]https://i.imgur.com/4Und3QN.png[/img][/url]
+[h3]Credits[/h3]
+Thanks to mr_trousers for the altered modding den image :)
+
+[url=https://discord.gg/9H5Wn6J][img]https://i.imgur.com/jkzMSzg.png[/img][/url]
