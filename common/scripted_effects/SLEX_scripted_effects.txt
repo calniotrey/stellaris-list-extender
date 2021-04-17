@@ -1299,8 +1299,8 @@ SLEX_heapsort_sift_down = {
             [[ZIPPED_EVENT_TARGETS]
                 SLEX_load_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_parent_index TARGET = SLEX_parent_zipped_target }
                 SLEX_load_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_j TARGET = SLEX_current_child_zipped_target }
-                SLEX_store_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_parent_index TARGET = SLEX_current_child_zipped_target }
-                SLEX_store_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_j TARGET = SLEX_parent_zipped_target }
+                SLEX_store_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_parent_index TARGET = event_target:SLEX_current_child_zipped_target }
+                SLEX_store_list_event_var_index = { LIST = $ZIPPED_EVENT_TARGETS$ INDEX = SLEX_j TARGET = event_target:SLEX_parent_zipped_target }
             ]
             SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_parent_index VALUE = SLEX_current_child_value }
             SLEX_set_list_variable_var_index = { LIST = $LIST$ INDEX = SLEX_j VALUE = SLEX_parent_value }

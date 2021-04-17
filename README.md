@@ -59,7 +59,7 @@ There is in fact 2 different scripted_effects (2 for integer, 2 for decimal):
 One last warning before closing the "Must read" part: For some reason, Stellaris doesn't like 1 letter variable. So please do not use i/a/b/c/...  
   
 ## Examples
-To access the ingame examples, open the console and type `effect set_global_flag = SLEX_example`. This will unlock the (english only localized) example edicts. When active, you have a 10 days delay to get into observer mode (if you need/want to) before the event fires. These examples have the purpose to display the possibilies as well as allow to do a quick performance check.  
+To access the ingame examples, uncomment the edicts and the events, open the console and type `effect set_global_flag = SLEX_example`. This will unlock the (english only localized) example edicts. When active, you have a 10 days delay to get into observer mode (if you need/want to) before the event fires. These examples have the purpose to display the possibilies as well as allow to do a quick performance check.  
   
 List of the ingame examples:  
 * SLEX_give_pops_by_ranking: It ranks the empires by descending number of pops and give 1 pop per distance in the ranking to the first. That means the empire with the most amount of pops gets 0 pops, the second gets 1 pop, and so on. Only default empires as well as (awakaned) fallen empires are taken into account. These empires also need to have a capital_scope (which they probably have).  

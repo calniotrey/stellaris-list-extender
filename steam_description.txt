@@ -3,7 +3,7 @@ This mod is a utility mod. It adds functions to allow modders to use lists of va
 It also allows modders to get the value of a trigger condition (such as income, or amount of minerals in the reserve) stored into a variable.
 All of this is time and memory-wise efficient. Performance benchmark is included.
 
-[b]2.6.*, 2.7.* and 2.8.* compatible[/b]
+[b]3.0.* compatible, 2.6-2.8 version will soon be separately uploaded[/b]
 
 Please see https://github.com/calniotrey/stellaris-list-extender for more informations.
 
@@ -26,6 +26,8 @@ Please contact me if you want your mod to be included in this list. It will be h
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2085908386]I am the Senate![/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2089805419]Automatic Repeatables[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2097903490]Propaganda and Espionage 2.7[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2451639452]Interstellar Incorporated: Space Corp [2.8 LEGACY][/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2460049826]Interstellar Incorporated: Space Corp [3.0][/url]
 [/list]
 
 [h3]Credits[/h3]

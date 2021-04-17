@@ -1,0 +1,17 @@
+on_game_start = {
+	events = {
+		SLEX_start.10
+	}
+}
+
+on_single_player_save_game_load = {
+	events = {
+		SLEX_start.10
+	}
+}
+
+on_yearly_pulse = {
+	events = {
+		SLEX_start.10
+	}
+}
