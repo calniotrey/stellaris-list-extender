@@ -1,7 +1,11 @@
-# Scripted triggers using variables are inverted for some reason
-# So we invert them per hand
-
 SLEX_check_list_variable_const_index = {
+    check_variable = {
+        which = $LIST$_$INDEX$
+        value $OPERATOR$ $VALUE$
+    }
+}
+
+SLEX_inv_check_list_variable_const_index = {
     NOT = {
         check_variable = {
             which = $LIST$_$INDEX$
@@ -10,34 +14,34 @@ SLEX_check_list_variable_const_index = {
     }
 }
 
-SLEX_inv_check_list_variable_const_index = {
-    check_variable = {
-        which = $LIST$_$INDEX$
-        value $OPERATOR$ $VALUE$
-    }
-}
-
 SLEX_list_is_empty = {
-    check_variable = {
-        which = $LIST$_length
-        value > 0
+    OR = {
+        NOT = {
+            is_variable_set = $LIST$_length
+        }
+        check_variable = {
+            which = $LIST$_length
+            value = 0
+        }
     }
 }
 
-SLEX_dump_param = { # Returns false, so true with the inversion
-    NOT = { # This gets removed by the inversion in stellaris
-        OR = {
-            always = yes
-            has_global_flag = $EFFECT|null$
-            has_global_flag = $TYPE|null$
-            has_global_flag = $INDEX|null$
-            has_global_flag = $VALUE|null$
-            has_global_flag = $LIST|null$
-            has_global_flag = $FCT|null$
-        }
+SLEX_dump_param = { # Returns true
+    OR = {
+        always = yes
+        has_global_flag = $EFFECT|null$
+        has_global_flag = $TYPE|null$
+        has_global_flag = $INDEX|null$
+        has_global_flag = $VALUE|null$
+        has_global_flag = $LIST|null$
+        has_global_flag = $FCT|null$
     }
 }
 
 SLEX_not_installed = {
     always = no
+}
+
+SLEX_installed = {
+    always = yes
 }

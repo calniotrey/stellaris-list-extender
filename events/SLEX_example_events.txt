@@ -1,412 +1,412 @@
-namespace = SLEX_example_events
+# namespace = SLEX_example_events
 
-country_event = {
-    id = SLEX_example_events.1
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.1
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        # Reset SLEX_example_number_of_pops_global
-        SLEX_reset_list_variable = {
-            LIST = SLEX_example_number_of_pops_global
-        }
-        # We fill the list SLEX_example_number_of_pops_global with the number of pops
-        set_variable = {
-            which = SLEX_example_id_of_country
-            value = 0
-        }
-        every_country = {
-            limit = {
-                exists = capital_scope
-                OR = {
-                    is_country_type = default
-                    is_country_type = fallen_empire
-                    is_country_type = awakened_fallen_empire
-                }
-            }
-            # We store the number of pops into a variable in the root scope
-            root = {
-                set_variable = {
-                    which = SLEX_example_number_of_pops
-                    value = 0
-                }
-            }
-            every_owned_pop = {
-                root = {
-                    change_variable = {
-                        which = SLEX_example_number_of_pops
-                        value = 1
-                    }
-                }
-            }
-            # We save the current country
-            save_event_target_as = SLEX_example_current_country
-            root = {
-                # We store the amount of pops of this country
-                SLEX_append_list_zipped = {
-                    LIST = SLEX_example_number_of_pops_global
-                    ZIPPED_LIST = SLEX_example_number_of_pops_global_country
-                    VALUE = SLEX_example_number_of_pops
-                    TARGET = event_target:SLEX_example_current_country
-                }
-                # We increment the number of visited countries
-                change_variable = {
-                    which = SLEX_example_id_of_country
-                    value = 1
-                }
-            }
-        }
-        # We sort it in descending order
-        SLEX_sort_zipped_target_list_bubble = {
-            LIST = SLEX_example_number_of_pops_global
-            ZIPPED_LIST = SLEX_example_number_of_pops_global_country
-            ASCENDING = no
-        }
-        # We give ever country 1 pop per placement
-        set_variable = {
-            which = SLEX_example_index
-            value = SLEX_example_id_of_country
-        }
-        while = {
-            limit = {
-                check_variable = {
-                    which = SLEX_example_index
-                    value > 0
-                }
-            }
-            change_variable = {
-                which = SLEX_example_index
-                value = -1
-            }
-            # We load the country with this index
-            SLEX_load_list_event_var_index = {
-                LIST = SLEX_example_number_of_pops_global_country
-                INDEX = SLEX_example_index
-                TARGET = SLEX_example_country
-            }
-            event_target:SLEX_example_country = {
-                capital_scope = {
-                    # We determine the number of pops to add
-                    # It's the distance to the first, so it's exactly the index (as it begins at 0)
-                    set_variable = {
-                        which = SLEX_example_index
-                        value = root
-                    }
-                    set_variable = {
-                        which = SLEX_example_number_of_pops_to_add
-                        value = SLEX_example_index
-                    }
-                    # We add SLEX_example_number_of_pops_to_add pops
-                    while = {
-                        limit = {
-                            check_variable = {
-                                which = SLEX_example_number_of_pops_to_add
-                                value > 0
-                            }
-                        }
-                        create_pop = { species = owner_main_species }
-                        subtract_variable = {
-                            which = SLEX_example_number_of_pops_to_add
-                            value = 1
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+#     immediate={
+#         # Reset SLEX_example_number_of_pops_global
+#         SLEX_reset_list_variable = {
+#             LIST = SLEX_example_number_of_pops_global
+#         }
+#         # We fill the list SLEX_example_number_of_pops_global with the number of pops
+#         set_variable = {
+#             which = SLEX_example_id_of_country
+#             value = 0
+#         }
+#         every_country = {
+#             limit = {
+#                 exists = capital_scope
+#                 OR = {
+#                     is_country_type = default
+#                     is_country_type = fallen_empire
+#                     is_country_type = awakened_fallen_empire
+#                 }
+#             }
+#             # We store the number of pops into a variable in the root scope
+#             root = {
+#                 set_variable = {
+#                     which = SLEX_example_number_of_pops
+#                     value = 0
+#                 }
+#             }
+#             every_owned_pop = {
+#                 root = {
+#                     change_variable = {
+#                         which = SLEX_example_number_of_pops
+#                         value = 1
+#                     }
+#                 }
+#             }
+#             # We save the current country
+#             save_event_target_as = SLEX_example_current_country
+#             root = {
+#                 # We store the amount of pops of this country
+#                 SLEX_append_list_zipped = {
+#                     LIST = SLEX_example_number_of_pops_global
+#                     ZIPPED_LIST = SLEX_example_number_of_pops_global_country
+#                     VALUE = SLEX_example_number_of_pops
+#                     TARGET = event_target:SLEX_example_current_country
+#                 }
+#                 # We increment the number of visited countries
+#                 change_variable = {
+#                     which = SLEX_example_id_of_country
+#                     value = 1
+#                 }
+#             }
+#         }
+#         # We sort it in descending order
+#         SLEX_sort_zipped_target_list_bubble = {
+#             LIST = SLEX_example_number_of_pops_global
+#             ZIPPED_LIST = SLEX_example_number_of_pops_global_country
+#             ASCENDING = no
+#         }
+#         # We give ever country 1 pop per placement
+#         set_variable = {
+#             which = SLEX_example_index
+#             value = SLEX_example_id_of_country
+#         }
+#         while = {
+#             limit = {
+#                 check_variable = {
+#                     which = SLEX_example_index
+#                     value > 0
+#                 }
+#             }
+#             change_variable = {
+#                 which = SLEX_example_index
+#                 value = -1
+#             }
+#             # We load the country with this index
+#             SLEX_load_list_event_var_index = {
+#                 LIST = SLEX_example_number_of_pops_global_country
+#                 INDEX = SLEX_example_index
+#                 TARGET = SLEX_example_country
+#             }
+#             event_target:SLEX_example_country = {
+#                 capital_scope = {
+#                     # We determine the number of pops to add
+#                     # It's the distance to the first, so it's exactly the index (as it begins at 0)
+#                     set_variable = {
+#                         which = SLEX_example_index
+#                         value = root
+#                     }
+#                     set_variable = {
+#                         which = SLEX_example_number_of_pops_to_add
+#                         value = SLEX_example_index
+#                     }
+#                     # We add SLEX_example_number_of_pops_to_add pops
+#                     while = {
+#                         limit = {
+#                             check_variable = {
+#                                 which = SLEX_example_number_of_pops_to_add
+#                                 value > 0
+#                             }
+#                         }
+#                         create_pop = { species = owner_main_species }
+#                         subtract_variable = {
+#                             which = SLEX_example_number_of_pops_to_add
+#                             value = 1
+#                         }
+#                     }
+#                 }
+#             }
+#         }
+#     }
+# }
 
-country_event = {
-    id = SLEX_example_events.2
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.2
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        set_variable = {
-            which = SLEX_example_value
-            value = 128
-        }
-        set_variable = {
-            which = SLEX_example_index
-            value = 0
-        }
-        while = {
-            limit = {
-                check_variable = {
-                    which = SLEX_example_index
-                    value < 256
-                }
-            }
-            SLEX_set_list_variable_var_index = {
-                LIST = SLEX_example_sort_list
-                INDEX = SLEX_example_index
-                VALUE = SLEX_example_value
-            }
-            change_variable = {
-                which = SLEX_example_value
-                value = -1
-            }
-            change_variable = {
-                which = SLEX_example_index
-                value = 1
-            }
-        }
-        SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
-        SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
-    }
-}
+#     immediate={
+#         set_variable = {
+#             which = SLEX_example_value
+#             value = 128
+#         }
+#         set_variable = {
+#             which = SLEX_example_index
+#             value = 0
+#         }
+#         while = {
+#             limit = {
+#                 check_variable = {
+#                     which = SLEX_example_index
+#                     value < 256
+#                 }
+#             }
+#             SLEX_set_list_variable_var_index = {
+#                 LIST = SLEX_example_sort_list
+#                 INDEX = SLEX_example_index
+#                 VALUE = SLEX_example_value
+#             }
+#             change_variable = {
+#                 which = SLEX_example_value
+#                 value = -1
+#             }
+#             change_variable = {
+#                 which = SLEX_example_index
+#                 value = 1
+#             }
+#         }
+#         SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
+#         SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
+#     }
+# }
 
-country_event = {
-    id = SLEX_example_events.3
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.3
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        SLEX_reset_list_variable = { LIST = SLEX_example_sort_list }
-        set_variable = {
-            which = SLEX_example_value
-            value = 256
-        }
-        while = {
-            count = 256
-            SLEX_append_list_variable = {
-                LIST = SLEX_example_sort_list
-                VALUE = SLEX_example_value
-            }
-            change_variable = {
-                which = SLEX_example_value
-                value = -1
-            }
-        }
-    }
-}
+#     immediate={
+#         SLEX_reset_list_variable = { LIST = SLEX_example_sort_list }
+#         set_variable = {
+#             which = SLEX_example_value
+#             value = 256
+#         }
+#         while = {
+#             count = 256
+#             SLEX_append_list_variable = {
+#                 LIST = SLEX_example_sort_list
+#                 VALUE = SLEX_example_value
+#             }
+#             change_variable = {
+#                 which = SLEX_example_value
+#                 value = -1
+#             }
+#         }
+#     }
+# }
 
-country_event = {
-    id = SLEX_example_events.4
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.4
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        while = {
-            count = 10
-            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
-            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
-        }
-    }
-}
+#     immediate={
+#         while = {
+#             count = 10
+#             SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
+#             SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
+#         }
+#     }
+# }
 
-country_event = {
-    id = SLEX_example_events.5
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.5
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        while = {
-            count = 100
-            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
-            SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
-        }
-    }
-}
+#     immediate={
+#         while = {
+#             count = 100
+#             SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = yes }
+#             SLEX_sort_bubble = { LIST = SLEX_example_sort_list ASCENDING = no  }
+#         }
+#     }
+# }
 
-### SLEX_heapsort
+# ### SLEX_heapsort
 
-country_event = {
-    id = SLEX_example_events.6
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.6
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = yes }
-    }
-}
+#     immediate={
+#         SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = yes }
+#     }
+# }
 
-country_event = {
-    id = SLEX_example_events.8 # TODO REMOVE
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.8 # TODO REMOVE
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = no  }
-    }
-}
+#     immediate={
+#         SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = no  }
+#     }
+# }
 
-country_event = {
-    id = SLEX_example_events.7
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.7
+#     hide_window = yes
+#     is_triggered_only = yes
 
-    immediate={
-        while = {
-            count = 100
-            SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = yes }
-            SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = no  }
-        }
-    }
-}
+#     immediate={
+#         while = {
+#             count = 100
+#             SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = yes }
+#             SLEX_heapsort = { LIST = SLEX_example_sort_list ASCENDING = no  }
+#         }
+#     }
+# }
 
-### SLEX_get_custom_parameter
+# ### SLEX_get_custom_parameter
 
-country_event = {
-    id = SLEX_example_events.11
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.11
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        while = {
-            count = 1
-            SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
-        }
-	}
-}
+# 	immediate={
+#         while = {
+#             count = 1
+#             SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
+#         }
+# 	}
+# }
 
-country_event = {
-    id = SLEX_example_events.12
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.12
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        while = {
-            count = 1000
-            SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
-        }
-	}
-}
+# 	immediate={
+#         while = {
+#             count = 1000
+#             SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
+#         }
+# 	}
+# }
 
-country_event = {
-    id = SLEX_example_events.13
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.13
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        while = {
-            count = 1000000
-            SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
-        }
-	}
-}
+# 	immediate={
+#         while = {
+#             count = 1000000
+#             SLEX_get_custom_parameter = { CONDITION_NAME = income VARIABLE = SLEX_example_income }
+#         }
+# 	}
+# }
 
-### SLEX_get_custom_parameter_advanced
+# ### SLEX_get_custom_parameter_advanced
 
-country_event = {
-    id = SLEX_example_events.21
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.21
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        while = {
-            count = 1
-            SLEX_get_custom_parameter_advanced = {
-                CONDITION_NAME = has_resource
-                FIRST_KW = type
-                SECOND_KW = minerals
-                THIRD_KW = amount
-                VARIABLE = SLEX_example_minerals_reserve
-            }
-        }
-	}
-}
+# 	immediate={
+#         while = {
+#             count = 1
+#             SLEX_get_custom_parameter_advanced = {
+#                 CONDITION_NAME = has_resource
+#                 FIRST_KW = type
+#                 SECOND_KW = minerals
+#                 THIRD_KW = amount
+#                 VARIABLE = SLEX_example_minerals_reserve
+#             }
+#         }
+# 	}
+# }
 
-country_event = {
-    id = SLEX_example_events.22
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.22
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        while = {
-            count = 1000
-            SLEX_get_custom_parameter_advanced = {
-                CONDITION_NAME = has_resource
-                FIRST_KW = type
-                SECOND_KW = minerals
-                THIRD_KW = amount
-                VARIABLE = SLEX_example_minerals_reserve
-            }
-        }
-	}
-}
+# 	immediate={
+#         while = {
+#             count = 1000
+#             SLEX_get_custom_parameter_advanced = {
+#                 CONDITION_NAME = has_resource
+#                 FIRST_KW = type
+#                 SECOND_KW = minerals
+#                 THIRD_KW = amount
+#                 VARIABLE = SLEX_example_minerals_reserve
+#             }
+#         }
+# 	}
+# }
 
-country_event = {
-    id = SLEX_example_events.23
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.23
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        while = {
-            count = 1000000
-            SLEX_get_custom_parameter_advanced = {
-                CONDITION_NAME = has_resource
-                FIRST_KW = type
-                SECOND_KW = minerals
-                THIRD_KW = amount
-                VARIABLE = SLEX_example_minerals_reserve
-            }
-        }
-	}
-}
+# 	immediate={
+#         while = {
+#             count = 1000000
+#             SLEX_get_custom_parameter_advanced = {
+#                 CONDITION_NAME = has_resource
+#                 FIRST_KW = type
+#                 SECOND_KW = minerals
+#                 THIRD_KW = amount
+#                 VARIABLE = SLEX_example_minerals_reserve
+#             }
+#         }
+# 	}
+# }
 
-### SLEX_get_custom_parameter_decimal
+# ### SLEX_get_custom_parameter_decimal
 
-country_event = {
-    id = SLEX_example_events.31
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.31
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        SLEX_get_custom_parameter_decimal = {
-            CONDITION_NAME = used_naval_capacity_percent
-            VARIABLE = SLEX_example_used_naval_capacity
-        }
-	}
-}
+# 	immediate={
+#         SLEX_get_custom_parameter_decimal = {
+#             CONDITION_NAME = used_naval_capacity_percent
+#             VARIABLE = SLEX_example_used_naval_capacity
+#         }
+# 	}
+# }
 
-### SLEX_get_custom_parameter_advanced_decimal
+# ### SLEX_get_custom_parameter_advanced_decimal
 
-country_event = {
-    id = SLEX_example_events.36
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.36
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        SLEX_get_custom_parameter_advanced_decimal = {
-            CONDITION_NAME = has_monthly_income
-            FIRST_KW = resource
-            SECOND_KW = influence
-            THIRD_KW = value
-            VARIABLE = SLEX_example_influence_income
-        }
-	}
-}
+# 	immediate={
+#         SLEX_get_custom_parameter_advanced_decimal = {
+#             CONDITION_NAME = has_monthly_income
+#             FIRST_KW = resource
+#             SECOND_KW = influence
+#             THIRD_KW = value
+#             VARIABLE = SLEX_example_influence_income
+#         }
+# 	}
+# }
 
-### SLEX_get_custom_parameter_percentile
+# ### SLEX_get_custom_parameter_percentile
 
-country_event = {
-    id = SLEX_example_events.41
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.41
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        SLEX_get_custom_parameter_percentile = {
-            CONDITION_NAME = used_naval_capacity_percent
-            VARIABLE = SLEX_example_used_naval_capacity
-        }
-	}
-}
+# 	immediate={
+#         SLEX_get_custom_parameter_percentile = {
+#             CONDITION_NAME = used_naval_capacity_percent
+#             VARIABLE = SLEX_example_used_naval_capacity
+#         }
+# 	}
+# }
 
-### SLEX_get_custom_parameter_advanced_percentile
+# ### SLEX_get_custom_parameter_advanced_percentile
 
-country_event = {
-    id = SLEX_example_events.46
-    hide_window = yes
-    is_triggered_only = yes
+# country_event = {
+#     id = SLEX_example_events.46
+#     hide_window = yes
+#     is_triggered_only = yes
 
-	immediate={
-        SLEX_get_custom_parameter_advanced_percentile = {
-            CONDITION_NAME = has_monthly_income
-            FIRST_KW = resource
-            SECOND_KW = influence
-            THIRD_KW = value
-            VARIABLE = SLEX_example_influence_income
-        }
-	}
-}
+# 	immediate={
+#         SLEX_get_custom_parameter_advanced_percentile = {
+#             CONDITION_NAME = has_monthly_income
+#             FIRST_KW = resource
+#             SECOND_KW = influence
+#             THIRD_KW = value
+#             VARIABLE = SLEX_example_influence_income
+#         }
+# 	}
+# }

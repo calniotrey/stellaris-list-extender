@@ -293,13 +293,13 @@ Example :
 `SLEX_store_list_event_var_index = { LIST = test_list INDEX = index TARGET = event_target:my_event_target }`  
   
 # Scripted triggers
-I added some scripted_triggers as well. This is under construction and only has some code for constant INDEX. If using your own scripted_triggers, beware of Stellaris inverting scripted_triggers result if they use a parameter. I highly recommend testing your scripted_triggers and these functions before uploading your mods. These triggers take the inversion into account so that you don't have to worry about it (unless it was fixed in a Stellaris update).  
+I added some scripted_triggers as well. This is under construction and only has some code for constant INDEX. If using your own scripted_triggers, beware of Stellaris inverting scripted_triggers result if they use a parameter (IN 2.8-). I highly recommend testing your scripted_triggers and these functions before uploading your mods.
   
 ## Checking if a list is empty
 `SLEX_list_is_empty = { LIST = listname }`
 * LIST : the list name (string)
   
-This trigger is evaluated to True (after stellaris inversion) if the length of the list is 0. You could also simply do a check on listname_length.
+This trigger is evaluated to True if the length of the list is 0. You could also simply do a check on listname_length.
   
 ## SLEX_check_list_variable_const_index
 `SLEX_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
@@ -308,7 +308,7 @@ This trigger is evaluated to True (after stellaris inversion) if the length of t
 * LIST : the operator (=, <, >, <=, >= There is no != !!!)
 * VALUE : the value to compare to listname_index (either int/float, or a variable ie a string)  
   
-This trigger is evaluated to True (after stellaris inversion) if `LIST_INDEX OPERATOR VALUE` is True.  
+This trigger is evaluated to True if `LIST_INDEX OPERATOR VALUE` is True.  
   
 ## SLEX_inv_check_list_variable_const_index
 `SLEX_inv_check_list_variable_const_index = { LIST = listname INDEX = index OPERATOR = operator VALUE = value }`
@@ -317,5 +317,5 @@ This trigger is evaluated to True (after stellaris inversion) if `LIST_INDEX OPE
 * LIST : the operator (=, <, >, <=, >= There is no != !!!)
 * VALUE : the value to compare to listname_index (either int/float, or a variable ie a string)
   
-This trigger is evaluated to False (after stellaris inversion) if `LIST_INDEX OPERATOR VALUE` is True.  
+This trigger is evaluated to False if `LIST_INDEX OPERATOR VALUE` is True.  
 This trigger is here if you want to use "!=" in the non inverted trigger but can't, so you use this trigger with "=".  
